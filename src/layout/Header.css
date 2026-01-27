@@ -1,3 +1,5 @@
+/* src/layout/Header.css */
+
 /* HEADER BAR */
 .hhp-header {
   background: #ffffff;
@@ -184,84 +186,7 @@
   background: #fecaca;
 }
 
-/* items that have a submenu */
-.dropdown-sub {
-  position: relative;
-}
-
-/* make submenu label look like other dropdown links */
-.dropdown-sub-label {
-  display: block;
-  padding: 10px 16px;
-  font-size: 14px;
-  font-weight: 300;
-  text-transform: uppercase;
-  color: #000;
-  text-decoration: none;
-  cursor: default;
-  white-space: nowrap;
-}
-
-.dropdown-sub-label:hover {
-  background: #f2f6ff;
-  color: #065399;
-}
-
-/* nested submenu container */
-.dropdown-sub-menu {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 100%;
-  background: #ffffff;
-  min-width: 230px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-  padding: 8px 0;
-  z-index: 3000;
-}
-
-/* show nested submenu on hover */
-.dropdown-sub:hover .dropdown-sub-menu {
-  display: block;
-}
-
-/* nested submenu links same style as dropdown-menu links */
-.dropdown-sub-menu a {
-  display: block;
-  padding: 10px 16px;
-  font-size: 14px;
-  font-weight: 300;
-  text-transform: uppercase;
-  color: #000;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.dropdown-sub-menu a:hover {
-  background: #f2f6ff;
-  color: #065399;
-}
-
 /* ===== Nested dropdown support (2nd/3rd level) ===== */
-
-.dropdown-link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 16px;
-  font-size: 14px;
-  font-weight: 300;
-  text-transform: uppercase;
-  color: #000;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.dropdown-link:hover {
-  background: #f2f6ff;
-  color: #065399;
-}
 
 .dropdown-sub {
   position: relative;
@@ -269,10 +194,9 @@
 
 .dropdown-submenu {
   position: relative;
-  display: block;              /* ✅ was none (this was hiding your menus) */
+  display: block;
 }
 
-/* label row inside dropdown */
 .submenu-title {
   display: flex;
   align-items: center;
@@ -291,7 +215,6 @@
   color: #065399;
 }
 
-/* flyout menu (2nd level) */
 .dropdown-submenu-menu {
   display: none;
   position: absolute;
@@ -309,8 +232,250 @@
   display: block;
 }
 
-/* third-level wrapper */
 .dropdown-submenu.nested {
   position: relative;
   display: block;
+}
+
+/* =========================
+   MOBILE NAV (Logo + Hamburger only)
+   ========================= */
+
+.hhp-mobile-toggle {
+  display: none;
+  border: 2px solid #065399;
+  background: #ffffff;
+  color: #065399;
+  border-radius: 8px;
+  width: 44px;
+  height: 40px;
+  padding: 0;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.hhp-mobile-toggle-icon {
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 900;
+}
+
+.hhp-desktop-only {
+  display: inline-flex;
+}
+
+.hhp-mobile-panel {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .hhp-header-inner {
+    flex-wrap: nowrap;
+    padding: 0 14px;
+  }
+
+  /* ONLY logo + hamburger on mobile header */
+  .hhp-header-right {
+    width: auto;
+    margin-left: auto;
+    gap: 0;
+  }
+
+  /* hide desktop nav + buttons */
+  .hhp-nav,
+  .hhp-desktop-only {
+    display: none;
+  }
+
+  /* show hamburger */
+  .hhp-mobile-toggle {
+    display: inline-flex;
+  }
+
+  /* panel scroll */
+  .hhp-mobile-panel {
+    display: block;
+    background: #ffffff;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 10px 14px 14px;
+    max-height: calc(100vh - 82px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .hhp-mobile-link {
+    display: block;
+    padding: 12px 6px;
+    text-decoration: none;
+    color: #000;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .hhp-mobile-link:hover {
+    color: #065399;
+  }
+
+  .hhp-mobile-acc {
+    width: 100%;
+    text-align: left;
+    background: #ffffff;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 12px 6px;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #000;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .hhp-mobile-chevron {
+    color: #065399;
+    font-size: 18px;
+    font-weight: 900;
+  }
+
+  .hhp-mobile-sub {
+    padding: 6px 6px 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .hhp-mobile-acc--nested {
+    font-size: 14px;
+    font-weight: 700;
+    padding-left: 14px;
+  }
+
+  .hhp-mobile-sub--nested {
+    padding-left: 14px;
+  }
+
+  .hhp-mobile-acc--nested2 {
+    font-size: 13px;
+    font-weight: 700;
+    padding-left: 26px;
+  }
+
+  .hhp-mobile-sub--nested2 {
+    padding-left: 26px;
+  }
+
+  .hhp-mobile-sublink {
+    display: block;
+    padding: 10px 0;
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    white-space: normal;
+  }
+
+  .hhp-mobile-sublink:hover {
+    color: #065399;
+  }
+
+  /* Bottom buttons inside menu */
+  .hhp-mobile-bottom {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    display: grid;
+    gap: 10px;
+  }
+
+  .hhp-mobile-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 12px 10px;
+    border-radius: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+
+  .hhp-mobile-btn--primary {
+    background: #065399;
+    color: #ffffff;
+  }
+
+  .hhp-mobile-btn--primary:hover {
+    background: #043c70;
+  }
+
+  .hhp-mobile-btn--outline {
+    background: #ffffff;
+    color: #065399;
+    border-color: #065399;
+  }
+
+  .hhp-mobile-btn--outline:hover {
+    background: #e8f1fa;
+  }
+
+  .hhp-mobile-btn--danger {
+    background: #fee2e2;
+    color: #dc2626;
+    border-color: transparent;
+  }
+
+  .hhp-mobile-btn--danger:hover {
+    background: #fecaca;
+  }
+
+  .hhp-mobile-email {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #666;
+    word-break: break-all;
+  }
+
+  .hhp-mobile-email span {
+    color: #000;
+    font-weight: 600;
+  }
+}
+
+/* =========================
+   MOBILE HEADER: only logo + hamburger
+   ========================= */
+
+@media (max-width: 900px) {
+  /* hide desktop donate/join/user button row on mobile */
+  .hhp-desktop-only {
+    display: none !important;
+  }
+
+  /* make header row single line: logo left, hamburger right */
+  .hhp-header-inner {
+    flex-wrap: nowrap !important;
+    padding: 0 14px !important;
+  }
+
+  .hhp-header-right {
+    margin-left: auto !important;
+    width: auto !important;
+    gap: 0 !important;
+  }
+
+  /* hide desktop nav on mobile */
+  .hhp-nav {
+    display: none !important;
+  }
+
+  /* show hamburger on mobile */
+  .hhp-mobile-toggle {
+    display: inline-flex !important;
+  }
 }
