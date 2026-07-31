@@ -19,6 +19,8 @@ import MatchingDonations from "./pages/MatchingDonations"
 import Donate from "./pages/Donate"
 import Login from "./pages/Login"
 import Signup from "./pages/Signup"
+import ResetPassword from "./pages/ResetPassword"
+import VerifyEmail from "./pages/VerifyEmail"
 import HowToHelp from "./pages/HowToHelp"
 import HealthcareAccessIntro from "./pages/HealthcareAccessIntro";
 import PatientAdvocacyNI from "./pages/PatientAdvocacyNI";
@@ -38,6 +40,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import ContactUs from "./pages/ContactUs";
 import JoinPatientAdvisoryBoard from "./pages/JoinPatientAdvisoryBoard";
+import CommunityVoices from "./pages/CommunityVoices";
 
 function App() {
   return (
@@ -123,6 +126,8 @@ function App() {
                 {/* Auth */}
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
+                <Route path="/reset-password" element={<ResetPassword />} />
+                <Route path="/verify-email" element={<VerifyEmail />} />
 
                 {/* Donate */}
                 <Route path="/donate" element={<Donate />} />
@@ -136,6 +141,9 @@ function App() {
                 <Route path="/terms" element={<TermsOfService />} />
                 <Route path="/contact" element={<ContactUs />} />
                 <Route path="/join-patient-advisory-board" element={<JoinPatientAdvisoryBoard />} />
+
+                {/* Community Voices — approved survey responses (unlinked from nav until CEO approves) */}
+                <Route path="/community-voices" element={<CommunityVoices />} />
               </Routes>
             </main>
 

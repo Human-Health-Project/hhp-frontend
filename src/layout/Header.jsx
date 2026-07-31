@@ -62,7 +62,7 @@ return (
       <div className="hhp-header-inner">
         {/* LOGO */}
         <Link to="/" className="hhp-logo-link" onClick={closeMobile}>
-          <img src="/hhp-logo.png" alt="Human Health Project" className="hhp-logo" />
+          <img src={`${import.meta.env.BASE_URL}hhp-logo.png`} alt="Human Health Project" className="hhp-logo" />
         </Link>
 
         {/* RIGHT SIDE */}
@@ -163,7 +163,7 @@ return (
                 <NavLink to="/how-to-help/">SUPPORT HHP</NavLink>
                 <NavLink
                   to="/how-to-help#volunteer"
-                  onClick={(e) => {
+                  onClick={() => {
                     // force scroll to volunteer section on same page even if router doesn't "navigate"
                     requestAnimationFrame(() => {
                       const el = document.querySelector("#volunteer");

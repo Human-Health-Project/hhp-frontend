@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { updateProfile } from "firebase/auth";
 import "./Signup.css";
 
 import googleIcon from "../assets/social/google.svg";
@@ -49,24 +48,26 @@ export default function Signup() {
       return;
     }
 
-    if (formData.password.length < 6) {
-      setError("Password must be at least 6 characters");
+    if (formData.password.length < 8) {
+      setError("Password must be at least 8 characters");
       return;
     }
 
     setLoading(true);
 
     try {
-      const { user } = await signup(formData.email, formData.password);
-
-      // Update user profile with display name
-      await updateProfile(user, {
-        displayName: `${formData.firstName} ${formData.lastName}`,
+      await signup({
+        first_name: formData.firstName,
+        last_name: formData.lastName,
+        email: formData.email,
+        password: formData.password,
+        password_confirmation: formData.confirmPassword,
       });
 
       navigate("/");
     } catch (err) {
-      setError(getErrorMessage(err.code));
+      const firstError = err.errors && Object.values(err.errors)[0]?.[0];
+      setError(firstError || err.message || getErrorMessage(err.code));
     }
     setLoading(false);
   };

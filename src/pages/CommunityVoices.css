@@ -1,0 +1,97 @@
+/* Page header */
+.voices-header {
+  padding: 40px 0 20px;
+}
+
+.voices-header__title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333333;
+  margin: 0 0 16px 0;
+}
+
+.voices-header__description {
+  font-size: 15px;
+  color: #555555;
+  line-height: 1.8;
+  margin: 0;
+  max-width: 760px;
+}
+
+/* State messages (loading / error / empty) */
+.voices-state {
+  font-size: 15px;
+  color: #666666;
+  padding: 24px 0;
+}
+
+.voices-state--error {
+  color: #b9770e;
+}
+
+/* Card grid */
+.voices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 16px 0 60px;
+}
+
+/* Comment card */
+.voice-card {
+  margin: 0;
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-left: 4px solid #3498db;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.voice-card__quote {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #333333;
+}
+
+.voice-card__quote::before {
+  content: "\201C";
+  color: #3498db;
+  font-size: 22px;
+  font-weight: 700;
+  margin-right: 2px;
+}
+
+.voice-card__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: auto;
+}
+
+.voice-card__attribution {
+  font-size: 14px;
+  font-weight: 600;
+  color: #3498db;
+}
+
+.voice-card__sub {
+  font-size: 12px;
+  color: #888888;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .voices-header__title {
+    font-size: 24px;
+  }
+
+  .voices-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

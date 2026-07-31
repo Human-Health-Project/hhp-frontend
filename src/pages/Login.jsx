@@ -27,7 +27,7 @@ export default function Login() {
       await login(email, password);
       navigate("/");
     } catch (err) {
-      setError(getErrorMessage(err.code));
+      setError(err.errors?.message?.[0] || err.message || getErrorMessage(err.code));
     }
     setLoading(false);
   };
@@ -55,7 +55,7 @@ export default function Login() {
       }
       navigate("/");
     } catch (err) {
-      setError(getErrorMessage(err.code));
+      setError(err.message || getErrorMessage(err.code));
     }
     setLoading(false);
   };
