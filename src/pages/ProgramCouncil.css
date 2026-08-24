@@ -1,0 +1,113 @@
+:root {
+  --pc-blue: #065399;
+  --pc-ink: #0b1220;
+  --pc-border: rgba(0, 0, 0, 0.10);
+  --pc-shadow: 0 12px 34px rgba(0, 0, 0, 0.08);
+}
+
+/* Page */
+.pc-page {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.10),
+      rgba(255, 255, 255, 0.55) 45%,
+      rgba(255, 255, 255, 0.92)
+    ),
+    radial-gradient(
+      900px 360px at 20% 25%,
+      rgba(6, 83, 153, 0.18),
+      transparent 60%
+    );
+  overflow-x: hidden;
+}
+.pc-page,
+.pc-page * {
+  box-sizing: border-box;
+}
+
+/* Narrow layout */
+.pc-container {
+  max-width: 1120px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px 46px;
+}
+
+/* Global body text */
+.pc-page p,
+.pc-page li {
+  font-size: 16px;
+  line-height: 1.75;
+  color: rgba(0, 0, 0, 0.78);
+}
+
+/* Curved card */
+.pc-card {
+  border: 1px solid var(--pc-border);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+}
+
+
+.pc-eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.55);
+  margin-bottom: 12px;
+}
+
+.pc-heroTitle {
+  font-size: 54px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--pc-blue);
+  margin: 0;
+}
+
+/* Intro */
+.pc-intro {
+  margin: 24px 0 18px;
+  padding: 18px 18px 16px;
+}
+
+.pc-title {
+  margin: 0 0 8px;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--pc-ink);
+}
+
+/* Members list */
+.pc-members {
+  display: grid;
+  gap: 18px;
+}
+
+.pc-member {
+  padding: 18px 18px 16px;
+}
+
+.pc-memberName {
+  margin: 0 0 10px;
+  color: var(--pc-blue);
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .pc-hero {
+    height: 250px;
+  }
+  .pc-heroTitle {
+    font-size: 34px;
+  }
+  .pc-eyebrow {
+    font-size: 12px;
+  }
+}

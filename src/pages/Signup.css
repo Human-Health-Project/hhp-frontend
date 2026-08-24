@@ -1,0 +1,25 @@
+/* Reuse the same base auth styles as Login */
+@import "./Login.css";
+
+.authNewsletter {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 16px 0 18px;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.35;
+}
+
+.authNewsletter input {
+  margin-top: 3px;
+}
+
+.socialMicrosoft:hover {
+  border-color: #0078d4; /* Microsoft blue */
+  background: #fff;
+}
+
+.socialMicrosoft:hover .socialIconImg {
+  filter: grayscale(0);
+}

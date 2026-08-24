@@ -1,0 +1,206 @@
+.vwu-pageWrapper {
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  color: #333;
+  background-color: #fff;
+  line-height: 1.6;
+}
+
+/* HERO */
+.vwu-heroSection {
+  width: 100%;
+  height: 280px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.vwu-heroOverlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+}
+
+.vwu-heroContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 40px;
+  width: 100%;
+}
+
+.vwu-heroTitle {
+  color: #fff;
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* MAIN */
+.vwu-mainContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 40px 80px;
+}
+
+/* SECTION */
+.vwu-section {
+  margin-bottom: 30px;
+}
+
+.vwu-sectionTitle {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* LIST */
+.vwu-stepsList {
+  list-style: disc;
+  padding-left: 25px;
+  margin: 0;
+}
+
+.vwu-stepItem {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+/* FORM */
+.vwu-form {
+  margin-top: 20px;
+}
+
+.vwu-formGroup {
+  margin-bottom: 20px;
+}
+
+.vwu-label {
+  display: block;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.vwu-required {
+  color: #c00;
+}
+
+.vwu-input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid #999;
+  outline: none;
+  background: transparent;
+}
+
+.vwu-textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.vwu-checkboxLabel {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.vwu-checkbox {
+  margin-right: 10px;
+}
+
+.vwu-formLinkText {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.vwu-link {
+  color: #c00;
+  text-decoration: none;
+}
+
+.vwu-link:hover {
+  text-decoration: underline;
+}
+
+.vwu-placeholderText {
+  color: #666;
+}
+
+.vwu-select {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  outline: none;
+}
+
+.vwu-selectedRoles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.vwu-roleChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f3f6fa;
+  border: 1px solid #d5deea;
+  border-radius: 20px;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #333;
+}
+
+.vwu-roleRemove {
+  border: none;
+  background: transparent;
+  color: #666;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  padding: 0;
+}
+
+.vwu-roleRemove:hover {
+  color: #c00;
+}
+
+/* BUTTON */
+.vwu-submitButton {
+  background-color: #0077cc;
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.vwu-submitButton:hover {
+  background-color: #005fa3;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .vwu-heroContainer,
+  .vwu-mainContainer {
+    padding: 0 20px;
+  }
+
+  .vwu-heroTitle {
+    font-size: 30px;
+  }
+}

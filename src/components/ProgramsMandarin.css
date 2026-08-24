@@ -1,0 +1,117 @@
+.programsSection {
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid #eee;
+}
+
+.programsContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* =========================
+   MOBILE DEFAULT (stacked)
+   image top, text below
+========================= */
+.programsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+}
+
+.programCard {
+  display: flex;
+  flex-direction: column;   /* image on top */
+  gap: 14px;
+  align-items: stretch;
+}
+
+.programImgWrap {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.10);
+  background: #fff;
+  width: 100%;
+}
+
+.programImg {
+  width: 100%;
+  height: 220px;            /* stretched mobile image */
+  object-fit: cover;
+  display: block;
+}
+
+.programContent {
+  text-align: left;
+}
+
+.programTitle {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.programTitleLink {
+  color: #065399;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.programTitleLink:hover {
+  text-decoration: underline;
+}
+
+.programDesc {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.65;
+  letter-spacing: 0.25px;
+  color: #000000;
+  text-align: left;
+}
+
+.programInlineLink {
+  color: #065399;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.programInlineLink:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   DESKTOP
+   2 columns, each card:
+   image left + text right
+========================= */
+@media (min-width: 920px) {
+  .programsContainer {
+    max-width: 1200px; /* desktop has more space */
+  }
+
+  .programsGrid {
+    grid-template-columns: 1fr 1fr; /* 2 cards per row */
+    gap: 34px 34px;
+  }
+
+  .programCard {
+    display: grid;                 /* SWITCH to grid on desktop */
+    grid-template-columns: 220px 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+
+  .programImg {
+    height: 140px;                 /* desktop image height */
+  }
+
+  .programTitle {
+    font-size: 16px;
+  }
+
+  .programDesc {
+    font-size: 15px;
+  }
+}

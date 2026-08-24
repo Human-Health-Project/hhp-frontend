@@ -1,0 +1,281 @@
+/* src/layout/Footer.css */
+
+/* =========================
+   HHP Footer
+========================= */
+.hhpFooter {
+  background: #fff;
+  padding: 48px 24px 28px;
+  font-size: 16px; /* overall base */
+}
+
+.hhpFooterInner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 48px;
+
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr 1px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.hhpFooterDivider {
+  width: 1px;
+  background-color: #e5e5e5;
+  height: 100%;
+}
+
+.hhpFooterCol {
+  width: 100%;
+}
+
+.hhpFooterColCenter {
+  text-align: center;
+}
+
+/* Headings */
+.hhpFooterHeading {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 16px;
+  text-align: center;
+}
+
+/* ---------- Donut ---------- */
+.hhpDonutWrap {
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+}
+
+.hhpDonutBox {
+  width: 280px;
+  height: 240px;
+  overflow: visible;
+}
+
+.hhpDonutPct {
+  font-size: 12px;
+  font-weight: 600;
+  fill: #000;
+}
+
+.hhpDonutSvg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Legend */
+.hhpLegend {
+  display: grid;
+  gap: 8px;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.hhpLegendRow {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+}
+
+.hhpFundsPct {
+  font-weight: 700;
+}
+
+.hhpFundsPrograms {
+  color: #1683ff;
+}
+.hhpFundsAdmin {
+  color: #8bc34a;
+}
+.hhpFundsFundraising {
+  color: #f4c400;
+}
+
+/* ---------- About ---------- */
+.hhpAboutText {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #333;
+  margin: 0 auto 14px;
+  max-width: 420px;
+  text-align: center;
+}
+
+.hhpAboutMeta {
+  font-size: 14px;
+  color: #666;
+  margin: 0 auto 18px;
+  max-width: 420px;
+  text-align: center;
+}
+
+/* Candid badge */
+.hhpCandidLink {
+  display: inline-block;
+  margin-top: 8px;
+  text-decoration: none;
+}
+
+/* Row for badges */
+.hhpBadgeRow {
+  display: flex;
+  justify-content: center; /* center both badges horizontally */
+  align-items: center; /* align badges vertically */
+  gap: 16px; /* space between badges */
+  margin-top: 8px;
+}
+
+/* Shrink the Candid badge */
+.hhpCandidBadge {
+  width: 120px; /* smaller width */
+  height: 128px; /* smaller height */
+  border: 3px solid #b9c7d3;
+  background: #e8eef4;
+  display: grid;
+  place-items: center;
+}
+
+.hhpCandidBadgeInner {
+  width: 90px;
+  height: 100px;
+  border: 3px solid #b9c7d3;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 6px 4px;
+  box-sizing: border-box;
+  color: #111;
+  font-weight: 700;
+}
+
+.hhpCandidTop,
+.hhpCandidMid {
+  font-size: 10px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.hhpCandidYear {
+  font-size: 12px;
+  margin: 4px 0 0;
+}
+
+.hhpCandidBottom {
+  font-size: 12px;
+  margin: 6px 0 0;
+}
+
+/* Alumni badge styling */
+.hhpAlumniBadge {
+  width: 120px; /* match Candid badge height or adjust */
+  height: auto;
+  display: block;
+}
+
+/* ---------- Socials ---------- */
+.hhpSocialRow {
+  display: flex;
+  flex-direction: row; /* IMPORTANT: keeps icons in one line */
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px; /* extra gap before quick links */
+}
+
+.hhpSocialRow a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hhpSocialBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  text-decoration: none !important;
+  color: #fff;
+}
+
+.hhpSocialBtn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.hhpSocialFb {
+  background: #2f4f9a;
+}
+.hhpSocialX {
+  background: #000;
+}
+.hhpSocialIg {
+  background: #c13584;
+}
+.hhpSocialIn {
+  background: #0a66c2;
+}
+
+/* Quick Links */
+.hhpQuickLinksTitle {
+  margin-top: 0;
+  margin-bottom: 14px;
+}
+
+.hhpFooterLinks {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+}
+
+.hhpFooterLink {
+  font-size: 14px;
+  color: #333;
+  text-decoration: none !important;
+}
+
+.hhpFooterLink:hover {
+  text-decoration: underline !important;
+}
+
+.hhpFooterLink:visited {
+  color: #333;
+}
+
+/* Bottom bar */
+.hhpFooterBottom {
+  max-width: 1400px;
+  margin: 32px auto 0;
+  padding-top: 18px;
+  border-top: 1px solid #efefef;
+  color: #333;
+  font-size: 18px;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .hhpFooterInner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 0 24px;
+  }
+
+  .hhpFooterDivider {
+    display: none;
+  }
+
+  .hhpDonutBox {
+    width: 280px;
+    height: 220px;
+  }
+}

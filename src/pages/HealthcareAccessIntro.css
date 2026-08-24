@@ -1,0 +1,278 @@
+:root {
+  --haci-blue: #065399;
+  --haci-ink: #0b1220;
+  --haci-border: rgba(0, 0, 0, 0.10);
+  --haci-shadow: 0 12px 34px rgba(0, 0, 0, 0.08);
+}
+
+.haci-page {
+  background: #ffffff;
+  overflow-x: hidden;
+}
+
+.haci-page,
+.haci-page * {
+  box-sizing: border-box;
+}
+
+.haci-container {
+  max-width: 1120px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.haci-section {
+  padding: 26px 0 56px;
+}
+
+.haci-eyebrow {
+  margin: 0 0 10px;
+  font-size: 13px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.58);
+}
+
+.haci-title {
+  margin: 0 0 18px;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+  color: var(--haci-blue);
+  text-align: center;
+}
+
+.haci-body {
+  margin: 0 0 14px;
+  font-size: 16px;
+  line-height: 1.75;
+  color: rgba(0, 0, 0, 0.78);
+}
+
+/* Cards */
+.haci-card,
+.haci-topVideoCard {
+  background: #ffffff;
+  border: 1px solid var(--haci-border);
+  border-radius: 16px;
+  box-shadow: var(--haci-shadow);
+}
+
+.haci-topVideoCard {
+  border: 1px solid rgba(6, 83, 153, 0.25);
+  border-radius: 18px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  padding: 18px;
+}
+
+.haci-cardPadded {
+  padding: 18px;
+}
+
+.haci-cardHeaderRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: right;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.haci-cardTitle {
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  color: var(--haci-ink);
+  text-align: left;
+}
+
+/* Links + buttons */
+.haci-link {
+  color: var(--haci-blue);
+  text-decoration: none;
+  font-weight: 750;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  text-align: right;
+}
+
+.haci-link:hover {
+  text-decoration: underline;
+}
+
+.haci-button {
+  padding: 12px 14px;
+  border: none;
+  border-radius: 12px;
+  background: var(--haci-blue);
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 800;
+  white-space: nowrap;
+  text-decoration: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.haci-button:hover {
+  opacity: 0.92;
+}
+
+.haci-buttonFull {
+  width: 100%;
+}
+
+/* Video */
+.haci-videoWrap {
+  margin-top: 14px;
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.haci-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.haci-formCard {
+  margin-top: 20px;
+}
+
+/* Layout */
+.haci-mainGrid {
+  margin-top: 25px;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr;
+}
+
+.haci-rightStack {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr;
+}
+
+/* Form */
+.haci-form {
+  margin-top: 14px;
+}
+
+.haci-twoColInputs {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr;
+}
+
+.haci-label {
+  display: block;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.68);
+  margin: 0 0 6px;
+}
+
+.haci-required {
+  color: #d11a2a;
+}
+
+.haci-input {
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  background: #ffffff;
+  outline: none;
+  margin: 0 0 12px;
+}
+
+.haci-input:focus {
+  border-color: rgba(6, 83, 153, 0.70);
+  box-shadow: 0 0 0 4px rgba(6, 83, 153, 0.16);
+}
+
+.haci-note {
+  margin: 12px 0 0;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: rgba(0, 0, 0, 0.62);
+}
+
+/* Lists */
+.haci-listBox {
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  background: rgba(0, 0, 0, 0.02);
+  padding: 12px 12px;
+  margin: 12px 0 14px;
+}
+
+.haci-bulletsVisible {
+  list-style: disc;
+  padding-left: 22px;
+  margin: 0;
+}
+
+.haci-bulletsVisible li {
+  margin: 10px 0;
+  line-height: 1.65;
+}
+
+.haci-bulletsVisible li::marker {
+  color: #065399;
+  font-size: 1.1em;
+}
+
+/* Content section under videos */
+.haci-content {
+  margin-top: 26px;
+}
+
+.haci-h2 {
+  margin: 0 0 10px;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  color: var(--haci-ink);
+}
+
+/* Responsive */
+@media (min-width: 920px) {
+  .haci-mainGrid {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .haci-twoColInputs {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* make the bullet items look like nice links (same brand style) */
+.haci-anchorLink {
+  color: var(--std2d-blue, #065399);
+  text-decoration: none;
+  font-weight: 750;
+}
+
+.haci-anchorLink:hover {
+  text-decoration: underline;
+}
+
+.haci-inlineLink {
+  color: #065399;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.haci-inlineLink:hover {
+  text-decoration: underline;
+}

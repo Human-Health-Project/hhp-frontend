@@ -1,0 +1,371 @@
+/* Base Layout */
+.section {
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+/* Hero Section */
+.about-hero {
+  position: relative;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+    url('https://humanhealthproject.org/wp-content/uploads/2023/09/Who-We-Are-Cover-Photo-1-e1539832091535-scaled.webp');
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.about-hero__title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-align: center;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Our Story Section */
+.about-story {
+  max-width: 900px;
+  margin: 0 auto 40px;
+  text-align: center;
+  padding: 40px 0;
+}
+
+.about-story__title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #333333;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 24px;
+}
+
+.about-story__text {
+  font-size: 15px;
+  color: #555555;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+/* Vision & Mission Section */
+.about-vision-mission {
+  background-color: #f8f9fa;
+  padding: 48px 24px;
+  margin-bottom: 0;
+  border-radius: 8px;
+}
+
+.about-vision-mission__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px;
+  justify-content: center;
+}
+
+.about-vision-mission__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 1 1 380px;
+  max-width: 420px;
+}
+
+.about-vision-mission__icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: #3498db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.about-vision-mission__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #3498db;
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+
+.about-vision-mission__text {
+  font-size: 14px;
+  color: #666666;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Values Header */
+.about-values-header {
+  background-color: #7cb342;
+  padding: 20px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.about-values-header__title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin: 0;
+}
+
+/* Values Container */
+.about-values {
+  margin-bottom: 40px;
+}
+
+/* Value Rows */
+.about-value-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 280px;
+}
+
+.about-value-row--reversed {
+  direction: rtl;
+}
+
+.about-value-row--reversed > * {
+  direction: ltr;
+}
+
+.about-value-row__content {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-value-row__content--blue {
+  background-color: #3498db;
+  color: #ffffff;
+}
+
+.about-value-row__content--white {
+  background-color: #ffffff;
+  color: #333333;
+  border: 1px solid #e0e0e0;
+}
+
+.about-value-row__image {
+  background-size: cover;
+  background-position: center 8%;
+  min-height: 280px;
+}
+
+.about-value-row__title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  margin-top: 0;
+  color: inherit;
+}
+
+.about-value-row__title--blue {
+  color: #3498db;
+}
+
+.about-value-row__text {
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 0;
+  opacity: 0.95;
+}
+
+.about-value-row__content--white .about-value-row__text {
+  color: #555555;
+}
+
+.about-value-row__button {
+  display: inline-block;
+  background-color: #2980b9;
+  color: #ffffff;
+  border: none;
+  padding: 12px 32px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  align-self: flex-start;
+  transition: background-color 0.2s ease;
+}
+
+.about-value-row__button:hover {
+  background-color: #1f6dad;
+}
+
+/* Support Section */
+.about-support__title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.about-support {
+  padding: 0;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.about-support__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.about-support__left {
+  background: linear-gradient(to bottom, #f1f5f9, #e0f2fe);
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.about-support__donate-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.about-support__donate-text {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #555;
+  max-width: 420px;
+  margin: 0 auto 24px;
+}
+
+.about-support__donate-button {
+  background-color: #3498db;
+  color: #fff;
+  padding: 12px 32px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  align-self: center;
+  transition: background-color 0.2s ease;
+}
+
+.about-support__donate-button:hover {
+  background-color: #2980b9;
+}
+
+.about-support__right {
+  min-height: 320px;
+}
+
+.about-support__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Footer CTA */
+.about-footer-cta {
+  background-color: #f0f0f0;
+  padding: 24px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  border-radius: 8px;
+  margin-bottom: 40px;
+}
+
+.about-footer-cta__text {
+  font-size: 14px;
+  color: #666666;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.about-footer-cta__button {
+  background-color: #3498db;
+  color: #ffffff;
+  border: none;
+  padding: 10px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.2s ease;
+}
+
+.about-footer-cta__button:hover {
+  background-color: #2980b9;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .about-hero {
+    height: 240px;
+  }
+
+  .about-hero__title {
+    font-size: 32px;
+    letter-spacing: 2px;
+  }
+
+  .about-story {
+    padding: 30px 0;
+  }
+
+  .about-value-row {
+    grid-template-columns: 1fr;
+  }
+
+  .about-value-row--reversed {
+    direction: ltr;
+  }
+
+  .about-value-row__content {
+    padding: 32px 24px;
+    order: 1;
+  }
+
+  .about-value-row__image {
+    min-height: 200px;
+    order: 2;
+  }
+
+  .about-vision-mission__item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-footer-cta {
+    flex-direction: column;
+    gap: 16px;
+  }
+}

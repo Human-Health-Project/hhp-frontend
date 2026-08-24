@@ -1,0 +1,23 @@
+/* FooterInfo mobile stack */
+@media (max-width: 768px) {
+  .footerInfoContainer {
+    padding: 28px 20px 40px !important;
+  }
+
+  /* stack columns */
+  .footerInfoGrid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 22px !important;
+    align-items: center !important;
+  }
+
+  /* center badge on mobile */
+  .footerInfoColCenter {
+    align-items: flex-start !important;
+  }
+
+  .footerInfoColCenter img {
+    width: 120px !important;
+  }
+}

@@ -1,0 +1,147 @@
+.contact-page{
+  background:#f7f7f7;
+}
+
+/* HERO */
+
+.contact-hero{
+  background:#0652992c;
+  color:white;
+  padding:80px 20px 120px 20px;
+  text-align:center;
+}
+
+.contact-heroContent{
+  max-width:800px;
+  margin:auto;
+}
+
+.contact-hero h1{
+  font-size:42px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.contact-hero p{
+  font-size:18px;
+  line-height:1.6;
+}
+
+/* FORM SECTION */
+
+.contact-formSection{
+  margin-top:-90px;
+  padding:0 20px 60px;
+}
+
+.contact-card{
+  background:white;
+  max-width:700px;
+  margin:auto;
+  padding:40px;
+  border-radius:6px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* FORM */
+
+.contact-form{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+.contact-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.contact-field{
+  display:flex;
+  flex-direction:column;
+}
+
+.contact-field label{
+  font-size:15px;
+  margin-bottom:6px;
+}
+
+.contact-field input,
+.contact-field select,
+.contact-field textarea{
+  padding:10px;
+  border:1px solid #ddd;
+  border-radius:3px;
+  font-size:15px;
+}
+
+/* BUTTON */
+
+.contact-sendBtn{
+  background:#065399;
+  color:white;
+  border:none;
+  padding:12px 18px;
+  font-weight:600;
+  border-radius:4px;
+  cursor:pointer;
+  width:150px;
+  margin: 20px auto 0;
+}
+
+.contact-sendBtn:hover{
+  background:#05427a;
+}
+.contact-success{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:60vh;
+}
+
+.contact-successCard{
+  background:white;
+  padding:40px;
+  border-radius:6px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  text-align:center;
+}
+
+.contact-successCard h2{
+  color:#065399;
+  margin-bottom:10px;
+}
+.contact-backBtn{
+  margin-top:20px;
+  padding:10px 18px;
+  background:#065399;
+  color:white;
+  border:none;
+  border-radius:4px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.contact-backBtn:hover{
+  background:#05427a;
+}
+/* MOBILE */
+
+@media(max-width:768px){
+
+.contact-hero h1{
+  font-size:34px;
+}
+.contact-row{
+  grid-template-columns:1fr;
+}
+
+.contact-card{
+  padding:28px;
+}
+
+.contact-sendBtn{
+  width:100%;
+}
+
+}

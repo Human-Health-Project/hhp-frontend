@@ -1,0 +1,43 @@
+/* Mobile fixes only — desktop stays as your inline styles */
+@media (max-width: 768px) {
+  .matching-heroSection {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .matching-heroContent {
+    padding: 24px 20px;
+    text-align: left;
+    width: 100%;
+  }
+
+  .matching-heroImage {
+    width: 100% !important;
+    height: 160px !important;
+  }
+
+  .matching-mainContainer {
+    padding: 24px 20px 40px !important;
+  }
+
+  .matching-mainHeading {
+    font-size: 22px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .matching-description {
+    font-size: 14px !important;
+    margin-bottom: 18px !important;
+  }
+
+  .matching-platformsGrid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px 14px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .matching-platformsGrid {
+    grid-template-columns: 1fr !important;
+  }
+}

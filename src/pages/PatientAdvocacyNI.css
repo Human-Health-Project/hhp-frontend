@@ -1,0 +1,392 @@
+:root {
+  --pani-white: #ffffff;
+  --pani-ink: #0b1220;
+  --pani-border: rgba(0, 0, 0, 0.1);
+  --pani-shadow: 0 12px 34px rgba(0, 0, 0, 0.08);
+}
+
+/* Page safety */
+.pani-page {
+  background: #ffffff;
+  overflow-x: hidden;
+}
+.pani-page,
+.pani-page * {
+  box-sizing: border-box;
+}
+
+/* Narrow layout (do NOT make broad) */
+.pani-container {
+  max-width: 1120px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* === GLOBAL BODY TEXT STANDARD (same as your std2d baseline) === */
+.pani-page p,
+.pani-page li {
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.78);
+}
+
+/* HERO */
+.pani-hero {
+  position: relative;
+  min-height: 320px;
+  display: flex;
+  align-items: flex-end;
+  background-size: cover;
+  background-position: center 40%;
+  background-repeat: no-repeat;
+
+  /* keep it clean and consistent */
+  padding: 56px 0 34px;
+}
+
+.pani-heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.pani-heroInner {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-align: center;
+}
+
+.pani-eyebrow {
+  margin: 0 0 10px;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.58);
+}
+
+.pani-title {
+  margin: 0;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--pani-white);
+  text-align: center;
+}
+
+.pani-subtitle {
+  margin: 10px 0 0;
+  font-size: 30px;
+  line-height: 1.6;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--pani-white);
+  text-align: center;
+}
+
+/* SECTION */
+.pani-section {
+  padding: 28px 0 72px;
+}
+
+/* Main card */
+.pani-card {
+  border: 1px solid var(--pani-border);
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: var(--pani-shadow);
+  padding: 18px;
+}
+
+/* Headings */
+.pani-h2 {
+  margin: 18px 0 10px;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  color: var(--pani-ink);
+}
+
+/* Body helpers */
+.pani-body {
+  margin: 5px 0 14px;
+  text-align: left;
+}
+
+.pani-noteStrong {
+  font-weight: 850;
+  color: rgba(0, 0, 0, 0.82);
+}
+
+/* Date note box (no actual dates) */
+.pani-dateBox {
+  border: 1px solid rgba(6, 83, 153, 0.18);
+  background: rgba(6, 83, 153, 0.06);
+  border-radius: 14px;
+  padding: 12px;
+  margin: 6px 0 16px;
+}
+
+.pani-dateText {
+  margin: 0;
+}
+
+/* Bullets */
+.pani-listBox {
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.02);
+  padding: 12px 12px;
+  margin-top: 12px;
+}
+
+.pani-bullets {
+  margin: 0;
+  padding-left: 22px;
+  list-style: disc;
+}
+.pani-bullets li {
+  margin: 10px 0;
+  line-height: 1.65;
+}
+.pani-bullets li::marker {
+  color: var(--pani-white);
+  font-size: 1.1em;
+}
+
+/* Divider */
+.pani-divider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.08);
+  margin: 18px 0 6px;
+}
+
+/* CTA */
+.pani-ctaRow {
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+}
+
+.pani-button {
+  padding: 12px 14px;
+  border: none;
+  border-radius: 5px;
+  background: var(--pani-white);
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 800;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.pani-button:hover {
+  opacity: 0.92;
+}
+
+/* Footer note */
+.pani-footnote {
+  margin: 14px 0 0;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: rgba(0, 0, 0, 0.62);
+}
+
+/* Mobile */
+@media (max-width: 560px) {
+  .pani-hero {
+    min-height: 280px;
+    padding: 96px 0 40px;
+  }
+  .pani-title,
+  .pani-subtitle {
+    text-align: center;
+  }
+}
+
+.pani-upcomingBox {
+  display: flex;
+  align-items: center; /* vertical center */
+  justify-content: center; /* horizontal center */
+  text-align: center;
+
+  min-height: 50px; /* adjust if needed */
+  padding: 20px;
+
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  background: rgba(6, 83, 153, 0.18);
+}
+
+.pani-upcomingBox p {
+  margin: 0;
+  font-size: 16px; /* matches your body text standard */
+  line-height: 1.6;
+}
+
+/* =========================
+   TESTIMONIALS (FIXED)
+========================= */
+
+.pani-testimonialsSection {
+  margin-top: 22px;
+}
+
+.pani-sectionTitle {
+  margin: 0 0 10px;
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #000;
+}
+
+/* Two equal cards on desktop, stacked on mobile */
+.pani-testimonialsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  margin-top: 12px;
+}
+
+.pani-quoteCard {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.05);
+  padding: 18px 18px 16px;
+
+  display: flex; /* FIX: equal height + author pinned bottom */
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 150px;
+}
+
+.pani-quoteText {
+  margin: 0 0 16px;
+  font-style: italic;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: rgba(0, 0, 0, 0.72);
+}
+
+.pani-quoteAuthor {
+  margin: 0;
+  font-weight: 800;
+  font-size: 14.5px;
+  color: rgba(0, 0, 0, 0.85);
+}
+/* PROGRAM GRID (image + text pairs) */
+.pani-programSection {
+  margin-top: 32px;
+}
+
+.pani-programGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  margin-top: 10px;
+}
+
+.pani-programItem {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.pani-programImgWrap {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+  text-align: left;
+  margin-top: 19px;
+}
+
+.pani-programImg {
+  width: 100%;
+  height: 250px;
+  display: block;
+  object-fit: cover;
+}
+
+.pani-programContent {
+  padding-top: 2px;
+}
+.pani-programContent .pani-body {
+  font-size: 15px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.pani-programContent,
+.pani-programContent * {
+  text-align: left;
+}
+.pani-programTitle {
+  font-size: 16px;
+  font-weight: 900;
+  margin-bottom: 4px;
+}
+
+.pani-titleLink {
+  color: var(--pani-white);
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.pani-titleLink:hover {
+  text-decoration: underline;
+}
+
+.pani-inlineLink {
+  color: var(--pani-white);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.pani-inlineLink:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 920px) {
+  /* testimonials stay equal */
+  .pani-testimonialsGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    align-items: stretch;
+  }
+
+  /* program blocks */
+  .pani-programGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 34px 34px;
+  }
+
+  .pani-programItem {
+    grid-template-columns: 220px 1fr; /* image longer */
+    gap: 18px;
+    align-items: start;
+  }
+
+  .pani-programImg {
+    height: 140px; /* bigger image */
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 560px) {
+  .pani-hero {
+    margin: 14px 12px 0;
+    border-radius: 14px;
+  }
+
+  .pani-card {
+    padding: 16px;
+  }
+}

@@ -1,0 +1,23 @@
+/* MOBILE FIX ONLY */
+@media (max-width: 919px) {
+  .bp-contentContainer {
+    grid-template-columns: 1fr !important;
+    gap: 28px;
+  }
+
+  .bp-rightColumn {
+    align-items: stretch;
+    margin-top: 10px;
+  }
+
+  .bp-rightColumn img {
+    width: 100%;
+    max-width: none;
+    height: auto;
+  }
+
+  .bp-rightColumn button {
+    width: 100%;
+    max-width: none;
+  }
+}

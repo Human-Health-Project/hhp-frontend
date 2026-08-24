@@ -1,0 +1,15 @@
+/* Mobile fixes for CharityInfo */
+@media (max-width: 768px) {
+  .charityContainer {
+    padding: 24px 20px 36px !important;
+  }
+
+  .charityInfoRow {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .charitySection h3 {
+    text-align: left;
+  }
+}

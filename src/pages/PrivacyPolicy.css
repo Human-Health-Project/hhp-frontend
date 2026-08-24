@@ -1,0 +1,155 @@
+:root {
+  --pp-blue: #065399;
+  --pp-ink: #0b1220;
+  --pp-border: rgba(0, 0, 0, 0.10);
+  --pp-shadow: 0 12px 34px rgba(0, 0, 0, 0.08);
+}
+
+/* Page background (same vibe as AdvisoryBoard) */
+.pp-page {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.10),
+      rgba(255, 255, 255, 0.55) 45%,
+      rgba(255, 255, 255, 0.92)
+    ),
+    radial-gradient(
+      900px 360px at 20% 25%,
+      rgba(6, 83, 153, 0.38),
+      transparent 60%
+    );
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+.pp-page,
+.pp-page * {
+  box-sizing: border-box;
+}
+
+/* Narrow layout */
+.pp-container {
+  max-width: 1120px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px 46px;
+}
+
+/* Global body text standard */
+.pp-page p,
+.pp-page li {
+  font-size: 16px;
+  line-height: 1.75;
+  font-weight: 300;
+  letter-spacing: 0.2px;
+  color: rgba(0, 0, 0, 0.78);
+}
+
+/* Curved card */
+.pp-card {
+  border: 1px solid var(--pp-border);
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: var(--pp-shadow);
+}
+
+/* Intro */
+.pp-intro {
+  margin: 28px 0 18px;
+  padding: 22px;
+}
+
+.pp-title {
+  margin: 0 0 8px;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--pp-ink);
+}
+
+.pp-updated {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.62);
+}
+
+/* Sections */
+.pp-section {
+  margin: 0 0 18px;
+  padding: 22px;
+}
+
+.pp-section p {
+  margin: 0 0 14px;
+  text-indent: 1em;
+}
+
+.pp-section p:last-child {
+  margin-bottom: 0;
+}
+
+/* Headings */
+.pp-h2 {
+  margin: 0 0 12px;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--pp-blue);
+}
+
+.pp-h3 {
+  margin: 18px 0 10px;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--pp-ink);
+}
+
+/* Lists */
+.pp-list {
+  list-style-type: disc;
+  padding-left: 22px;
+  margin: 0 0 14px;
+}
+
+.pp-list li {
+  margin: 0 0 8px;
+}
+
+.pp-list li::marker {
+  color: var(--pp-blue);
+  font-size: 1.05em;
+}
+
+/* Optional paragraph indent (tab space look) */
+.pp-section p {
+  text-indent: 2em;
+}
+
+/* Don’t indent first paragraph after headings (cleaner) */
+.pp-section h2 + p,
+.pp-section h3 + p {
+  text-indent: 2em;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .pp-container {
+    padding: 0 16px 40px;
+  }
+
+  .pp-title {
+    font-size: 24px;
+  }
+
+  .pp-h2 {
+    font-size: 18px;
+  }
+}
+
+.pp-email {
+  color: #065399;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.pp-email:hover {
+  text-decoration: underline;
+}

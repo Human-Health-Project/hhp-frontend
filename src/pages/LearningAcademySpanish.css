@@ -1,0 +1,279 @@
+/* src/pages/LearningAcademySpanish.css */
+
+:root {
+  --la-blue: #065399;
+  --la-ink: #0b1220;
+  --la-border: rgba(0, 0, 0, 0.10);
+  --la-shadow: 0 12px 34px rgba(0, 0, 0, 0.08);
+}
+
+/* Page safety */
+.la-page {
+  min-height: 200vh;
+  background:
+    /* TOP glow (hero area) */
+    radial-gradient(
+      1100px 460px at 50% 10%,
+      rgba(6, 83, 153, 0.22),
+      transparent 65%
+    ),
+
+    /* MIDDLE glow (content area) */
+    radial-gradient(
+      1000px 420px at 50% 50%,
+      rgba(6, 83, 153, 0.20),
+      transparent 70%
+    ),
+
+    /* BOTTOM glow (CTA / footer lead-in) */
+    radial-gradient(
+      1100px 460px at 50% 90%,
+      rgba(6, 83, 153, 0.18),
+      transparent 72%
+    ),
+
+    /* soft vertical wash */
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.12),
+      rgba(255, 255, 255, 0.04) 60%,
+      rgba(255, 255, 255, 0.10)
+    ),
+
+    #ffffff;
+
+  overflow-x: hidden;
+}
+.la-page,
+.la-page * {
+  box-sizing: border-box;
+}
+
+/* Narrow layout */
+.la-container {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px 44px;
+}
+
+/* Shared curved card */
+.la-curvedCard {
+  border: 1px solid var(--la-border);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+}
+
+/* Global body text standard */
+.la-container p,
+.la-container li {
+  font-size: 16px;
+  line-height: 1.75;
+  color: rgba(0, 0, 0, 0.78);
+}
+
+/* ============================= */
+/* LEARNING ACADEMY HERO */
+/* ============================= */
+
+.la-hero {
+  position: relative;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-size: cover;
+  background-position: center 40%;
+  background-repeat: no-repeat;
+
+  background-size: cover;
+  background-position: center 40%;
+  background-repeat: no-repeat;
+
+  padding: 56px 0 34px;
+}
+
+/* gradient + soft blue glow */
+.la-heroOverlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.10),
+      rgba(255, 255, 255, 0.55) 45%,
+      rgba(255, 255, 255, 0.92)
+    ),
+    radial-gradient(
+      900px 360px at 20% 25%,
+      rgba(6, 83, 153, 0.18),
+      transparent 60%
+    );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* content wrapper */
+.la-heroInner {
+  position: relative;
+  z-index: 1;
+  max-width: 960px;
+}
+
+/* Eyebrow text on hero */
+.la-heroEyebrow {
+  margin: 0 0 10px;
+  font-size: 13px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.58);
+  text-align: left;
+}
+
+/* Main hero title */
+.la-heroTitle {
+  margin: 0;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+  color: var(--la-blue); /* same blue used across pages */
+  text-align: center;
+  font-weight: 800;
+}
+
+/* Subtitle under title */
+.la-heroSubtitle {
+  margin: 10px 0 0;
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: rgba(0, 0, 0, 0.78);
+  text-align: center;
+}
+
+
+/* mobile */
+@media (max-width: 768px) {
+  .la-hero {
+    min-height: 240px;
+    padding: 40px 0 26px;
+  }
+
+  .la-heroTitle {
+    font-size: 34px;
+  }
+
+  .la-heroEyebrow {
+    font-size: 12px;
+  }
+}
+
+/* Intro */
+.la-introCard {
+  margin-top: 24px;
+  padding: 18px 18px 16px;
+}
+
+.la-subline {
+  margin: 18px 0 22px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+/* Videos */
+.la-videos {
+  padding: 0 0 26px;
+}
+
+.la-videosGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 18px;
+}
+
+.la-videoCard {
+  padding: 12px;
+}
+
+.la-videoWrap {
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #fff;
+  aspect-ratio: 16 / 9;
+}
+
+.la-videoWrap iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.la-videoTitle {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.78);
+  text-align: center;
+}
+
+@media (max-width: 980px) {
+  .la-videosGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .la-videosGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Donate block */
+.la-donate {
+  margin-top: 10px;
+  padding: 18px 18px 20px;
+}
+
+.la-donateTitle {
+  margin: 0 0 12px;
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--la-ink);
+  text-align: center;
+}
+
+.la-donateText {
+  margin: 0 0 10px;
+  text-align: center;
+}
+
+.la-donateBtnRow {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.la-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 220px;
+  height: 44px;
+  padding: 0 18px;
+  background: var(--la-blue);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 14px;
+  border-radius: 6px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+}
