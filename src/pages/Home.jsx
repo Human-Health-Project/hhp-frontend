@@ -107,8 +107,11 @@ export default function Home() {
                   <p>{card.description}</p>
 
                   {/* FIXED */}
-                  <Link to={card.link} className="btn btn-primary btn-small">
-                    Learn More
+                  <Link
+                    to={card.link}
+                    className="btn btn-primary btn-small"
+                  >
+                    Learn More<span className="sr-only"> about {card.title}</span>
                   </Link>
 
                 </div>
