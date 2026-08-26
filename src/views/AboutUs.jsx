@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import './AboutUs.css';
 
 // Content Data
@@ -205,7 +205,7 @@ export default function AboutUs() {
               </p>
 
               <Link
-                to="/donate"
+                href="/donate"
                 className="about-support__donate-button"
               >
                 {aboutUsContent.support.buttonText}
@@ -235,7 +235,7 @@ export default function AboutUs() {
             ))}
           </p>
           <Link
-            to="/signup"
+            href="/signup"
             className="about-footer-cta__button"
           >
             {aboutUsContent.footerCta.buttonText}

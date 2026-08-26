@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 
 export default function Home() {
   const whyCards = [
@@ -107,7 +109,7 @@ export default function Home() {
                   <p>{card.description}</p>
 
                   {/* FIXED */}
-                  <Link to={card.link} className="btn btn-primary btn-small">
+                  <Link href={card.link} className="btn btn-primary btn-small">
                     Learn More
                   </Link>
 
@@ -156,7 +158,7 @@ export default function Home() {
             {involvementCards.map((card) => (
               <Link
                 key={card.id}
-                to={card.link}
+                href={card.link}
                 className={`involvement-card ${card.className}`}
                 style={{ textDecoration: "none" }}
               >
@@ -177,7 +179,7 @@ export default function Home() {
           <div className="cta-box">
             <p>Our project is growing and we want you to be a part of it.<br></br>More People. More Information. Better Health.</p>
             {/* FIXED */}
-            <Link to="/signup" className="btn btn-join">
+            <Link href="/signup" className="btn btn-join">
               Join Us
             </Link>
 
@@ -193,11 +195,11 @@ export default function Home() {
             <form onSubmit={(e) => e.preventDefault()}>
               <div className="form-group">
                 <label htmlFor="email">Email *</label>
-                <input type="email" id="email" placeholder="Enter your email" required />
+                <input type="email" id="email" name="email" autoComplete="email" placeholder="Enter your email" required />
               </div>
               <div className="form-group">
                 <label htmlFor="country">Country *</label>
-                <select id="country" required>
+                <select id="country" name="country" autoComplete="country" required>
                   <option value="AF">Afghanistan</option>
                   <option value="US">United States</option>
                   <option value="UK">United Kingdom</option>
