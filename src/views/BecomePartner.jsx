@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Programs from "../components/Programs";
 import "./BecomePartner.css";

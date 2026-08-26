@@ -1,6 +1,8 @@
+"use client";
+
 import React, { useMemo, useState, useRef, useEffect } from "react";
 import "./MigraineReports.css";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 /* After-charts images */
 import shareLearnLupusImg from "../assets/migraine/after-charts/share-learn-lupus.png";
 import patientAdvocacyImg from "../assets/migraine/after-charts/service-patient-advocacy.jpg";
@@ -8,19 +10,12 @@ import patientEducationImg from "../assets/migraine/after-charts/service-patient
 import migraineHeroImg from "../assets/migraine/migraine-hero.png";
 
 /**
- * Auto-load every .png chart under src/assets/migraine/charts/
- * You only need to name files correctly; no more importing each chart.
+ * Charts are served as static files from public/charts/migraine/.
+ * Add a PNG to that folder and reference it by folder/file below.
  */
-const chartImages = import.meta.glob("../assets/migraine/charts/**/*.png", {
-  eager: true,
-  import: "default",
-});
-
 function getChartSrc(relativePathFromChartsRoot) {
-  const key = `../assets/migraine/charts/${relativePathFromChartsRoot}`;
-  return chartImages[key] || null;
+  return `/charts/migraine/${relativePathFromChartsRoot}`;
 }
-
 export default function MigraineData() {
   const groups = useMemo(
     () => [
@@ -200,7 +195,7 @@ export default function MigraineData() {
         {/* HERO */}
         {/* Hero Image */}
         <section className="hhp-hero">
-          <img className="hhp-heroImg" src={migraineHeroImg} alt="Migraine Data" />
+          <img className="hhp-heroImg" src={migraineHeroImg.src} alt="Migraine Data" />
 
           <div className="hhp-heroOverlay">
             <div className="hhp-heroInner">
@@ -296,7 +291,7 @@ export default function MigraineData() {
               <div className="md-curvedCard md-padLg">
                 <div className="md-twoCol">
                   <div className="md-imageFrame">
-                    <img src={shareLearnLupusImg} alt="Share and Learn" />
+                    <img src={shareLearnLupusImg.src} alt="Share and Learn" />
                   </div>
 
                   <div className="md-twoColText">
@@ -305,7 +300,7 @@ export default function MigraineData() {
                     </p>
 
                     <Link
-                      to="/shared-patient-information/lupus"
+                      href="/shared-patient-information/lupus"
                       className="md-btn"
                       aria-label="View Lupus Data"
                     >
@@ -327,7 +322,7 @@ export default function MigraineData() {
 
                 <div className="md-centerRow">
                   <Link
-                    to="/signup"
+                    href="/signup"
                     className="md-btn"
                     aria-label="Learn More"
                   >
@@ -346,7 +341,7 @@ export default function MigraineData() {
               <div className="md-servicesGrid">
                 <div className="md-serviceCard md-curvedCard">
                   <div className="md-imageFrame">
-                    <img src={patientAdvocacyImg} alt="Patient Advocacy" />
+                    <img src={patientAdvocacyImg.src} alt="Patient Advocacy" />
                   </div>
                   <div className="md-serviceTitle">Patient Advocacy</div>
                   <p className="md-serviceDesc">
@@ -354,7 +349,7 @@ export default function MigraineData() {
                   </p>
 
                   <Link
-                    to="/what-we-do/patient-advocacy/los-angeles"
+                    href="/what-we-do/patient-advocacy/los-angeles"
                     className="md-btn"
                     aria-label="View Services"
                   >
@@ -364,7 +359,7 @@ export default function MigraineData() {
 
                 <div className="md-serviceCard md-curvedCard">
                   <div className="md-imageFrame">
-                    <img src={patientEducationImg} alt="Patient Education" />
+                    <img src={patientEducationImg.src} alt="Patient Education" />
                   </div>
                   <div className="md-serviceTitle">Patient Education</div>
                   <p className="md-serviceDesc">
@@ -372,7 +367,7 @@ export default function MigraineData() {
                   </p>
 
                   <Link
-                    to="/what-we-do/learning-academy/videos"
+                    href="/what-we-do/learning-academy/videos"
                     className="md-btn"
                     aria-label="Learn More Patient Education"
                   >
@@ -393,7 +388,7 @@ export default function MigraineData() {
                 </div>
 
                 <Link
-                  to="/signup"
+                  href="/signup"
                   className="md-btn md-joinBtn"
                   aria-label="Join Us"
                 >

@@ -1,7 +1,10 @@
+"use client";
+
+import { useRouter } from "next/navigation";
 import { useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
+
 import "./HowToHelp.css";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 export default function HowToHelp() {
   useEffect(() => {
     const hash = window.location.hash;
@@ -21,7 +24,7 @@ export default function HowToHelp() {
   const aboutParagraph3 = "By joining our community, volunteering your skills, contributing expertise, funding our work, or partnering with us, you help advance a more human, connected, and equitable healthcare experience. Together, we are building a Unified Patient Experience (UPE) that brings health education, peer support, advocacy, and real-world evidence into one integrated ecosystem—empowering people everywhere to make informed decisions and feel less alone on their health journeys.";
 
   const donateButtonText = "MAKE A FINANCIAL GIFT";
-  const navigate = useNavigate();
+  const router = useRouter();
   const volunteerTitle = "Volunteer";
   const volunteerPlatforms = [
     {
@@ -106,7 +109,7 @@ export default function HowToHelp() {
         <div style={styles.container}>
           <button
             style={styles.donateButton}
-            onClick={() => navigate("/donate")}
+            onClick={() => router.push("/donate")}
           >
             {donateButtonText}
           </button>
@@ -122,7 +125,7 @@ export default function HowToHelp() {
             platform.to ? (
               <Link
                 key={index}
-                to={platform.to}
+                href={platform.to}
                 style={styles.volunteerCard}
                 className="howtohelp-volunteerCard"
               >
@@ -171,7 +174,7 @@ export default function HowToHelp() {
 
           <div className="howtohelp-volunteerGrid" style={styles.volunteerGrid}>
             <Link
-              to="/how-to-help/intern"
+              href="/how-to-help/intern"
               style={styles.volunteerCard}
               className="howtohelp-volunteerCard"
             >

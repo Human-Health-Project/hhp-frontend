@@ -1,5 +1,7 @@
+"use client";
+
 import React, { useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import "./LupusReports.css";
 
 /* Hero */
@@ -13,16 +15,9 @@ import patientEducationImg from "../assets/lupus/after-charts/service-patient-ed
 /**
  * Auto-load every .png chart under src/assets/lupus/charts/
  */
-const chartImages = import.meta.glob("../assets/lupus/charts/**/*.png", {
-  eager: true,
-  import: "default",
-});
-
 function getChartSrc(relativePathFromChartsRoot) {
-  const key = `../assets/lupus/charts/${relativePathFromChartsRoot}`;
-  return chartImages[key] || null;
+  return `/charts/lupus/${relativePathFromChartsRoot}`;
 }
-
 export default function LupusData() {
   const groups = useMemo(
     () => [
@@ -189,7 +184,7 @@ export default function LupusData() {
       <section className="hhp-hero">
         <img
           className="hhp-heroImg"
-          src={lupusHeroImg}
+          src={lupusHeroImg.src}
           alt="Lupus Data"
           style={{ objectFit: "cover", objectPosition: "center 15%" }}
         />
@@ -311,7 +306,7 @@ export default function LupusData() {
               <div className="ld-curvedCard ld-padLg">
                 <div className="ld-twoCol">
                   <div className="ld-imageFrame">
-                    <img src={shareLearnMigraineImg} alt="Share and Learn" />
+                    <img src={shareLearnMigraineImg.src} alt="Share and Learn" />
                   </div>
 
                   <div className="ld-twoColText">
@@ -320,7 +315,7 @@ export default function LupusData() {
                       moderate to severe.
                     </p>
 
-                    <Link to="/shared-patient-information/migraine" className="ld-btn" aria-label="View Migraine Data">
+                    <Link href="/shared-patient-information/migraine" className="ld-btn" aria-label="View Migraine Data">
                       VIEW MIGRAINE DATA
                     </Link>
                   </div>
@@ -337,7 +332,7 @@ export default function LupusData() {
                   Project has to offer? Stay connect as HHP develops and launches new programs!
                 </p>
                 <div className="ld-centerRow">
-                  <Link to="/signup" className="ld-btn" aria-label="Learn More">
+                  <Link href="/signup" className="ld-btn" aria-label="Learn More">
                     LEARN MORE
                   </Link>
                 </div>
@@ -351,22 +346,22 @@ export default function LupusData() {
               <div className="ld-servicesGrid">
                 <div className="ld-serviceCard ld-curvedCard">
                   <div className="ld-imageFrame">
-                    <img src={patientAdvocacyImg} alt="Patient Advocacy" />
+                    <img src={patientAdvocacyImg.src} alt="Patient Advocacy" />
                   </div>
                   <div className="ld-serviceTitle">Patient Advocacy</div>
                   <p className="ld-serviceDesc">HHP provides access to a supportive peer-to-peer community.</p>
-                  <Link to="/what-we-do/patient-advocacy/los-angeles" className="ld-btn" aria-label="View Services">
+                  <Link href="/what-we-do/patient-advocacy/los-angeles" className="ld-btn" aria-label="View Services">
                     VIEW SERVICES
                   </Link>
                 </div>
 
                 <div className="ld-serviceCard ld-curvedCard">
                   <div className="ld-imageFrame">
-                    <img src={patientEducationImg} alt="Patient Education" />
+                    <img src={patientEducationImg.src} alt="Patient Education" />
                   </div>
                   <div className="ld-serviceTitle">Patient Education</div>
                   <p className="ld-serviceDesc">We help patients through education and peer-to-peer information.</p>
-                  <Link to="/what-we-do/learning-academy/videos" className="ld-btn" aria-label="Learn More Patient Education">
+                  <Link href="/what-we-do/learning-academy/videos" className="ld-btn" aria-label="Learn More Patient Education">
                     LEARN MORE
                   </Link>
                 </div>
@@ -381,7 +376,7 @@ export default function LupusData() {
                   <div className="ld-joinTagline">More People. More Information. Better Health.</div>
                 </div>
 
-                <Link to="/signup" className="ld-btn ld-joinBtn" aria-label="Join Us">
+                <Link href="/signup" className="ld-btn ld-joinBtn" aria-label="Join Us">
                   JOIN US!
                 </Link>
               </div>
