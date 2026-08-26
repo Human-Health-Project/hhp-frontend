@@ -57,7 +57,7 @@ return (
   <>
     {/* Non-sticky announcement bar (scrolls away) */}
     <div className="hhp-topbar">
-      <Link href="join-patient-advisory-board" className="hhp-topbar-link" onClick={closeMobile}>
+      <Link href="/join-patient-advisory-board" className="hhp-topbar-link" onClick={closeMobile}>
         Join Our Patient Advisory Board – Learn More
       </Link>
     </div>

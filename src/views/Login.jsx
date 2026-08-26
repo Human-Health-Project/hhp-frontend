@@ -1,5 +1,8 @@
+"use client";
+
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useAuth } from "../context/AuthContext";
 import "./Login.css";
 
@@ -16,7 +19,7 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
 
   const { login, signInWithGoogle, signInWithFacebook, signInWithApple, signInWithMicrosoft, resetPassword } = useAuth();
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -25,7 +28,7 @@ export default function Login() {
 
     try {
       await login(email, password);
-      navigate("/");
+      router.push("/");
     } catch (err) {
       setError(getErrorMessage(err.code));
     }
@@ -53,7 +56,7 @@ export default function Login() {
         default:
           throw new Error("Unknown provider");
       }
-      navigate("/");
+      router.push("/");
     } catch (err) {
       setError(getErrorMessage(err.code));
     }
@@ -106,7 +109,7 @@ export default function Login() {
 
         <p className="authSubtitle">
           If you are not a member, please{" "}
-          <Link className="authLink" to="/signup">
+          <Link className="authLink" href="/signup">
             sign up here
           </Link>
         </p>
@@ -183,7 +186,7 @@ export default function Login() {
             title="Continue with Google"
             disabled={loading}
           >
-            <img className="socialIconImg" src={googleIcon} alt="Google" />
+            <img className="socialIconImg" src={googleIcon.src} alt="Google" />
           </button>
 
           <button
@@ -194,7 +197,7 @@ export default function Login() {
             title="Continue with Facebook"
             disabled={loading}
           >
-            <img className="socialIconImg" src={facebookIcon} alt="Facebook" />
+            <img className="socialIconImg" src={facebookIcon.src} alt="Facebook" />
           </button>
 
           <button
@@ -205,7 +208,7 @@ export default function Login() {
             title="Continue with Microsoft"
             disabled={loading}
           >
-            <img className="socialIconImg" src={microsoftIcon} alt="Microsoft" />
+            <img className="socialIconImg" src={microsoftIcon.src} alt="Microsoft" />
           </button>
 
           <button
@@ -216,7 +219,7 @@ export default function Login() {
             title="Continue with Apple"
             disabled={loading}
           >
-            <img className="socialIconImg" src={appleIcon} alt="Apple" />
+            <img className="socialIconImg" src={appleIcon.src} alt="Apple" />
           </button>
         </div>
       </div>

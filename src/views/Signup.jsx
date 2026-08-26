@@ -1,5 +1,8 @@
+"use client";
+
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useAuth } from "../context/AuthContext";
 import { updateProfile } from "firebase/auth";
 import "./Signup.css";
@@ -24,7 +27,7 @@ export default function Signup() {
   const [loading, setLoading] = useState(false);
 
   const { signup, signInWithGoogle, signInWithFacebook, signInWithApple, signInWithMicrosoft } = useAuth();
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -64,7 +67,7 @@ export default function Signup() {
         displayName: `${formData.firstName} ${formData.lastName}`,
       });
 
-      navigate("/");
+      router.push("/");
     } catch (err) {
       setError(getErrorMessage(err.code));
     }
@@ -92,7 +95,7 @@ export default function Signup() {
         default:
           throw new Error("Unknown provider");
       }
-      navigate("/");
+      router.push("/");
     } catch (err) {
       setError(getErrorMessage(err.code));
     }
@@ -123,7 +126,7 @@ export default function Signup() {
 
         <p className="authSubtitle">
           Join the HHP movement today. If you are already a member, please{" "}
-          <Link className="authLink" to="/login">
+          <Link className="authLink" href="/login">
             log in here
           </Link>
         </p>
@@ -249,7 +252,7 @@ export default function Signup() {
             title="Sign up with Google"
             disabled={loading}
           >
-            <img className="socialIconImg" src={googleIcon} alt="Google" />
+            <img className="socialIconImg" src={googleIcon.src} alt="Google" />
           </button>
 
           <button
@@ -260,7 +263,7 @@ export default function Signup() {
             title="Sign up with Facebook"
             disabled={loading}
           >
-            <img className="socialIconImg" src={facebookIcon} alt="Facebook" />
+            <img className="socialIconImg" src={facebookIcon.src} alt="Facebook" />
           </button>
 
           <button
@@ -271,7 +274,7 @@ export default function Signup() {
             title="Sign up with Microsoft"
             disabled={loading}
           >
-            <img className="socialIconImg" src={microsoftIcon} alt="Microsoft" />
+            <img className="socialIconImg" src={microsoftIcon.src} alt="Microsoft" />
           </button>
 
           <button
@@ -282,7 +285,7 @@ export default function Signup() {
             title="Sign up with Apple"
             disabled={loading}
           >
-            <img className="socialIconImg" src={appleIcon} alt="Apple" />
+            <img className="socialIconImg" src={appleIcon.src} alt="Apple" />
           </button>
         </div>
       </div>
