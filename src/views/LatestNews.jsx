@@ -1,5 +1,5 @@
 import "./LatestNews.css";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import pinLogo from "../assets/latest-news/pin_logo.png";
 
 export default function LatestNews() {
@@ -13,7 +13,7 @@ export default function LatestNews() {
           <div className="news-featureBlock">
 
             <img
-              src={pinLogo}
+              src={pinLogo.src}
               alt="People's Impact Network"
               className="news-partnerLogo"
             />
@@ -27,7 +27,7 @@ export default function LatestNews() {
             </p>
 
             <Link
-              to="/shared-patient-information/narratives"
+              href="/shared-patient-information/narratives"
               className="news-featureButton"
             >
               READ MORE

@@ -1,5 +1,7 @@
+"use client";
+
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import "./HealthcareAccessIntro.css";
 
 const TOP_WATCH_URL = "https://youtu.be/NI7lsbtpb7Q?si=6EVMtP33qeX4vQ9P";
@@ -201,14 +203,14 @@ export default function HealthcareAccessIntroduction() {
             <p className="haci-body">
               These are online workshops, available separately with a{" "}
               <Link
-                to="/what-we-do/patient-advocacy/northern-ireland"
+                href="/what-we-do/patient-advocacy/northern-ireland"
                 className="haci-inlineLink"
               >
                 Northern Ireland
               </Link>{" "}
               and{" "}
               <Link
-                to="/what-we-do/patient-advocacy/los-angeles"
+                href="/what-we-do/patient-advocacy/los-angeles"
                 className="haci-inlineLink"
               >
                 Los Angeles
@@ -230,7 +232,7 @@ export default function HealthcareAccessIntroduction() {
             </div>
             <p className="haci-body">
               Learn more about{" "}
-              <Link to="/what-we-do/stop-type-2-diabetes/introduction" className="haci-inlineLink">
+              <Link href="/what-we-do/stop-type-2-diabetes/introduction" className="haci-inlineLink">
                 Human Health Project’s (HHP) programs
               </Link>
             </p>
@@ -258,21 +260,21 @@ export default function HealthcareAccessIntroduction() {
             <p className="haci-body">
               Explore the courses in{" "}
               <Link
-                to="/what-we-do/learning-academy/english"
+                href="/what-we-do/learning-academy/english"
                 className="haci-inlineLink"
               >
                 English
               </Link>
               ,{" "}
               <Link
-                to="/what-we-do/learning-academy/spanish"
+                href="/what-we-do/learning-academy/spanish"
                 className="haci-inlineLink"
               >
                 Español
               </Link>{" "}
               and{" "}
               <Link
-                to="/what-we-do/learning-academy/mandarin"
+                href="/what-we-do/learning-academy/mandarin"
                 className="haci-inlineLink"
               >
                 Mandarin

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import "./Programs.css";
 
 export default function Programs() {
@@ -64,7 +64,7 @@ export default function Programs() {
 
               <div className="programContent">
                 <p className="programTitle">
-                  <Link className="programTitleLink" to={program.titleLink}>
+                  <Link className="programTitleLink" href={program.titleLink}>
                     {program.title}
                   </Link>
                 </p>
@@ -73,11 +73,11 @@ export default function Programs() {
                   {program.inlineLinks ? (
                     <>
                       Tu generosidad apoya la defensa del paciente a través de talleres por Zoom para{" "}
-                      <Link className="programInlineLink" to={program.inlineLinks[0].to}>
+                      <Link className="programInlineLink" href={program.inlineLinks[0].to}>
                         {program.inlineLinks[0].text}
                       </Link>{" "}
                       and{" "}
-                      <Link className="programInlineLink" to={program.inlineLinks[1].to}>
+                      <Link className="programInlineLink" href={program.inlineLinks[1].to}>
                         {program.inlineLinks[1].text}
                       </Link>
                       . Gana confianza, comprende tus derechos y accede a recursos de atención médica mientras fomentas una comunidad de pacientes informados y aliados.

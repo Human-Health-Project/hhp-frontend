@@ -10,7 +10,7 @@ export default function JoinPatientAdvisoryBoard() {
       {/* HERO */}
       <section className="jpab-hero">
         <img
-          src={heroImg}
+          src={heroImg.src}
           alt="Human Health Project Advisory Council"
           className="jpab-hero-img"
         />

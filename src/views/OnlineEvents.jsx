@@ -1,7 +1,7 @@
 import "./OnlineEvents.css";
 import heroImg from "../assets/onlineevents/heroimg.jpg"; // <- confirm filename
 import Programs from "../components/Programs";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 export default function OnlineEvents() {
   return (
@@ -9,7 +9,7 @@ export default function OnlineEvents() {
       {/* HERO */}
       <header
         className="oe-hero"
-        style={{ backgroundImage: `url(${heroImg})` }}
+        style={{ backgroundImage: `url(${heroImg.src})` }}
         aria-label="Online Events header"
       >
         <div className="oe-heroOverlay" />
@@ -112,7 +112,7 @@ export default function OnlineEvents() {
             <p className="oe-body">Donate today and help us change lives for the better.</p>
 
             <div className="oe-ctaRow">
-              <Link to="/donate" className="oe-button">
+              <Link href="/donate" className="oe-button">
                 DONATE NOW
               </Link>
             </div>
@@ -122,7 +122,7 @@ export default function OnlineEvents() {
             {/* Reuse existing Programs component (do NOT duplicate program blocks here) */}
             <Programs />
             <div className="oe-ctaRow">
-              <Link to="/donate" className="oe-button oe-buttonSecondary">
+              <Link href="/donate" className="oe-button oe-buttonSecondary">
                 DONATE NOW
               </Link>
             </div>

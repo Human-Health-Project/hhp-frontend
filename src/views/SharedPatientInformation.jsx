@@ -1,5 +1,7 @@
+"use client";
+
 import "./SharedPatientInformation.css";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import { UilMicroscope } from "@iconscout/react-unicons";
@@ -256,7 +258,7 @@ export default function SharedPatientInformation() {
             <article className="spi-reportCard">
               <img
                 className="spi-reportImg"
-                src={migraineImg}
+                src={migraineImg.src}
                 alt="Migraines"
                 loading="lazy"
               />
@@ -265,7 +267,7 @@ export default function SharedPatientInformation() {
                 by recurrent headaches that range from moderate to severe.
               </p>
               <Link
-                to="/shared-patient-information/migraine"
+                href="/shared-patient-information/migraine"
                 className="spi-buttonLink"
               >
                 VIEW MIGRAINE REPORTS
@@ -275,7 +277,7 @@ export default function SharedPatientInformation() {
             <article className="spi-reportCard">
               <img
                 className="spi-reportImg"
-                src={lupusImg}
+                src={lupusImg.src}
                 alt="Lupus"
                 loading="lazy"
               />
@@ -284,7 +286,7 @@ export default function SharedPatientInformation() {
                 the immune system attacks tissues and organs.
               </p>
               <Link
-                to="/shared-patient-information/lupus"
+                href="/shared-patient-information/lupus"
                 className="spi-buttonLink"
               >
                 VIEW LUPUS REPORTS
@@ -300,7 +302,7 @@ export default function SharedPatientInformation() {
                 preventive health and community wellness.
               </p>
               <Link
-                to="/shared-patient-information/narratives"
+                href="/shared-patient-information/narratives"
                 className="spi-buttonLink"
               >
                 VIEW SPI NARRATIVES
@@ -403,7 +405,7 @@ export default function SharedPatientInformation() {
 
           <div className="spi-partnerAction">
             <Link
-              to="/how-to-help/become-hhp-partner"
+              href="/how-to-help/become-hhp-partner"
               className="spi-button spi-buttonCenter"
             >
               LEARN MORE
@@ -583,7 +585,7 @@ export default function SharedPatientInformation() {
             {/* Patient Advocacy */}
             <article className="spi-serviceCard spi-serviceCardBox">
               <img
-                src={patientAdvocacyImg}
+                src={patientAdvocacyImg.src}
                 alt="Patient Advocacy"
                 className="spi-serviceImg"
               />
@@ -595,7 +597,7 @@ export default function SharedPatientInformation() {
               </p>
 
               <Link
-                to="/what-we-do/patient-advocacy/los-angeles"
+                href="/what-we-do/patient-advocacy/los-angeles"
                 className="spi-serviceBtn"
               >
                 VIEW SERVICES
@@ -605,7 +607,7 @@ export default function SharedPatientInformation() {
             {/* Patient Education */}
             <article className="spi-serviceCard spi-serviceCardBox">
               <img
-                src={patientEduImg}
+                src={patientEduImg.src}
                 alt="Patient Education"
                 className="spi-serviceImg"
               />
@@ -617,7 +619,7 @@ export default function SharedPatientInformation() {
               </p>
 
               <Link
-                to="/what-we-do/learning-academy/english"
+                href="/what-we-do/learning-academy/english"
                 className="spi-serviceBtn"
               >
                 LEARN MORE
@@ -636,7 +638,7 @@ export default function SharedPatientInformation() {
               </div>
             </div>
 
-            <Link to="/signup" className="spi-joinBtn">
+            <Link href="/signup" className="spi-joinBtn">
               JOIN US!
             </Link>
           </div>

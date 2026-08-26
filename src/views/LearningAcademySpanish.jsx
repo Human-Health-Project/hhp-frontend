@@ -1,6 +1,6 @@
 // src/pages/LearningAcademySpanish.jsx
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import "./LearningAcademySpanish.css";
 import Programs from '../components/ProgramsSpanish';
 
@@ -45,7 +45,7 @@ export default function LearningAcademyEnglish() {
       {/* HERO (same HHP edit style) */}
       <section
         className="la-hero"
-        style={{ backgroundImage: `url(${learningAcademyHeroImg})` }}
+        style={{ backgroundImage: `url(${learningAcademyHeroImg.src})` }}
       >
         <div className="la-heroOverlay" />
 
@@ -107,7 +107,7 @@ export default function LearningAcademyEnglish() {
           <h2 className="la-donateTitle"> Dona hoy y ayúdanos a cambiar vidas para mejor.</h2>
 
           <div className="la-donateBtnRow">
-            <Link to="/donate" className="la-btn" aria-label="Donate Now">
+            <Link href="/donate" className="la-btn" aria-label="Donate Now">
               DONA AROHA
             </Link>
           </div>
@@ -117,7 +117,7 @@ export default function LearningAcademyEnglish() {
       </div>
       <Programs />
       <div className="la-donateBtnRow">
-            <Link to="/donate" className="la-btn" aria-label="Donate Now">
+            <Link href="/donate" className="la-btn" aria-label="Donate Now">
               DONA AROHA
             </Link>
       </div>

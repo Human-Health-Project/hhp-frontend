@@ -1,5 +1,5 @@
 import './MeetTheTeam.css';
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 // Team member data organized by department
 const teamData = {
@@ -295,11 +295,11 @@ export default function MeetTheTeam() {
 
                 {/* Footer Links */}
                 <div className="team-links">
-                    <Link to="/about/program-council" className="team-links__link">
+                    <Link href="/about/program-council" className="team-links__link">
                         Program Council &gt;&gt;
                     </Link>
 
-                    <Link to="/meet-team-advisory-board" className="team-links__link">
+                    <Link href="/meet-team-advisory-board" className="team-links__link">
                         Advisory Board &gt;&gt;
                     </Link>
                 </div>
@@ -313,7 +313,7 @@ export default function MeetTheTeam() {
                     </span>
                     ))}
                 </p>
-                <Link to="/signup" className="about-footer-cta__button">
+                <Link href="/signup" className="about-footer-cta__button">
                     {teamData.footerCta.buttonText}
                 </Link>
                 </section>

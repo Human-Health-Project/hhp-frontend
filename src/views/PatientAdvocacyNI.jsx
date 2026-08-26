@@ -6,14 +6,14 @@ import sharedImg from "../assets/patient_advocacy/SharedPatientInformationProgra
 import onlineEventsImg from "../assets/patient_advocacy/OnlinePeertoPeerEvents.jpg";
 import volunteersImg from "../assets/patient_advocacy/DedicatedVolunteers.jpg";
 import partnershipsImg from "../assets/patient_advocacy/LocalPartnerships.jpg";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 export default function PatientAdvocacyNI() {
   return (
     <main className="pani-page">
       <header
         className="relative mx-18 h-[40vh] bg-cover bg-center flex items-center justify-center"
-        style={{ backgroundImage: `url(${heroImg})` }}
+        style={{ backgroundImage: `url(${heroImg.src})` }}
         aria-label="Patient Advocacy Northern Ireland header"
       >
         {/* Dark overlay for readability */}
@@ -101,7 +101,7 @@ export default function PatientAdvocacyNI() {
             </p>
 
             <div className="pani-ctaRow">
-              <Link to="/donate" className="pani-button">
+              <Link href="/donate" className="pani-button">
                 DONATE NOW
               </Link>
             </div>
@@ -140,7 +140,7 @@ export default function PatientAdvocacyNI() {
                 <div className="pani-programImgWrap">
                   <img
                     className="pani-programImg"
-                    src={workshopImg}
+                    src={workshopImg.src}
                     alt="Patient Advocacy Workshops"
                   />
                 </div>
@@ -148,7 +148,7 @@ export default function PatientAdvocacyNI() {
                   <p className="pani-programTitle">
                     <Link
                       className="pani-titleLink"
-                      to="/what-we-do/patient-advocacy/northern-ireland"
+                      href="/what-we-do/patient-advocacy/northern-ireland"
                     >
                       Patient Advocacy Workshops:
                     </Link>
@@ -158,14 +158,14 @@ export default function PatientAdvocacyNI() {
                     workshops for{" "}
                     <Link
                       className="pani-inlineLink"
-                      to="/what-we-do/patient-advocacy/northern-ireland"
+                      href="/what-we-do/patient-advocacy/northern-ireland"
                     >
                       Northern Ireland
                     </Link>{" "}
                     and{" "}
                     <Link
                       className="pani-inlineLink"
-                      to="/what-we-do/patient-advocacy/los-angeles"
+                      href="/what-we-do/patient-advocacy/los-angeles"
                     >
                       Los Angeles
                     </Link>
@@ -181,7 +181,7 @@ export default function PatientAdvocacyNI() {
                 <div className="pani-programImgWrap">
                   <img
                     className="pani-programImg"
-                    src={learningImg}
+                    src={learningImg.src}
                     alt="Learning Academy"
                   />
                 </div>
@@ -189,7 +189,7 @@ export default function PatientAdvocacyNI() {
                   <p className="pani-programTitle">
                     <Link
                       className="pani-titleLink"
-                      to="/what-we-do/learning-academy/english"
+                      href="/what-we-do/learning-academy/english"
                     >
                       Learning Academy:
                     </Link>
@@ -208,7 +208,7 @@ export default function PatientAdvocacyNI() {
                 <div className="pani-programImgWrap">
                   <img
                     className="pani-programImg"
-                    src={sharedImg}
+                    src={sharedImg.src}
                     alt="Shared Patient Information Program"
                   />
                 </div>
@@ -216,7 +216,7 @@ export default function PatientAdvocacyNI() {
                   <p className="pani-programTitle">
                     <Link
                       className="pani-titleLink"
-                      to="/what-we-do/shared-patient-information"
+                      href="/what-we-do/shared-patient-information"
                     >
                       Shared Patient Information Program:
                     </Link>
@@ -234,7 +234,7 @@ export default function PatientAdvocacyNI() {
                 <div className="pani-programImgWrap">
                   <img
                     className="pani-programImg"
-                    src={onlineEventsImg}
+                    src={onlineEventsImg.src}
                     alt="Online Peer to Peer Events"
                   />
                 </div>
@@ -242,7 +242,7 @@ export default function PatientAdvocacyNI() {
                   <p className="pani-programTitle">
                     <Link
                       className="pani-titleLink"
-                      to="/what-we-do/online-events"
+                      href="/what-we-do/online-events"
                     >
                       Online Peer to Peer Events:
                     </Link>
@@ -260,7 +260,7 @@ export default function PatientAdvocacyNI() {
                 <div className="pani-programImgWrap">
                   <img
                     className="pani-programImg"
-                    src={volunteersImg}
+                    src={volunteersImg.src}
                     alt="Dedicated Volunteers"
                   />
                 </div>
@@ -268,7 +268,7 @@ export default function PatientAdvocacyNI() {
                   <p className="pani-programTitle">
                     <Link
                       className="pani-titleLink"
-                      to="/who-we-are/meet-the-team"
+                      href="/who-we-are/meet-the-team"
                     >
                       Dedicated Volunteers:
                     </Link>
@@ -287,7 +287,7 @@ export default function PatientAdvocacyNI() {
                 <div className="pani-programImgWrap">
                   <img
                     className="pani-programImg"
-                    src={partnershipsImg}
+                    src={partnershipsImg.src}
                     alt="Local Partnerships"
                   />
                 </div>
@@ -295,7 +295,7 @@ export default function PatientAdvocacyNI() {
                   <p className="pani-programTitle">
                     <Link
                       className="pani-titleLink"
-                      to="/how-to-help/become-hhp-partner"
+                      href="/how-to-help/become-hhp-partner"
                     >
                       Local Partnerships:
                     </Link>

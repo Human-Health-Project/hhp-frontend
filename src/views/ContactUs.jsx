@@ -1,3 +1,5 @@
+"use client";
+
 import "./ContactUs.css";
 import { useState } from "react";
 import { getNames } from "country-list";

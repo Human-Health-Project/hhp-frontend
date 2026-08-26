@@ -2,14 +2,14 @@ import "../index.css";
 import "./PatientAdvocacyNI.css";
 import heroImg from "../assets/patient_advocacy/patient-advocacy-ni-hero.jpg";
 import Programs from "../components/Programs";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 export default function PatientAdvocacyLA() {
   return (
     <main className="pani-page">
       <header
         className="relative mx-18 h-[40vh] bg-cover bg-center flex items-center justify-center"
-        style={{ backgroundImage: `url(${heroImg})` }}
+        style={{ backgroundImage: `url(${heroImg.src})` }}
         aria-label="Patient Advocacy Los Angeles header"
       >
         {/* Dark overlay for readability */}
@@ -102,7 +102,7 @@ export default function PatientAdvocacyLA() {
             </p>
 
             <div className="pani-ctaRow">
-              <Link to="/donate" className="pani-button">
+              <Link href="/donate" className="pani-button">
                 DONATE NOW
               </Link>
             </div>
