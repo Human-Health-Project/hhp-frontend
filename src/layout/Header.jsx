@@ -1,12 +1,15 @@
+"use client";
+
 // src/layout/Header.jsx
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import "./Header.css";
 
 export default function Header() {
   const { currentUser, logout } = useAuth();
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openGroup, setOpenGroup] = useState({
@@ -38,7 +41,7 @@ export default function Header() {
     try {
       await logout();
       closeMobile();
-      navigate("/");
+      router.push("/");
     } catch (error) {
       console.error("Logout failed:", error);
     }
@@ -54,7 +57,7 @@ return (
   <>
     {/* Non-sticky announcement bar (scrolls away) */}
     <div className="hhp-topbar">
-      <Link to="join-patient-advisory-board" className="hhp-topbar-link" onClick={closeMobile}>
+      <Link href="/join-patient-advisory-board" prefetch={false} className="hhp-topbar-link" onClick={closeMobile}>
         Join Our Patient Advisory Board – Learn More
       </Link>
     </div>
@@ -63,7 +66,7 @@ return (
     <header className="hhp-header">
       <div className="hhp-header-inner">
         {/* LOGO */}
-        <Link to="/" className="hhp-logo-link" onClick={closeMobile}>
+        <Link href="/" className="hhp-logo-link" onClick={closeMobile}>
           <img src="/hhp-logo.png" alt="Human Health Project" className="hhp-logo" />
         </Link>
 
@@ -82,15 +85,15 @@ return (
 
           {/* DESKTOP NAV */}
           <nav className="hhp-nav">
-            <NavLink to="/medical-disclaimer" className="nav-item">
+            <Link href="/medical-disclaimer" className="nav-item">
               MEDICAL DISCLAIMER
-            </NavLink>
+            </Link>
 
             <div className="dropdown">
               <span className="nav-item">WHO WE ARE ▾</span>
               <div className="dropdown-menu">
-                <NavLink to="/who-we-are/about-us">ABOUT US</NavLink>
-                <NavLink to="/who-we-are/meet-the-team">MEET THE TEAM</NavLink>
+                <Link href="/who-we-are/about-us">ABOUT US</Link>
+                <Link href="/who-we-are/meet-the-team">MEET THE TEAM</Link>
               </div>
             </div>
 
@@ -104,7 +107,7 @@ return (
                   </span>
 
                   <div className="dropdown-submenu-menu">
-                    <NavLink to="/what-we-do/healthcare-access/introduction">INTRODUCTION</NavLink>
+                    <Link href="/what-we-do/healthcare-access/introduction">INTRODUCTION</Link>
 
                     <div className="dropdown-submenu nested">
                       <span className="submenu-title">
@@ -112,12 +115,12 @@ return (
                         </span>
                       </span>
                       <div className="dropdown-submenu-menu">
-                        <NavLink to="/what-we-do/patient-advocacy/northern-ireland">
+                        <Link href="/what-we-do/patient-advocacy/northern-ireland">
                           PATIENT ADVOCACY - NORTHERN IRELAND
-                        </NavLink>
-                        <NavLink to="/what-we-do/patient-advocacy/los-angeles">
+                        </Link>
+                        <Link href="/what-we-do/patient-advocacy/los-angeles">
                           PATIENT ADVOCACY - LOS ANGELES
-                        </NavLink>
+                        </Link>
                       </div>
                     </div>
 
@@ -126,14 +129,14 @@ return (
                         LEARNING ACADEMY <span>›</span>
                       </span>
                       <div className="dropdown-submenu-menu">
-                        <NavLink to="/what-we-do/learning-academy/videos">LEARNING ACADEMY VIDEOS</NavLink>
-                        <NavLink to="/what-we-do/learning-academy/english">LEARNING ACADEMY - ENGLISH</NavLink>
-                        <NavLink to="/what-we-do/learning-academy/spanish">LEARNING ACADEMY - SPANISH</NavLink>
-                        <NavLink to="/what-we-do/learning-academy/mandarin">LEARNING ACADEMY - MANDARIN</NavLink>
+                        <Link href="/what-we-do/learning-academy/videos">LEARNING ACADEMY VIDEOS</Link>
+                        <Link href="/what-we-do/learning-academy/english">LEARNING ACADEMY - ENGLISH</Link>
+                        <Link href="/what-we-do/learning-academy/spanish">LEARNING ACADEMY - SPANISH</Link>
+                        <Link href="/what-we-do/learning-academy/mandarin">LEARNING ACADEMY - MANDARIN</Link>
                       </div>
                     </div>
 
-                    <NavLink to="/what-we-do/online-events">ONLINE EVENTS</NavLink>
+                    <Link href="/what-we-do/online-events">ONLINE EVENTS</Link>
                   </div>
                 </div>
 
@@ -142,7 +145,7 @@ return (
                     STOP TYPE 2 DIABETES <span>›</span>
                   </span>
                   <div className="dropdown-submenu-menu">
-                    <NavLink to="/what-we-do/stop-type-2-diabetes/introduction">INTRODUCTION</NavLink>
+                    <Link href="/what-we-do/stop-type-2-diabetes/introduction">INTRODUCTION</Link>
                   </div>
                 </div>
 
@@ -151,10 +154,10 @@ return (
                     SHARED PATIENT INFORMATION <span>›</span>
                   </span>
                   <div className="dropdown-submenu-menu">
-                    <NavLink to="/what-we-do/shared-patient-information">INTRODUCTION</NavLink>
-                    <NavLink to="/shared-patient-information/migraine">MIGRAINE</NavLink>
-                    <NavLink to="/shared-patient-information/lupus">LUPUS</NavLink>
-                    <NavLink to="/shared-patient-information/narratives">NARRATIVES</NavLink>
+                    <Link href="/what-we-do/shared-patient-information">INTRODUCTION</Link>
+                    <Link href="/shared-patient-information/migraine">MIGRAINE</Link>
+                    <Link href="/shared-patient-information/lupus">LUPUS</Link>
+                    <Link href="/shared-patient-information/narratives">NARRATIVES</Link>
                   </div>
                 </div>
               </div>
@@ -163,35 +166,35 @@ return (
             <div className="dropdown">
               <span className="nav-item">WHY HHP ▾</span>
               <div className="dropdown-menu">
-                <NavLink to="/why-hhp/who-we-serve">WHO WE SERVE</NavLink>
+                <Link href="/why-hhp/who-we-serve">WHO WE SERVE</Link>
               </div>
             </div>
 
             <div className="dropdown">
               <span className="nav-item">HOW TO HELP ▾</span>
               <div className="dropdown-menu">
-                <NavLink to="/how-to-help/">SUPPORT HHP</NavLink>
-                <NavLink
-                  to="/how-to-help#volunteer"
-                  onClick={(e) => {
+                <Link href="/how-to-help/">SUPPORT HHP</Link>
+                <Link
+                  href="/how-to-help#volunteer-section"
+                  onClick={() => {
                     // force scroll to volunteer section on same page even if router doesn't "navigate"
                     requestAnimationFrame(() => {
-                      const el = document.querySelector("#volunteer");
+                      const el = document.querySelector("#volunteer-section");
                       if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
                     });
                   }}
                 >
                   VOLUNTEER
-                </NavLink>
-                <NavLink to="/how-to-help/intern">INTERN</NavLink>
-                <NavLink to="/how-to-help/become-hhp-partner">BECOME A HHP PARTNER</NavLink>
-                <NavLink to="/how-to-help/matching-donations">MATCHING DONATIONS</NavLink>
+                </Link>
+                <Link href="/how-to-help/intern">INTERN</Link>
+                <Link href="/how-to-help/become-hhp-partner">BECOME A HHP PARTNER</Link>
+                <Link href="/how-to-help/matching-donations">MATCHING DONATIONS</Link>
               </div>
             </div>
             <div className="dropdown">
               <span className="nav-item">NEWS ▾</span>
               <div className="dropdown-menu">
-                <NavLink to="/latest-news">LATEST NEWS</NavLink>
+                <Link href="/latest-news">LATEST NEWS</Link>
 
                 <a
                   href="https://humanhealthproject.org/blog/"
@@ -205,9 +208,9 @@ return (
           </nav>
 
           {/* DESKTOP-ONLY BUTTONS (hidden on mobile via CSS) */}
-          <NavLink to="/donate" className="btn btn-primary donate-btn hhp-desktop-only">
+          <Link href="/donate" className="btn btn-primary donate-btn hhp-desktop-only">
             DONATE
-          </NavLink>
+          </Link>
 
           {currentUser ? (
             <div className="user-menu dropdown hhp-desktop-only">
@@ -220,9 +223,9 @@ return (
               </div>
             </div>
           ) : (
-            <NavLink to="/login" className="btn btn-secondary join-btn hhp-desktop-only">
+            <Link href="/login" className="btn btn-secondary join-btn hhp-desktop-only">
               JOIN US / LOG IN
-            </NavLink>
+            </Link>
           )}
         </div>
       </div>
@@ -230,9 +233,9 @@ return (
       {/* MOBILE MENU PANEL */}
       {mobileOpen && (
         <div className="hhp-mobile-panel" role="navigation" aria-label="Mobile menu">
-          <NavLink to="/medical-disclaimer" className="hhp-mobile-link" onClick={closeMobile}>
+          <Link href="/medical-disclaimer" className="hhp-mobile-link" onClick={closeMobile}>
             MEDICAL DISCLAIMER
-          </NavLink>
+          </Link>
 
           {/* WHO WE ARE */}
           <button className="hhp-mobile-acc" type="button" onClick={() => toggle("who")} aria-expanded={openGroup.who}>
@@ -240,12 +243,12 @@ return (
           </button>
           {openGroup.who && (
             <div className="hhp-mobile-sub">
-              <NavLink to="/who-we-are/about-us" className="hhp-mobile-sublink" onClick={closeMobile}>
+              <Link href="/who-we-are/about-us" className="hhp-mobile-sublink" onClick={closeMobile}>
                 ABOUT US
-              </NavLink>
-              <NavLink to="/who-we-are/meet-the-team" className="hhp-mobile-sublink" onClick={closeMobile}>
+              </Link>
+              <Link href="/who-we-are/meet-the-team" className="hhp-mobile-sublink" onClick={closeMobile}>
                 MEET THE TEAM
-              </NavLink>
+              </Link>
             </div>
           )}
 
@@ -272,13 +275,13 @@ return (
 
               {openGroup.healthcareAccess && (
                 <div className="hhp-mobile-sub hhp-mobile-sub--nested">
-                  <NavLink
-                    to="/what-we-do/healthcare-access/introduction"
+                  <Link
+                    href="/what-we-do/healthcare-access/introduction"
                     className="hhp-mobile-sublink"
                     onClick={closeMobile}
                   >
                     INTRODUCTION
-                  </NavLink>
+                  </Link>
 
                   <button
                     className="hhp-mobile-acc hhp-mobile-acc--nested2"
@@ -291,20 +294,20 @@ return (
                   </button>
                   {openGroup.patientAdvocacy && (
                     <div className="hhp-mobile-sub hhp-mobile-sub--nested2">
-                      <NavLink
-                        to="/what-we-do/patient-advocacy/northern-ireland"
+                      <Link
+                        href="/what-we-do/patient-advocacy/northern-ireland"
                         className="hhp-mobile-sublink"
                         onClick={closeMobile}
                       >
                         NORTHERN IRELAND
-                      </NavLink>
-                      <NavLink
-                        to="/what-we-do/patient-advocacy/los-angeles"
+                      </Link>
+                      <Link
+                        href="/what-we-do/patient-advocacy/los-angeles"
                         className="hhp-mobile-sublink"
                         onClick={closeMobile}
                       >
                         LOS ANGELES
-                      </NavLink>
+                      </Link>
                     </div>
                   )}
 
@@ -319,40 +322,40 @@ return (
                   </button>
                   {openGroup.learningAcademy && (
                     <div className="hhp-mobile-sub hhp-mobile-sub--nested2">
-                      <NavLink
-                        to="/what-we-do/learning-academy/videos"
+                      <Link
+                        href="/what-we-do/learning-academy/videos"
                         className="hhp-mobile-sublink"
                         onClick={closeMobile}
                       >
                         VIDEOS
-                      </NavLink>
-                      <NavLink
-                        to="/what-we-do/learning-academy/english"
+                      </Link>
+                      <Link
+                        href="/what-we-do/learning-academy/english"
                         className="hhp-mobile-sublink"
                         onClick={closeMobile}
                       >
                         ENGLISH
-                      </NavLink>
-                      <NavLink
-                        to="/what-we-do/learning-academy/spanish"
+                      </Link>
+                      <Link
+                        href="/what-we-do/learning-academy/spanish"
                         className="hhp-mobile-sublink"
                         onClick={closeMobile}
                       >
                         SPANISH
-                      </NavLink>
-                      <NavLink
-                        to="/what-we-do/learning-academy/mandarin"
+                      </Link>
+                      <Link
+                        href="/what-we-do/learning-academy/mandarin"
                         className="hhp-mobile-sublink"
                         onClick={closeMobile}
                       >
                         MANDARIN
-                      </NavLink>
+                      </Link>
                     </div>
                   )}
 
-                  <NavLink to="/what-we-do/online-events" className="hhp-mobile-sublink" onClick={closeMobile}>
+                  <Link href="/what-we-do/online-events" className="hhp-mobile-sublink" onClick={closeMobile}>
                     ONLINE EVENTS
-                  </NavLink>
+                  </Link>
                 </div>
               )}
 
@@ -366,13 +369,13 @@ return (
               </button>
               {openGroup.stopT2D && (
                 <div className="hhp-mobile-sub hhp-mobile-sub--nested">
-                  <NavLink
-                    to="/what-we-do/stop-type-2-diabetes/introduction"
+                  <Link
+                    href="/what-we-do/stop-type-2-diabetes/introduction"
                     className="hhp-mobile-sublink"
                     onClick={closeMobile}
                   >
                     INTRODUCTION
-                  </NavLink>
+                  </Link>
                 </div>
               )}
 
@@ -388,34 +391,34 @@ return (
 
               {openGroup.spi && (
                 <div className="hhp-mobile-sub hhp-mobile-sub--nested">
-                  <NavLink
-                    to="/what-we-do/shared-patient-information"
+                  <Link
+                    href="/what-we-do/shared-patient-information"
                     className="hhp-mobile-sublink"
                     onClick={closeMobile}
                   >
                     INTRODUCTION
-                  </NavLink>
-                  <NavLink
-                    to="/shared-patient-information/migraine"
+                  </Link>
+                  <Link
+                    href="/shared-patient-information/migraine"
                     className="hhp-mobile-sublink"
                     onClick={closeMobile}
                   >
                     MIGRAINE
-                  </NavLink>
-                  <NavLink
-                    to="/shared-patient-information/lupus"
+                  </Link>
+                  <Link
+                    href="/shared-patient-information/lupus"
                     className="hhp-mobile-sublink"
                     onClick={closeMobile}
                   >
                     LUPUS
-                  </NavLink>
-                  <NavLink
-                    to="/shared-patient-information/narratives"
+                  </Link>
+                  <Link
+                    href="/shared-patient-information/narratives"
                     className="hhp-mobile-sublink"
                     onClick={closeMobile}
                   >
                     NARRATIVES
-                  </NavLink>
+                  </Link>
                 </div>
               )}
             </div>
@@ -427,9 +430,9 @@ return (
           </button>
           {openGroup.why && (
             <div className="hhp-mobile-sub">
-              <NavLink to="/why-hhp/who-we-serve" className="hhp-mobile-sublink" onClick={closeMobile}>
+              <Link href="/why-hhp/who-we-serve" className="hhp-mobile-sublink" onClick={closeMobile}>
                 WHO WE SERVE
-              </NavLink>
+              </Link>
             </div>
           )}
 
@@ -439,21 +442,21 @@ return (
           </button>
           {openGroup.help && (
             <div className="hhp-mobile-sub">
-              <NavLink to="/how-to-help/" className="hhp-mobile-sublink" onClick={closeMobile}>
+              <Link href="/how-to-help/" className="hhp-mobile-sublink" onClick={closeMobile}>
                 SUPPORT HHP
-              </NavLink>
-              <NavLink to="/how-to-help/#volunteer" className="hhp-mobile-sublink" onClick={closeMobile}>
+              </Link>
+              <Link href="/how-to-help/#volunteer" className="hhp-mobile-sublink" onClick={closeMobile}>
                 VOLUNTEER
-              </NavLink>
-              <NavLink to="/how-to-help/intern" className="hhp-mobile-sublink" onClick={closeMobile}>
+              </Link>
+              <Link href="/how-to-help/intern" className="hhp-mobile-sublink" onClick={closeMobile}>
                 INTERN
-              </NavLink>
-              <NavLink to="/how-to-help/become-hhp-partner" className="hhp-mobile-sublink" onClick={closeMobile}>
+              </Link>
+              <Link href="/how-to-help/become-hhp-partner" className="hhp-mobile-sublink" onClick={closeMobile}>
                 BECOME A HHP PARTNER
-              </NavLink>
-              <NavLink to="/how-to-help/matching-donations" className="hhp-mobile-sublink" onClick={closeMobile}>
+              </Link>
+              <Link href="/how-to-help/matching-donations" className="hhp-mobile-sublink" onClick={closeMobile}>
                 MATCHING DONATIONS
-              </NavLink>
+              </Link>
             </div>
           )}
 
@@ -468,13 +471,13 @@ return (
 
           {openGroup.newSection && (
             <div className="hhp-mobile-sub">
-              <NavLink
-                to="/latest-news"
+              <Link
+                href="/latest-news"
                 className="hhp-mobile-sublink"
                 onClick={closeMobile}
               >
                 LATEST NEWS
-              </NavLink>
+              </Link>
 
               <a
                 href="https://humanhealthproject.org/blog/"
@@ -490,18 +493,18 @@ return (
 
           {/* Bottom Buttons (Donate + Join/Login) */}
           <div className="hhp-mobile-bottom">
-            <NavLink to="/donate" className="hhp-mobile-btn hhp-mobile-btn--primary" onClick={closeMobile}>
+            <Link href="/donate" className="hhp-mobile-btn hhp-mobile-btn--primary" onClick={closeMobile}>
               DONATE
-            </NavLink>
+            </Link>
 
             {currentUser ? (
               <button className="hhp-mobile-btn hhp-mobile-btn--danger" type="button" onClick={handleLogout}>
                 LOG OUT
               </button>
             ) : (
-              <NavLink to="/login" className="hhp-mobile-btn hhp-mobile-btn--outline" onClick={closeMobile}>
+              <Link href="/login" className="hhp-mobile-btn hhp-mobile-btn--outline" onClick={closeMobile}>
                 JOIN US / LOG IN
-              </NavLink>
+              </Link>
             )}
           </div>
 

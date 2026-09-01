@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect } from 'react';
 
 const Carousel = ({ items, autoPlay = true, autoPlayInterval = 3000 }) => {

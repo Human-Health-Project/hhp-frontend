@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import "./ProgramsMandarin.css";
 
 export default function Programs() {
@@ -64,7 +64,7 @@ export default function Programs() {
 
               <div className="programContent">
                 <p className="programTitle">
-                  <Link className="programTitleLink" to={program.titleLink}>
+                  <Link className="programTitleLink" href={program.titleLink}>
                     {program.title}
                   </Link>
                 </p>
@@ -73,11 +73,11 @@ export default function Programs() {
                   {program.inlineLinks ? (
                     <>
                       您的慷慨支持通过Zoom研讨会推动患者倡导{" "}
-                      <Link className="programInlineLink" to={program.inlineLinks[0].to}>
+                      <Link className="programInlineLink" href={program.inlineLinks[0].to}>
                         {program.inlineLinks[0].text}
                       </Link>{" "}
                       and{" "}
-                      <Link className="programInlineLink" to={program.inlineLinks[1].to}>
+                      <Link className="programInlineLink" href={program.inlineLinks[1].to}>
                         {program.inlineLinks[1].text}
                       </Link>
                       .  建立信心，了解您的权利，获取医疗资源，同时培养一个由知情患者和支持者组成的社区
