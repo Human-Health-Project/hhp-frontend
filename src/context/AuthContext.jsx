@@ -1,3 +1,5 @@
+"use client";
+
 import { createContext, useContext, useState, useEffect } from "react";
 import {
   signInWithEmailAndPassword,
@@ -14,6 +16,7 @@ import {
   appleProvider,
   microsoftProvider,
 } from "../firebase/config";
+import { api } from "../services/api";
 
 const AuthContext = createContext();
 
@@ -56,7 +59,13 @@ export function AuthProvider({ children }) {
   }
 
   // Logout
-  function logout() {
+  async function logout() {
+    const token = await auth.currentUser?.getIdToken();
+
+    if (token) {
+      await api.logout(token).catch(() => undefined);
+    }
+
     return signOut(auth);
   }
 
@@ -66,8 +75,16 @@ export function AuthProvider({ children }) {
   }
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
       setCurrentUser(user);
+
+      if (user) {
+        const token = await user.getIdToken();
+        await api.establishSession(token).catch((error) => {
+          console.error("Unable to establish backend session", error);
+        });
+      }
+
       setLoading(false);
     });
 
@@ -76,6 +93,7 @@ export function AuthProvider({ children }) {
 
   const value = {
     currentUser,
+    loading,
     signup,
     login,
     logout,
@@ -88,7 +106,7 @@ export function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider value={value}>
-      {!loading && children}
+      {children}
     </AuthContext.Provider>
   );
 }
