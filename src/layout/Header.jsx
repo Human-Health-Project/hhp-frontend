@@ -175,11 +175,11 @@ return (
               <div className="dropdown-menu">
                 <Link href="/how-to-help/">SUPPORT HHP</Link>
                 <Link
-                  href="/how-to-help#volunteer"
-                  onClick={(e) => {
+                  href="/how-to-help#volunteer-section"
+                  onClick={() => {
                     // force scroll to volunteer section on same page even if router doesn't "navigate"
                     requestAnimationFrame(() => {
-                      const el = document.querySelector("#volunteer");
+                      const el = document.querySelector("#volunteer-section");
                       if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
                     });
                   }}

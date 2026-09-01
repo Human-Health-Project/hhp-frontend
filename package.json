@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "lint": "eslint .",
-    "start": "next start -p $PORT"
+    "start": "next start"
   },
   "dependencies": {
     "@iconscout/react-unicons": "^2.2.5",
