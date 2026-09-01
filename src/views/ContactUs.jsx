@@ -3,14 +3,29 @@
 import "./ContactUs.css";
 import { useState } from "react";
 import { getNames } from "country-list";
+import { api } from "../services/api";
 
 export default function ContactUs() {
   const countries = getNames();
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setError("");
+
+    const formData = new FormData(e.currentTarget);
+
+    try {
+      await api.contact(Object.fromEntries(formData));
+      setSubmitted(true);
+    } catch (submissionError) {
+      setError(submissionError.message);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -50,22 +65,22 @@ export default function ContactUs() {
             <div className="contact-row">
               <div className="contact-field">
                 <label>First Name *</label>
-                <input type="text" required />
+                <input name="first_name" type="text" required />
               </div>
 
               <div className="contact-field">
                 <label>Last Name *</label>
-                <input type="text" required />
+                <input name="last_name" type="text" required />
               </div>
             </div>
             <div className="contact-field">
               <label>Email *</label>
-              <input type="email" required />
+              <input name="email" type="email" required />
             </div>
 
             <div className="contact-field">
               <label>Country *</label>
-              <select required>
+              <select name="country" required>
                 {countries.map((country) => (
                   <option key={country}>{country}</option>
                 ))}
@@ -74,11 +89,13 @@ export default function ContactUs() {
 
             <div className="contact-field">
               <label>Your Message *</label>
-              <textarea rows="6" required />
+              <textarea name="message" rows="6" required />
             </div>
 
-            <button type="submit" className="contact-sendBtn">
-              SUBMIT
+            {error && <p role="alert">{error}</p>}
+
+            <button type="submit" className="contact-sendBtn" disabled={submitting}>
+              {submitting ? "SUBMITTING..." : "SUBMIT"}
             </button>
 
           </form>
