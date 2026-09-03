@@ -1,6 +1,8 @@
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ||
   "https://hhp-frontend-production-orchrg.laravel.cloud";
 
+export const dynamic = "force-static";
+
 const routes = [
   "/",
   "/medical-disclaimer",
@@ -17,6 +19,7 @@ const routes = [
   "/what-we-do/online-events",
   "/what-we-do/stop-type-2-diabetes/introduction",
   "/what-we-do/shared-patient-information",
+  "/what-we-do/community-voices",
   "/shared-patient-information/migraine",
   "/shared-patient-information/lupus",
   "/shared-patient-information/narratives",
