@@ -160,6 +160,8 @@ return (
                     <Link href="/shared-patient-information/narratives">NARRATIVES</Link>
                   </div>
                 </div>
+
+                <Link href="/what-we-do/community-voices">COMMUNITY VOICES</Link>
               </div>
             </div>
 
@@ -421,6 +423,14 @@ return (
                   </Link>
                 </div>
               )}
+
+              <Link
+                href="/what-we-do/community-voices"
+                className="hhp-mobile-sublink hhp-mobile-sublink--group"
+                onClick={closeMobile}
+              >
+                COMMUNITY VOICES
+              </Link>
             </div>
           )}
 
