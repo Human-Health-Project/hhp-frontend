@@ -402,6 +402,13 @@
     color: #065399;
   }
 
+  /* A flat link sitting at the same level as the nested accordion groups
+     (e.g. COMMUNITY VOICES inside WHAT WE DO) — match their weight/indent. */
+  .hhp-mobile-sublink--group {
+    font-weight: 700;
+    padding-left: 14px;
+  }
+
   /* Bottom buttons inside menu */
   .hhp-mobile-bottom {
     margin-top: 14px;
