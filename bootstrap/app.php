@@ -20,7 +20,26 @@ return Application::configure(basePath: dirname(__DIR__))
 
             foreach ($candidates as $candidate) {
                 if (is_file($candidate)) {
-                    return response()->file($candidate);
+                    $contentTypes = [
+                        'css' => 'text/css; charset=utf-8',
+                        'js' => 'application/javascript; charset=utf-8',
+                        'json' => 'application/json; charset=utf-8',
+                        'svg' => 'image/svg+xml',
+                        'woff' => 'font/woff',
+                        'woff2' => 'font/woff2',
+                        'png' => 'image/png',
+                        'jpg' => 'image/jpeg',
+                        'jpeg' => 'image/jpeg',
+                        'webp' => 'image/webp',
+                        'ico' => 'image/x-icon',
+                    ];
+
+                    $extension = strtolower(pathinfo($candidate, PATHINFO_EXTENSION));
+                    $headers = isset($contentTypes[$extension])
+                        ? ['Content-Type' => $contentTypes[$extension]]
+                        : [];
+
+                    return response()->file($candidate, $headers);
                 }
             }
 
