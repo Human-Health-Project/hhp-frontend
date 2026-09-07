@@ -8,6 +8,11 @@
   --cv-shadow: 0 12px 34px rgba(0, 0, 0, 0.08);
   --cv-bg-soft: #eef4fa;
 
+  /* How wide the hero artwork is allowed to get. The rest of the page stays
+     at 1000px for comfortable reading line-length; only the hero uses this.
+     Change this one value to make the image bigger or smaller. */
+  --cv-hero-max: 1320px;
+
   background: linear-gradient(180deg, #eef5fb 0%, #ffffff 55%, #f7fafd 100%);
   overflow-x: hidden;
 }
@@ -26,7 +31,12 @@
 
 /* ================= HERO ================= */
 .cv-hero {
-  padding: 56px 0 32px;
+  padding: 56px 0 40px;
+}
+
+/* The hero runs wider than the reading column below it. */
+.cv-hero .cv-container {
+  max-width: var(--cv-hero-max);
 }
 
 /*
