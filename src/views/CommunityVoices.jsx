@@ -1,5 +1,6 @@
 import "./CommunityVoices.css";
 import sampleStories from "@/data/sampleStories";
+import heroImage from "@/assets/community-voices/hero.jpg";
 
 // Note: the character after "zRwy" is an uppercase i, not a lowercase L.
 // The two are indistinguishable in most fonts and the ticket had the wrong one
@@ -14,34 +15,58 @@ export default function CommunityVoices() {
       <section className="cv-hero">
         <div className="cv-container">
           {/*
-            Hero artwork slot — the background stands in for the image until the
-            design asset is supplied. Drop the file in and swap this block for an
-            <img>/next/image; the surrounding layout does not need to change.
+            The hero artwork has the heading, intro copy and both buttons baked
+            into it. The two <a> elements below are transparent hotspots layered
+            exactly over the drawn buttons, positioned as percentages so they
+            track the image at any width. If the artwork is ever replaced, the
+            --cv-hit-* values in the CSS are the only things to re-measure.
+
+            Below 768px the drawn buttons are too small to tap reliably, so the
+            hotspots are hidden and the real buttons underneath take over.
           */}
-          <div className="cv-hero-panel">
-            <p className="cv-hero-eyebrow">Community Voices</p>
-            <h1 className="cv-hero-title">Real Stories. Shared to Help You.</h1>
+          <div className="cv-hero-figure">
+            <img
+              src={heroImage.src}
+              alt="Community Voices — read real and anonymous stories about screenings, symptom recognition, and healthy lifestyle changes. Each story invites its reader, perhaps you or a loved one, to feel a little more supported and empowered to take action."
+              className="cv-hero-img"
+              width={heroImage.width}
+              height={heroImage.height}
+              priority="true"
+            />
 
-            <p className="cv-hero-text">
-              Community Voices for Prevention shares anonymous, authentic
-              stories about screenings, symptom recognition, and healthy
-              lifestyle changes. Every story helps others feel informed,
-              supported, and empowered to take action.
-            </p>
+            <a
+              href="#stories"
+              className="cv-hotspot cv-hotspot-read"
+              aria-label="Read a story"
+            >
+              <span className="cv-sr-only">Read a story</span>
+            </a>
 
-            <div className="cv-hero-actions">
-              <a href="#stories" className="cv-btn cv-btn-primary">
-                Read a Story
-              </a>
-              <a
-                href={SHARE_FORM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cv-btn cv-btn-secondary"
-              >
-                Share a Story
-              </a>
-            </div>
+            <a
+              href={SHARE_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cv-hotspot cv-hotspot-share"
+              aria-label="Share a story — opens a Google Form in a new tab"
+            >
+              <span className="cv-sr-only">Share a story</span>
+            </a>
+          </div>
+
+          {/* Visible buttons for small screens, where the drawn ones are
+              too small to be a reliable tap target. */}
+          <div className="cv-hero-actions">
+            <a href="#stories" className="cv-btn cv-btn-primary">
+              Read a Story
+            </a>
+            <a
+              href={SHARE_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cv-btn cv-btn-secondary"
+            >
+              Share a Story
+            </a>
           </div>
         </div>
       </section>
