@@ -42,33 +42,32 @@
   padding: 0 20px;
 }
 
+/* Visually hidden, still read by screen readers and search engines. */
+.jpab-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .jpab-hero-img {
   display: block;
   width: 100%;
-  height: 360px;
+  /* Was a fixed 360px against a 3:2 source, which cropped hard enough to cut
+     off the subjects' heads. A ratio keeps the framing intact as it scales,
+     and the position bias keeps faces in frame at the shallowest sizes. */
+  aspect-ratio: 21 / 8;
+  max-height: 420px;
   object-fit: cover;
+  object-position: center 38%;
   border-radius: 18px;
   border: 1px solid var(--jpab-border);
   box-shadow: var(--jpab-shadow);
-}
-
-.jpab-hero-overlay {
-  position: absolute;
-  inset: 0;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.jpab-hero-title {
-  margin: 0;
-  text-align: center;
-  color: #ffffff;
-  font-weight: 900;
-  font-size: 46px;
-  line-height: 1.05;
-  text-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
 }
 
 /* Curved card */
@@ -143,15 +142,11 @@
   .jpab-hero {
     padding: 0 16px;
     margin-top: 16px;
-    height: 280px;
   }
 
+  /* Squarer crop on narrow screens so the subjects stay recognisable. */
   .jpab-hero-img {
-    height: 250px;
-  }
-
-  .jpab-hero-title {
-    font-size: 32px;
+    aspect-ratio: 16 / 9;
   }
 
   .jpab-section-title {

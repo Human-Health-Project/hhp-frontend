@@ -24,112 +24,6 @@
   padding: 0 20px;
 }
 
-/* ================= HERO ================= */
-.cv-hero {
-  padding: 56px 0 32px;
-}
-
-.cv-hero-banner {
-  border-radius: 20px;
-  box-shadow: var(--cv-shadow);
-}
-
-/*
-  Hero artwork slot. The gradient stands in for the design image; when the
-  asset arrives, place it behind this panel (background-image, or an <img>
-  positioned under the text) and keep the overlay for text contrast.
-*/
-.cv-hero-panel {
-  position: relative;
-  border-radius: 20px;
-  padding: 72px 56px;
-  color: #ffffff;
-  background:
-    radial-gradient(
-      900px 380px at 18% 22%,
-      rgba(255, 255, 255, 0.16),
-      transparent 60%
-    ),
-    linear-gradient(135deg, #0a4d86 0%, #065399 45%, #12325a 100%);
-  box-shadow: var(--cv-shadow);
-  overflow: hidden;
-}
-
-.cv-hero-eyebrow {
-  margin: 0 0 10px;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #cfe38a;
-}
-
-.cv-hero-title {
-  margin: 0 0 18px;
-  font-size: clamp(2rem, 4.2vw, 3.1rem);
-  line-height: 1.15;
-  font-weight: 800;
-  color: #ffffff;
-  max-width: 18ch;
-}
-
-.cv-hero-text {
-  margin: 0 0 30px;
-  max-width: 52ch;
-  font-size: 17px;
-  line-height: 1.7;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.92);
-}
-
-.cv-hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-
-.cv-btn {
-  display: inline-block;
-  padding: 13px 28px;
-  border-radius: 6px;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border: 2px solid transparent;
-  transition: background-color 0.18s ease, color 0.18s ease,
-    border-color 0.18s ease;
-}
-
-.cv-btn-primary {
-  background: #cfe38a;
-  border-color: #cfe38a;
-  color: #12325a;
-}
-
-.cv-btn-primary:hover,
-.cv-btn-primary:focus-visible {
-  background: #dcebA5;
-  border-color: #dceba5;
-}
-
-.cv-btn-secondary {
-  background: transparent;
-  border-color: #cfe38a;
-  color: #cfe38a;
-}
-
-.cv-btn-secondary:hover,
-.cv-btn-secondary:focus-visible {
-  background: rgba(207, 227, 138, 0.16);
-}
-
-.cv-btn:focus-visible {
-  outline: 3px solid #ffffff;
-  outline-offset: 3px;
-}
-
 /* ================= STORIES ================= */
 .cv-stories-section {
   padding: 0 0 80px;
@@ -342,19 +236,6 @@
 
 /* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
-  .cv-hero {
-    padding: 36px 0 24px;
-  }
-
-  .cv-hero-panel {
-    padding: 48px 28px;
-    border-radius: 16px;
-  }
-
-  .cv-hero-title {
-    max-width: none;
-  }
-
   .cv-stories-intro {
     padding: 34px 24px 30px;
     border-radius: 16px 16px 0 0;
@@ -379,19 +260,6 @@
     padding: 0 16px;
   }
 
-  .cv-hero-panel {
-    padding: 36px 20px;
-  }
-
-  .cv-hero-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .cv-btn {
-    text-align: center;
-  }
-
   .cv-stories-intro {
     padding: 28px 18px 26px;
   }
@@ -411,11 +279,5 @@
 
   .cv-share-cta {
     padding: 24px 16px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .cv-btn {
-    transition: none;
   }
 }

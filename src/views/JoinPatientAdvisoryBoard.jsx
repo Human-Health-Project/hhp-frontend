@@ -7,19 +7,18 @@ export default function JoinPatientAdvisoryBoard() {
   return (
     <div className="jpab-page">
 
-      {/* HERO */}
+      {/* HERO
+          The "Human Health Project Advisory Council" title that used to sit on
+          top of the photo has been removed. The heading below is not shown on
+          screen — it is kept so the page still has an <h1> for screen readers
+          and search engines, which every page needs. */}
       <section className="jpab-hero">
+        <h1 className="jpab-sr-only">Join Our Patient Advisory Board</h1>
         <img
           src={heroImg.src}
-          alt="Human Health Project Advisory Council"
+          alt="Three people talking and laughing together around a table with laptops"
           className="jpab-hero-img"
         />
-        <div className="jpab-hero-overlay">
-          <h1 className="jpab-hero-title">
-            Human Health Project <br />
-            Advisory Council
-          </h1>
-        </div>
       </section>
 
       <div className="jpab-container jpab-content">
