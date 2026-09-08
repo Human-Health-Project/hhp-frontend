@@ -1,10 +1,37 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import CommunityVoicesBanner from "@/components/CommunityVoicesBanner";
+import { api } from "@/services/api";
 import "./Home.css";
 
 export default function Home() {
+  const [newsletter, setNewsletter] = useState({ email: "", country: "AF" });
+  const [newsletterState, setNewsletterState] = useState({ status: "idle", message: "" });
+
+  const subscribeToNewsletter = async (event) => {
+    event.preventDefault();
+    setNewsletterState({ status: "loading", message: "" });
+
+    try {
+      await api.subscribeToNewsletter(newsletter);
+      setNewsletter({ email: "", country: "AF" });
+      setNewsletterState({
+        status: "success",
+        message: "Thank you for subscribing. Please check your email.",
+      });
+    } catch (error) {
+      const duplicate = error?.status === 422 && error?.errors?.email;
+      setNewsletterState({
+        status: "error",
+        message: duplicate
+          ? "This email is already subscribed."
+          : error?.message || "Subscription failed. Please try again.",
+      });
+    }
+  };
+
   const whyCards = [
     {
       id: 1,
@@ -168,14 +195,32 @@ export default function Home() {
         <div className="container">
           <div className="newsletter-content">
             <h3 className="newsletter-title">Subscribe to our newsletter</h3>
-            <form onSubmit={(e) => e.preventDefault()}>
+            <form onSubmit={subscribeToNewsletter}>
               <div className="form-group">
                 <label htmlFor="email">Email *</label>
-                <input type="email" id="email" name="email" autoComplete="email" placeholder="Enter your email" required />
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  autoComplete="email"
+                  placeholder="Enter your email"
+                  value={newsletter.email}
+                  onChange={(event) => setNewsletter((current) => ({ ...current, email: event.target.value }))}
+                  disabled={newsletterState.status === "loading"}
+                  required
+                />
               </div>
               <div className="form-group">
                 <label htmlFor="country">Country *</label>
-                <select id="country" name="country" autoComplete="country" required>
+                <select
+                  id="country"
+                  name="country"
+                  autoComplete="country"
+                  value={newsletter.country}
+                  onChange={(event) => setNewsletter((current) => ({ ...current, country: event.target.value }))}
+                  disabled={newsletterState.status === "loading"}
+                  required
+                >
                   <option value="AF">Afghanistan</option>
                   <option value="US">United States</option>
                   <option value="UK">United Kingdom</option>
@@ -183,7 +228,18 @@ export default function Home() {
                   <option value="AU">Australia</option>
                 </select>
               </div>
-              <button type="submit" className="btn btn-primary">Subscribe</button>
+              <button type="submit" className="btn btn-primary" disabled={newsletterState.status === "loading"}>
+                {newsletterState.status === "loading" ? "Subscribing..." : "Subscribe"}
+              </button>
+              {newsletterState.message && (
+                <p
+                  className={`newsletter-message newsletter-message-${newsletterState.status}`}
+                  role={newsletterState.status === "error" ? "alert" : "status"}
+                  aria-live="polite"
+                >
+                  {newsletterState.message}
+                </p>
+              )}
             </form>
           </div>
         </div>
