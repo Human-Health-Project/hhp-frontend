@@ -11,7 +11,7 @@ export default function Home() {
       title: 'Patient Advocacy - Online Workshops',
       description: 'Join our online workshops to learn how to advocate for yourself and help others with their healthcare journeys. Get the skills and knowledge to navigate the healthcare system.',
       link: '/what-we-do/patient-advocacy/los-angeles',
-      imageUrl: 'https://humanhealthproject.org/wp-content/uploads/2023/09/patient-advocacy-1.webp'
+      imageUrl: '/wp-content/uploads/2023/09/patient-advocacy-1.webp'
     },
     {
       id: 2,
@@ -19,7 +19,7 @@ export default function Home() {
       title: 'Shared Patient Information',
       description: 'Our Shared Patient Information (SPI) Program allows patients to share their health data securely. We help you understand how to use and benefit from sharing information.',
       link: '/what-we-do/shared-patient-information',
-      imageUrl: 'https://humanhealthproject.org/wp-content/uploads/2023/09/homepage_laptop_with_hand-1024x683.webp'
+      imageUrl: '/wp-content/uploads/2023/09/homepage_laptop_with_hand-1024x683.webp'
     },
     {
       id: 3,
@@ -27,7 +27,7 @@ export default function Home() {
       title: 'Learning Academy',
       description: 'The Learning Academy is designed for anyone interested in becoming an empowered patient, empowered caregiver or those seeking to understand patient engagement and patient-centered care.',
       link: '/what-we-do/learning-academy/english',
-      imageUrl: 'https://humanhealthproject.org/wp-content/uploads/2023/09/patient-education_2-1-1024x683.webp'
+      imageUrl: '/wp-content/uploads/2023/09/patient-education_2-1-1024x683.webp'
     }
   ];
 
@@ -37,28 +37,28 @@ export default function Home() {
       className: 'donate',
       title: 'Donate',
       link: '/donate',
-      imageUrl: 'https://humanhealthproject.org/wp-content/uploads/2023/09/homepage_flowers_in_hand.webp'
+      imageUrl: '/wp-content/uploads/2023/09/homepage_flowers_in_hand.webp'
     },
     {
       id: 2,
       className: 'support',
       title: 'Support HHP',
       link: '/how-to-help/',
-      imageUrl: 'https://humanhealthproject.org/wp-content/uploads/2023/09/homepage_all_hands_in.webp'
+      imageUrl: '/wp-content/uploads/2023/09/homepage_all_hands_in.webp'
     },
     {
       id: 3,
       className: 'partner',
       title: 'Partner with Us',
       link: '/how-to-help/become-hhp-partner',
-      imageUrl: 'https://humanhealthproject.org/wp-content/uploads/2023/09/partner-1-1-1024x683.webp'
+      imageUrl: '/wp-content/uploads/2023/09/partner-1-1-1024x683.webp'
     },
     {
       id: 4,
       className: 'volunteer',
       title: 'Volunteer',
       link: '/how-to-help#volunteer-section',
-      imageUrl: 'https://humanhealthproject.org/wp-content/uploads/2023/09/homepage_coffee_shop-1024x683.webp'
+      imageUrl: '/wp-content/uploads/2023/09/homepage_coffee_shop-1024x683.webp'
     }
   ];
 
