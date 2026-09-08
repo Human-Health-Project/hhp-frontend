@@ -1,0 +1,52 @@
+.post-page {
+  background: #ffffff;
+}
+
+.post-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 30px 20px 60px;
+}
+
+.post-backLink {
+  display: inline-block;
+  margin-bottom: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #065399;
+  text-decoration: none;
+}
+
+.post-hero {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 24px;
+}
+
+.post-title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 10px;
+  color: #0b1220;
+}
+
+.post-meta {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+  margin: 0 0 32px;
+}
+
+.post-content p {
+  font-size: 17px;
+  line-height: 1.7;
+  margin: 0 0 20px;
+  color: #1a1a1a;
+}
+
+@media (max-width: 768px) {
+  .post-title {
+    font-size: 26px;
+  }
+}
