@@ -8,7 +8,7 @@ export default function Programs() {
       title: "Patient Advocacy Workshops:",
       description:
         "Your generosity supports patient advocacy through Zoom workshops for Northern Ireland and Los Angeles. Gain confidence, understand your rights, and access healthcare resources while fostering a community of informed patients and allies.",
-      image: "/wp-content/uploads/2024/03/patient-advocacy.jpg",
+      image: "/media/2024/03/patient-advocacy.jpg",
       titleLink: "/what-we-do/patient-advocacy/northern-ireland",
       inlineLinks: [
         { text: "Northern Ireland", to: "/what-we-do/patient-advocacy/northern-ireland" },
@@ -19,35 +19,35 @@ export default function Programs() {
       title: "Learning Academy:",
       description:
         "The Learning Academy is designed for anyone interested in becoming an empowered patient, empowered caregiver, or those seeking to understand patient engagement and patient-centered care.",
-      image: "/wp-content/uploads/2024/03/image.png",
+      image: "/media/2024/03/image.png",
       titleLink: "/what-we-do/learning-academy/english",
     },
     {
       title: "Shared Patient Information Program:",
       description:
         "Support our Shared Patient Information Health surveys. We've collected data on Migraine and Lupus and with your help, we are actively working on adding more health conditions.",
-      image: "/wp-content/uploads/2024/03/image-1.png",
+      image: "/media/2024/03/image-1.png",
       titleLink: "/what-we-do/shared-patient-information",
     },
     {
       title: "Online Peer to Peer Events:",
       description:
         "These events, which typically include a Learning Academy course title, include patients and experts sharing their experience and knowledge.",
-      image: "/wp-content/uploads/2024/03/image-3.png",
+      image: "/media/2024/03/image-3.png",
       titleLink: "/what-we-do/online-events",
     },
     {
       title: "Dedicated Volunteers:",
       description:
         "The Human Health Project is made up of a small core staff with over 100 volunteers, 30+ board members, and advisers spread around the world. These dedicated volunteers are a vital part of our mission.",
-      image: "/wp-content/uploads/2024/03/image-450x412.jpeg",
+      image: "/media/2024/03/image-450x412.jpeg",
       titleLink: "/who-we-are/meet-the-team",
     },
     {
       title: "Local Partnerships:",
       description:
         "We forge local alliances to extend healthcare support to underserved communities, a cornerstone of our mission to empower individuals and enhance health outcomes.",
-      image: "/wp-content/uploads/2024/03/image-1.jpeg",
+      image: "/media/2024/03/image-1.jpeg",
       titleLink: "/how-to-help/become-hhp-partner",
     },
   ];

@@ -122,7 +122,7 @@ export default function VolunteerWithUs() {
         className="vwu-heroSection"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/wp-content/uploads/2025/11/luca-bravo-9l_326FISzk-unsplash-1200x800.jpg)",
+            "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/media/2025/11/luca-bravo-9l_326FISzk-unsplash-1200x800.jpg)",
         }}
       >
         <div className="vwu-heroOverlay">
