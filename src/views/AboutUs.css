@@ -19,7 +19,7 @@
   align-items: center;
   justify-content: center;
   background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
-    url('https://humanhealthproject.org/wp-content/uploads/2023/09/Who-We-Are-Cover-Photo-1-e1539832091535-scaled.webp');
+    url('/media/2023/09/Who-We-Are-Cover-Photo-1-e1539832091535-scaled.webp');
   background-size: cover;
   background-position: center;
   border-radius: 8px;

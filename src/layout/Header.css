@@ -40,23 +40,34 @@
 .hhp-topbar {
   width: 100%;
   background: #ffffff;
-  padding: 5px 5px;
+  padding: 14px 16px;
   text-align: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .hhp-topbar-link {
+  /* "Outfit" is not loaded anywhere in the app, so this has always fallen
+     back to the system font. Kept in the stack in case it is added later. */
   font-family: "Outfit", system-ui, -apple-system, BlinkMacSystemFont,
                "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  font-weight: 200;           
-  font-size: 20px;              
-  letter-spacing: 0.3px;        
+  /* Was 200 (Extra Light), which rendered as faint, washed-out strokes and
+     made the link hard to read. */
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 0.2px;
   color: #065399;
   text-decoration: none;
 }
 
 .hhp-topbar-link:hover {
   text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.hhp-topbar-link:focus-visible {
+  outline: 3px solid #065399;
+  outline-offset: 4px;
+  border-radius: 3px;
 }
 /* NAV */
 .hhp-nav {
@@ -473,10 +484,10 @@
     font-weight: 600;
   }
    .hhp-topbar {
-    padding: 10px 12px;
+    padding: 12px 14px;
   }
   .hhp-topbar-link {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 

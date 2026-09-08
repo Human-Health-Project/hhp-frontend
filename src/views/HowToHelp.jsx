@@ -30,25 +30,25 @@ export default function HowToHelp() {
     {
       name: "CommunityNI",
       location: "(Northern Ireland Based)",
-      image: "https://humanhealthproject.org/wp-content/uploads/2025/10/CommunityNI-logo-e1761060872175.jpg",
+      image: "/media/2025/10/CommunityNI-logo-e1761060872175.jpg",
       link: "https://www.communityni.org/organisation/human-health-project",
     },
     {
       name: "Idealist / VolunteerMatch",
       location: "(US Based)",
-      image: "https://humanhealthproject.org/wp-content/uploads/2023/09/idealist_logo.webp",
+      image: "/media/2023/09/idealist_logo.webp",
       link: "https://www.idealist.org/en/nonprofit/c1c1d9c63442410383c781f1c92afc7c-human-health-project-los-angeles#opportunities",
     },
     {
       name: "Be Collective",
       location: "(Northern Ireland based)",
-      image: "https://humanhealthproject.org/wp-content/uploads/2023/09/becollective_logo.webp",
+      image: "/media/2023/09/becollective_logo.webp",
       link: "https://uk.becollective.com/groups/5df81f74a9cfcf00230aa88a/opportunities",
     },
     {
     name: "Human Health Project",
     location: "(Apply Directly with HHP)",
-    image: "https://humanhealthproject.org/wp-content/uploads/2018/11/hhp-blueTM-2.png",
+    image: "/media/2018/11/hhp-blueTM-2.png",
     to: "/how-to-help/volunteer-with-us", // internal route
     buttonText: "View Application",
     },
@@ -57,22 +57,22 @@ export default function HowToHelp() {
   const supportersTitle = "Our Supporters";
   const supporters = [
     { name: "Cole-Crone Family Foundation", logo: "" },
-    { name: "ChildLife", logo: "https://humanhealthproject.org/wp-content/uploads/2023/09/supporter_childlife_logo-400x124.webp" },
+    { name: "ChildLife", logo: "/media/2023/09/supporter_childlife_logo-400x124.webp" },
     { name: "Gerald Herman", logo: "" },
-    { name: "Google", logo: "https://humanhealthproject.org/wp-content/uploads/2023/09/supporter_2000px-Google_logo-400x135.webp" },
-    { name: "Microsoft", logo: "https://humanhealthproject.org/wp-content/uploads/2023/09/supporter_Microsoft_logo-400x85.webp" },
-    { name: "Salesforce", logo: "https://humanhealthproject.org/wp-content/uploads/2023/09/supporter_salesforce_logo.webp" },
-    { name: "Notion", logo: "https://humanhealthproject.org/wp-content/uploads/2023/09/supporter_notion_logo-400x400.webp" },
-    { name: "Amazon", logo: "https://humanhealthproject.org/wp-content/uploads/2023/09/supporter_Amazon_logo-400x121.webp" },
-    { name: "WordPress", logo: "https://humanhealthproject.org/wp-content/uploads/2023/09/supporter_WordPress_logo-400x91.webp" },
-    { name: "SAS", logo: "https://humanhealthproject.org/wp-content/uploads/2023/09/supporter_SAS_logo-400x164.webp" },
-    { name: "VolunteerMatch", logo: "https://humanhealthproject.org/wp-content/uploads/2023/09/supporter_SAS_logo-400x164.webp" },
-    { name: "Zoom", logo: "https://humanhealthproject.org/wp-content/uploads/2023/09/supporter_zoom_logo-400x90.webp" },
-    { name: "Atlassian", logo: "https://humanhealthproject.org/wp-content/uploads/2023/09/supporter_Atlasian_logo-400x127.webp" },
-    { name: "DocHub", logo: "https://humanhealthproject.org/wp-content/uploads/2023/09/supporter_DocHub_logo-400x95.webp" },
-    { name: "Sendy", logo: "https://humanhealthproject.org/wp-content/uploads/2023/08/supporter_sendy-logo.webp" },
-    { name: "UptimeRobot", logo: "https://humanhealthproject.org/wp-content/uploads/2023/09/uptimerobot-logo-300x92-1.webp" },
-    { name: "CoPort", logo: "https://humanhealthproject.org/wp-content/uploads/2024/08/CoPort_Logo-1-400x400.png" },
+    { name: "Google", logo: "/media/2023/09/supporter_2000px-Google_logo-400x135.webp" },
+    { name: "Microsoft", logo: "/media/2023/09/supporter_Microsoft_logo-400x85.webp" },
+    { name: "Salesforce", logo: "/media/2023/09/supporter_salesforce_logo.webp" },
+    { name: "Notion", logo: "/media/2023/09/supporter_notion_logo-400x400.webp" },
+    { name: "Amazon", logo: "/media/2023/09/supporter_Amazon_logo-400x121.webp" },
+    { name: "WordPress", logo: "/media/2023/09/supporter_WordPress_logo-400x91.webp" },
+    { name: "SAS", logo: "/media/2023/09/supporter_SAS_logo-400x164.webp" },
+    { name: "VolunteerMatch", logo: "/media/2023/09/supporter_SAS_logo-400x164.webp" },
+    { name: "Zoom", logo: "/media/2023/09/supporter_zoom_logo-400x90.webp" },
+    { name: "Atlassian", logo: "/media/2023/09/supporter_Atlasian_logo-400x127.webp" },
+    { name: "DocHub", logo: "/media/2023/09/supporter_DocHub_logo-400x95.webp" },
+    { name: "Sendy", logo: "/media/2023/08/supporter_sendy-logo.webp" },
+    { name: "UptimeRobot", logo: "/media/2023/09/uptimerobot-logo-300x92-1.webp" },
+    { name: "CoPort", logo: "/media/2024/08/CoPort_Logo-1-400x400.png" },
   ];
   
 
@@ -95,7 +95,7 @@ export default function HowToHelp() {
             </div>
             <div style={styles.aboutImageContainer}>
               <img
-                src="https://humanhealthproject.org/wp-content/uploads/2023/09/how-to-help-large-image-1200x796.webp"
+                src="/media/2023/09/how-to-help-large-image-1200x796.webp"
                 alt="Mother and Child"
                 style={styles.aboutImage}
               />
@@ -179,7 +179,7 @@ export default function HowToHelp() {
               className="howtohelp-volunteerCard"
             >
               <img
-                src="https://humanhealthproject.org/wp-content/uploads/2018/11/hhp-blueTM-2.png"
+                src="/media/2018/11/hhp-blueTM-2.png"
                 alt="Human Health Project"
                 style={styles.volunteerLogo}
               />
