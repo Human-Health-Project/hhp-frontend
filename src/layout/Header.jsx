@@ -198,13 +198,7 @@ return (
               <div className="dropdown-menu">
                 <Link href="/latest-news">LATEST NEWS</Link>
 
-                <a
-                  href="https://humanhealthproject.org/blog/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  BLOGS
-                </a>
+                <Link href="/blog">BLOGS</Link>
               </div>
             </div>
           </nav>
@@ -489,15 +483,13 @@ return (
                 LATEST NEWS
               </Link>
 
-              <a
-                href="https://humanhealthproject.org/blog/"
+              <Link
+                href="/blog"
                 className="hhp-mobile-sublink"
-                target="_blank"
-                rel="noopener noreferrer"
                 onClick={closeMobile}
               >
                 BLOGS
-              </a>
+              </Link>
             </div>
           )}
 
