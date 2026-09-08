@@ -1,5 +1,6 @@
 import "./CommunityVoices.css";
 import sampleStories from "@/data/sampleStories";
+import CommunityVoicesBanner from "@/components/CommunityVoicesBanner";
 
 // Note: the character after "zRwy" is an uppercase i, not a lowercase L.
 // The two are indistinguishable in most fonts and the ticket had the wrong one
@@ -13,36 +14,7 @@ export default function CommunityVoices() {
       {/* ========= HERO ========= */}
       <section className="cv-hero">
         <div className="cv-container">
-          {/*
-            Hero artwork slot — the background stands in for the image until the
-            design asset is supplied. Drop the file in and swap this block for an
-            <img>/next/image; the surrounding layout does not need to change.
-          */}
-          <div className="cv-hero-panel">
-            <p className="cv-hero-eyebrow">Community Voices</p>
-            <h1 className="cv-hero-title">Real Stories. Shared to Help You.</h1>
-
-            <p className="cv-hero-text">
-              Community Voices for Prevention shares anonymous, authentic
-              stories about screenings, symptom recognition, and healthy
-              lifestyle changes. Every story helps others feel informed,
-              supported, and empowered to take action.
-            </p>
-
-            <div className="cv-hero-actions">
-              <a href="#stories" className="cv-btn cv-btn-primary">
-                Read a Story
-              </a>
-              <a
-                href={SHARE_FORM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cv-btn cv-btn-secondary"
-              >
-                Share a Story
-              </a>
-            </div>
-          </div>
+          <CommunityVoicesBanner className="cv-hero-banner" />
         </div>
       </section>
 

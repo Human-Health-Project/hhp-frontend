@@ -29,6 +29,11 @@
   padding: 56px 0 32px;
 }
 
+.cv-hero-banner {
+  border-radius: 20px;
+  box-shadow: var(--cv-shadow);
+}
+
 /*
   Hero artwork slot. The gradient stands in for the design image; when the
   asset arrives, place it behind this panel (background-image, or an <img>
