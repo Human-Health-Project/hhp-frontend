@@ -33,7 +33,7 @@ return (
 
                 <div className="bp-rightColumn" style={styles.rightColumn}>
                     <img 
-                        src="https://humanhealthproject.org/wp-content/uploads/2024/07/Donation_Image-e1722820999357.jpg" 
+                        src="/wp-content/uploads/2024/07/Donation_Image-e1722820999357.jpg" 
                         alt="Two Women Embracing" 
                         style={styles.imagePlaceholder}
                     />
@@ -58,7 +58,7 @@ const styles = {
     maxWidth: '1000px',
     height: '220px',
     margin: '0 auto',
-    backgroundImage: 'url(https://humanhealthproject.org/wp-content/uploads/2024/07/woman-leading-meeting-e1722823028301.png)',
+    backgroundImage: 'url(/wp-content/uploads/2024/07/woman-leading-meeting-e1722823028301.png)',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     position: 'relative',

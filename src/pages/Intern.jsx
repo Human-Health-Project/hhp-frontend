@@ -78,7 +78,7 @@ export default function Intern() {
     <div style={styles.pageWrapper}>
       <section style={{
         ...styles.heroSection,
-        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://humanhealthproject.org/wp-content/uploads/2025/11/luca-bravo-9l_326FISzk-unsplash-1200x800.jpg)'
+        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/wp-content/uploads/2025/11/luca-bravo-9l_326FISzk-unsplash-1200x800.jpg)'
       }}>
         <div style={styles.heroOverlay}>
           <div style={styles.heroContainer}>
