@@ -52,6 +52,8 @@
   position: absolute;
   display: block;
   border-radius: 6px;
+  /* Sit above the artwork so nothing can swallow the click. */
+  z-index: 2;
   /* Transparent by design — the button artwork is part of the image. */
   background: transparent;
 }

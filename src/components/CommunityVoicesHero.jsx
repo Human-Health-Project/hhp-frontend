@@ -1,4 +1,3 @@
-import Link from "next/link";
 import "./CommunityVoicesHero.css";
 import heroImage from "@/assets/community-voices/hero.jpg";
 
@@ -17,6 +16,10 @@ export const SHARE_FORM_URL =
  * Below 768px the drawn buttons fall under the 44px minimum tap target, so
  * the hotspots are hidden and the visible buttons underneath take over.
  *
+ * Both links are plain <a> elements rather than next/link. They need to work
+ * whether or not the page has hydrated, and an ordinary anchor handles both
+ * an in-page anchor and a route without any JavaScript involved.
+ *
  * @param {string} readHref  Where "Read a story" goes. On the Community
  *   Voices page this is "#stories" (scrolls to the list); everywhere else it
  *   should be the route to that page.
@@ -24,29 +27,6 @@ export const SHARE_FORM_URL =
 export default function CommunityVoicesHero({
   readHref = "/what-we-do/community-voices",
 }) {
-  const isAnchor = readHref.startsWith("#");
-
-  // An in-page anchor stays a plain <a>; a route uses Link for client-side nav.
-  const readLink = isAnchor ? (
-    <a href={readHref} className="cvh-hotspot cvh-hotspot-read" aria-label="Read a story">
-      <span className="cvh-sr-only">Read a story</span>
-    </a>
-  ) : (
-    <Link href={readHref} className="cvh-hotspot cvh-hotspot-read" aria-label="Read a story">
-      <span className="cvh-sr-only">Read a story</span>
-    </Link>
-  );
-
-  const readButton = isAnchor ? (
-    <a href={readHref} className="cvh-btn cvh-btn-primary">
-      Read a Story
-    </a>
-  ) : (
-    <Link href={readHref} className="cvh-btn cvh-btn-primary">
-      Read a Story
-    </Link>
-  );
-
   return (
     <section className="cvh">
       <div className="cvh-container">
@@ -59,7 +39,13 @@ export default function CommunityVoicesHero({
             height={heroImage.height}
           />
 
-          {readLink}
+          <a
+            href={readHref}
+            className="cvh-hotspot cvh-hotspot-read"
+            aria-label="Read a story"
+          >
+            <span className="cvh-sr-only">Read a story</span>
+          </a>
 
           <a
             href={SHARE_FORM_URL}
@@ -75,7 +61,9 @@ export default function CommunityVoicesHero({
         {/* Visible buttons for small screens, where the drawn ones are too
             small to be a reliable tap target. */}
         <div className="cvh-actions">
-          {readButton}
+          <a href={readHref} className="cvh-btn cvh-btn-primary">
+            Read a Story
+          </a>
           <a
             href={SHARE_FORM_URL}
             target="_blank"
