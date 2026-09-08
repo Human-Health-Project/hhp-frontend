@@ -39,4 +39,8 @@ export const api = {
   establishSession: (token) => request("/auth/session", { method: "POST", token }),
   logout: (token) => request("/auth/logout", { method: "POST", token }),
   contact: (data) => request("/contact", { method: "POST", body: JSON.stringify(data) }),
+  subscribeToNewsletter: (data) => request("/newsletter-subscriber", {
+    method: "POST",
+    body: JSON.stringify(data),
+  }),
 };

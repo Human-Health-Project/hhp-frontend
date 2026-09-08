@@ -365,7 +365,25 @@
         }
 
         .home-page .btn-primary:hover {
-          background: #004d7a;
+            background: #004d7a;
+        }
+
+        .home-page .btn-primary:disabled {
+            cursor: not-allowed;
+            opacity: 0.65;
+        }
+
+        .home-page .newsletter-message {
+            margin-top: 12px;
+            font-size: 13px;
+        }
+
+        .home-page .newsletter-message-success {
+            color: #16733c;
+        }
+
+        .home-page .newsletter-message-error {
+            color: #b42318;
         }
 
         .home-page .btn-green {
