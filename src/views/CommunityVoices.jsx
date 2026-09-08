@@ -1,22 +1,12 @@
 import "./CommunityVoices.css";
 import sampleStories from "@/data/sampleStories";
-import CommunityVoicesBanner from "@/components/CommunityVoicesBanner";
+import CommunityVoicesHero, { SHARE_FORM_URL } from "@/components/CommunityVoicesHero";
 
-// Note: the character after "zRwy" is an uppercase i, not a lowercase L.
-// The two are indistinguishable in most fonts and the ticket had the wrong one
-// (that variant 404s). Take care when copying this by hand.
-const SHARE_FORM_URL =
-  "https://docs.google.com/forms/d/e/1FAIpQLSd7_PGefOLIFWZTUQt8Jm-zRwyI3uidrEVFMZGLxMdG0V504A/viewform";
 
 export default function CommunityVoices() {
   return (
     <div className="cv-page">
-      {/* ========= HERO ========= */}
-      <section className="cv-hero">
-        <div className="cv-container">
-          <CommunityVoicesBanner className="cv-hero-banner" />
-        </div>
-      </section>
+      <CommunityVoicesHero readHref="#stories" />
 
       {/* ========= STORIES ========= */}
       <section className="cv-stories-section" id="stories">
