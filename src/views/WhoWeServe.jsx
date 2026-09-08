@@ -44,22 +44,22 @@ const WhoWeServe = () => {
         {
             title: 'Community',
             description: 'Human Health Project (HHP) is a growing community of patients, caregivers, health advocates, donors, and volunteers. HHP was created "of the people, by the people, and for the people." Listening to the community is central to our mission, and we value communication and the exchange of information in all that we do.',
-            imageUrl: 'https://humanhealthproject.org/wp-content/uploads/2023/08/Community-e1539922397469.webp',
+            imageUrl: '/wp-content/uploads/2023/08/Community-e1539922397469.webp',
         },
         {
             title: 'Stakeholders',
             description: 'Our primary stakeholders are individuals struggling with health issues and seeking unbiased information, education, and support for themselves and those in their care.',
-            imageUrl: 'https://humanhealthproject.org/wp-content/uploads/2023/09/Stakeholders.webp',
+            imageUrl: '/wp-content/uploads/2023/09/Stakeholders.webp',
         },
         {
             title: 'Local & Global',
             description: 'We realize achieving long-term success requires sacrifice, innovation, and sustained effort. To maximize our impact, we hold ourselves accountable to our local communities with whom we strive to achieve meaningful and measurable outcomes.',
-            imageUrl: 'https://humanhealthproject.org/wp-content/uploads/2023/09/Local-and-Global-1.webp',
+            imageUrl: '/wp-content/uploads/2023/09/Local-and-Global-1.webp',
         },
         {
             title: 'Equality',
             description: 'HHP provides health information, education, and support to people around the world, regardless of financial status or geographic location, with a special focus on the underserved. Through our programs, our goal is to advance fairness, inclusion, and opportunity for all.',
-            imageUrl: 'https://humanhealthproject.org/wp-content/uploads/2021/07/Equality.webp',
+            imageUrl: '/wp-content/uploads/2021/07/Equality.webp',
         },
     ]
 
@@ -68,7 +68,7 @@ const WhoWeServe = () => {
             <div className="container">
                 <section>
                     <div className="relative text-center py-8">
-                        <img src="https://humanhealthproject.org/wp-content/uploads/2023/09/Who-We-Serve-Cover-2.webp" alt="Who We Serve Cover" />
+                        <img src="/wp-content/uploads/2023/09/Who-We-Serve-Cover-2.webp" alt="Who We Serve Cover" />
                         <div className="absolute inset-0 bg-black/40"></div>
                         <H level={1} className="absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 text-white!">
                             WHO WE SERVE
@@ -138,7 +138,7 @@ const WhoWeServe = () => {
                         {/* Right - Heart Image */}
                         <div className="lg:w-1/2">
                             <img
-                            src="https://humanhealthproject.org/wp-content/uploads/2023/09/donate-giving-heart.webp"
+                            src="/wp-content/uploads/2023/09/donate-giving-heart.webp"
                             alt="Hands holding a red heart"
                             className="w-full h-64 lg:h-full object-cover"
                             />
