@@ -1,6 +1,25 @@
 .home-page .community-voices-home-hero {
   width: 100%;
   margin: 0;
+  padding: 32px 24px;
+  background: #f5f8fb;
+}
+
+.home-page .community-voices-home-hero .community-voices-banner {
+  max-width: 1280px;
+  margin: 0 auto;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 640px) {
+  .home-page .community-voices-home-hero {
+    padding: 16px 0;
+  }
+
+  .home-page .community-voices-home-hero .community-voices-banner {
+    border-radius: 0;
+  }
 }
 
 .home-page .hero-content {
