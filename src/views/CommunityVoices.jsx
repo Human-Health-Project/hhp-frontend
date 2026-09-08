@@ -1,75 +1,12 @@
 import "./CommunityVoices.css";
 import sampleStories from "@/data/sampleStories";
-import heroImage from "@/assets/community-voices/hero.jpg";
+import CommunityVoicesHero, { SHARE_FORM_URL } from "@/components/CommunityVoicesHero";
 
-// Note: the character after "zRwy" is an uppercase i, not a lowercase L.
-// The two are indistinguishable in most fonts and the ticket had the wrong one
-// (that variant 404s). Take care when copying this by hand.
-const SHARE_FORM_URL =
-  "https://docs.google.com/forms/d/e/1FAIpQLSd7_PGefOLIFWZTUQt8Jm-zRwyI3uidrEVFMZGLxMdG0V504A/viewform";
 
 export default function CommunityVoices() {
   return (
     <div className="cv-page">
-      {/* ========= HERO ========= */}
-      <section className="cv-hero">
-        <div className="cv-container">
-          {/*
-            The hero artwork has the heading, intro copy and both buttons baked
-            into it. The two <a> elements below are transparent hotspots layered
-            exactly over the drawn buttons, positioned as percentages so they
-            track the image at any width. If the artwork is ever replaced, the
-            --cv-hit-* values in the CSS are the only things to re-measure.
-
-            Below 768px the drawn buttons are too small to tap reliably, so the
-            hotspots are hidden and the real buttons underneath take over.
-          */}
-          <div className="cv-hero-figure">
-            <img
-              src={heroImage.src}
-              alt="Community Voices — read real and anonymous stories about screenings, symptom recognition, and healthy lifestyle changes. Each story invites its reader, perhaps you or a loved one, to feel a little more supported and empowered to take action."
-              className="cv-hero-img"
-              width={heroImage.width}
-              height={heroImage.height}
-              priority="true"
-            />
-
-            <a
-              href="#stories"
-              className="cv-hotspot cv-hotspot-read"
-              aria-label="Read a story"
-            >
-              <span className="cv-sr-only">Read a story</span>
-            </a>
-
-            <a
-              href={SHARE_FORM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cv-hotspot cv-hotspot-share"
-              aria-label="Share a story — opens a Google Form in a new tab"
-            >
-              <span className="cv-sr-only">Share a story</span>
-            </a>
-          </div>
-
-          {/* Visible buttons for small screens, where the drawn ones are
-              too small to be a reliable tap target. */}
-          <div className="cv-hero-actions">
-            <a href="#stories" className="cv-btn cv-btn-primary">
-              Read a Story
-            </a>
-            <a
-              href={SHARE_FORM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cv-btn cv-btn-secondary"
-            >
-              Share a Story
-            </a>
-          </div>
-        </div>
-      </section>
+      <CommunityVoicesHero readHref="#stories" />
 
       {/* ========= STORIES ========= */}
       <section className="cv-stories-section" id="stories">

@@ -8,11 +8,6 @@
   --cv-shadow: 0 12px 34px rgba(0, 0, 0, 0.08);
   --cv-bg-soft: #eef4fa;
 
-  /* How wide the hero artwork is allowed to get. The rest of the page stays
-     at 1000px for comfortable reading line-length; only the hero uses this.
-     Change this one value to make the image bigger or smaller. */
-  --cv-hero-max: 1320px;
-
   background: linear-gradient(180deg, #eef5fb 0%, #ffffff 55%, #f7fafd 100%);
   overflow-x: hidden;
 }
@@ -27,138 +22,6 @@
   width: 100%;
   margin: 0 auto;
   padding: 0 20px;
-}
-
-/* ================= HERO ================= */
-.cv-hero {
-  padding: 56px 0 40px;
-}
-
-/* The hero runs wider than the reading column below it. */
-.cv-hero .cv-container {
-  max-width: var(--cv-hero-max);
-}
-
-/*
-  The hero artwork carries the heading, intro copy and both buttons. The two
-  hotspots below are transparent links layered exactly over the drawn buttons.
-
-  Positions were measured from the artwork (1988 × 1088) and expressed as
-  percentages, so they stay aligned at any width. Re-measure only if the image
-  is replaced.
-*/
-.cv-hero-figure {
-  position: relative;
-  display: block;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: var(--cv-shadow);
-  line-height: 0;
-}
-
-.cv-hero-img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.cv-hotspot {
-  position: absolute;
-  display: block;
-  border-radius: 6px;
-  /* Transparent by design — the button artwork is part of the image. */
-  background: transparent;
-}
-
-.cv-hotspot:hover {
-  background: rgba(255, 255, 255, 0.14);
-}
-
-.cv-hotspot:focus-visible {
-  outline: 3px solid #ffffff;
-  outline-offset: 2px;
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.cv-hotspot-read {
-  left: 61.97%;
-  top: 82.17%;
-  width: 15.64%;
-  height: 13.69%;
-}
-
-.cv-hotspot-share {
-  left: 79.23%;
-  top: 82.63%;
-  width: 17.30%;
-  height: 15.07%;
-}
-
-/* Visually hidden, still read by screen readers. */
-.cv-sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-/* Real buttons — only shown on small screens (see media query below), where
-   the drawn buttons fall under the 44px minimum tap target. */
-.cv-hero-actions {
-  display: none;
-  flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 18px;
-}
-
-.cv-btn {
-  display: inline-block;
-  padding: 13px 28px;
-  border-radius: 6px;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border: 2px solid transparent;
-  transition: background-color 0.18s ease, color 0.18s ease,
-    border-color 0.18s ease;
-}
-
-/* These sit on the light page background, so both variants are keyed to the
-   brand blue rather than the artwork's yellow (which would not meet AA here). */
-.cv-btn-primary {
-  background: var(--cv-blue);
-  border-color: var(--cv-blue);
-  color: #ffffff;
-}
-
-.cv-btn-primary:hover,
-.cv-btn-primary:focus-visible {
-  background: var(--cv-blue-dark);
-  border-color: var(--cv-blue-dark);
-}
-
-.cv-btn-secondary {
-  background: #ffffff;
-  border-color: var(--cv-blue);
-  color: var(--cv-blue);
-}
-
-.cv-btn-secondary:hover,
-.cv-btn-secondary:focus-visible {
-  background: var(--cv-accent-soft, #e7f0f7);
-  color: var(--cv-blue-dark);
-}
-
-.cv-btn:focus-visible {
-  outline: 3px solid var(--cv-blue);
-  outline-offset: 3px;
 }
 
 /* ================= STORIES ================= */
@@ -373,24 +236,6 @@
 
 /* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
-  .cv-hero {
-    padding: 36px 0 24px;
-  }
-
-  .cv-hero-figure {
-    border-radius: 16px;
-  }
-
-  /* Below this width the drawn buttons are under the 44px minimum tap
-     target, so hand over to the real buttons underneath. */
-  .cv-hotspot {
-    display: none;
-  }
-
-  .cv-hero-actions {
-    display: flex;
-  }
-
   .cv-stories-intro {
     padding: 34px 24px 30px;
     border-radius: 16px 16px 0 0;
@@ -415,15 +260,6 @@
     padding: 0 16px;
   }
 
-  .cv-hero-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .cv-btn {
-    text-align: center;
-  }
-
   .cv-stories-intro {
     padding: 28px 18px 26px;
   }
@@ -443,11 +279,5 @@
 
   .cv-share-cta {
     padding: 24px 16px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .cv-btn {
-    transition: none;
   }
 }

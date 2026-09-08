@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import "./Home.css";
+import CommunityVoicesHero from "@/components/CommunityVoicesHero";
 
 export default function Home() {
   const whyCards = [
@@ -94,6 +95,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Community Voices banner — "Read a Story" goes to the full page */}
+      <CommunityVoicesHero readHref="/what-we-do/community-voices" />
 
       {/* Why Peer-to-Peer Section */}
       <section className="section why-section">

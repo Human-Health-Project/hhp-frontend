@@ -1,0 +1,189 @@
+/*
+  Community Voices banner. Self-contained: every value it needs is defined on
+  .cvh, so it can be dropped onto any page without inheriting from a parent.
+*/
+.cvh {
+  --cvh-blue: #065399;
+  --cvh-blue-dark: #04406f;
+  --cvh-blue-soft: #e7f0f7;
+  --cvh-shadow: 0 12px 34px rgba(0, 0, 0, 0.08);
+
+  /* How wide the artwork is allowed to get — change this one value to make
+     the banner bigger or smaller. */
+  --cvh-max: 1320px;
+
+  padding: 40px 0;
+}
+
+.cvh,
+.cvh * {
+  box-sizing: border-box;
+}
+
+.cvh-container {
+  max-width: var(--cvh-max);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/*
+  The artwork carries the heading, intro copy and both buttons. The hotspots
+  are transparent links layered over the drawn buttons; positions were
+  measured from the image (1988 × 1088) and expressed as percentages so they
+  stay aligned at any width. Re-measure only if the artwork is replaced.
+*/
+.cvh-figure {
+  position: relative;
+  display: block;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--cvh-shadow);
+  line-height: 0;
+}
+
+.cvh-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.cvh-hotspot {
+  position: absolute;
+  display: block;
+  border-radius: 6px;
+  /* Transparent by design — the button artwork is part of the image. */
+  background: transparent;
+}
+
+.cvh-hotspot:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.cvh-hotspot:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.cvh-hotspot-read {
+  left: 61.97%;
+  top: 82.17%;
+  width: 15.64%;
+  height: 13.69%;
+}
+
+.cvh-hotspot-share {
+  left: 79.23%;
+  top: 82.63%;
+  width: 17.3%;
+  height: 15.07%;
+}
+
+/* Visually hidden, still read by screen readers. */
+.cvh-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Real buttons — shown only on small screens (see media query below). */
+.cvh-actions {
+  display: none;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.cvh-btn {
+  display: inline-block;
+  padding: 13px 28px;
+  border-radius: 6px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: background-color 0.18s ease, color 0.18s ease,
+    border-color 0.18s ease;
+}
+
+/* Keyed to the brand blue rather than the artwork's yellow, which would not
+   meet WCAG AA against a light page background. */
+.cvh-btn-primary {
+  background: var(--cvh-blue);
+  border-color: var(--cvh-blue);
+  color: #ffffff;
+}
+
+.cvh-btn-primary:hover,
+.cvh-btn-primary:focus-visible {
+  background: var(--cvh-blue-dark);
+  border-color: var(--cvh-blue-dark);
+}
+
+.cvh-btn-secondary {
+  background: #ffffff;
+  border-color: var(--cvh-blue);
+  color: var(--cvh-blue);
+}
+
+.cvh-btn-secondary:hover,
+.cvh-btn-secondary:focus-visible {
+  background: var(--cvh-blue-soft);
+  color: var(--cvh-blue-dark);
+}
+
+.cvh-btn:focus-visible {
+  outline: 3px solid var(--cvh-blue);
+  outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+  .cvh {
+    padding: 24px 0;
+  }
+
+  .cvh-figure {
+    border-radius: 16px;
+  }
+
+  /* Below this width the drawn buttons are under the 44px minimum tap
+     target, so hand over to the real buttons underneath. */
+  .cvh-hotspot {
+    display: none;
+  }
+
+  .cvh-actions {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .cvh-container {
+    padding: 0 16px;
+  }
+
+  .cvh-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cvh-btn {
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cvh-btn {
+    transition: none;
+  }
+}
