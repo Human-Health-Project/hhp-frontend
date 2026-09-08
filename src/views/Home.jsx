@@ -65,37 +65,6 @@ export default function Home() {
 
   return (
     <div className="home-page">
-      {/* Hero Section */}
-      <section className="hero-section">
-        <div className="container">
-          <div className="hero-content">
-            {/* Video */}
-            <div className="video-container">
-              <div className="video-thumbnail">
-                <iframe
-                  className="video-background"
-                  src="https://www.youtube.com/embed/JxZLRnaZ4LI?autoplay=1&mute=1&loop=1&playlist=JxZLRnaZ4LI&controls=1&showinfo=0&rel=0&modestbranding=1&enablejsapi=1"
-                  title="Stop Type 2 Diabetes Before It Starts"
-                  allow="autoplay; encrypted-media"
-                  allowFullScreen
-                ></iframe>
-              </div>
-            </div>
-
-            {/* Donation Card */}
-            <div className="support-card">
-              <div className="support-card-inner">
-                <iframe
-                  src="https://www.gofundme.com/f/stop-type2diabetes-before-it-starts/widget/medium"
-                  title="Stop Type-2 Diabetes"
-                  scrolling="no"
-                ></iframe>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Community Voices banner — "Read a Story" goes to the full page */}
       <CommunityVoicesHero readHref="/what-we-do/community-voices" />
 
