@@ -57,7 +57,7 @@ const styles = {
   charityImagePlaceholder: {
     width: '100%',
     height: '120px',
-    backgroundImage: 'url(https://sqa.humanhealthproject.org/wp-content/uploads/2024/08/Screenshot-2024-08-22-193631.png)',
+    backgroundImage: 'url(https://sqa.humanhealthproject.org/media/2024/08/Screenshot-2024-08-22-193631.png)',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
