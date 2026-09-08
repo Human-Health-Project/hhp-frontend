@@ -29,42 +29,42 @@ const aboutUsContent = {
       {
         title: "Patient-Centered Healthcare",
         text: "HHP supports the patient empowerment movement and e-patient initiatives. We believe medicine should be participatory, and that individuals who are equipped with the most accurate and up-to-date health information, education, and support are empowered to make informed health decisions for themselves and those in their care.",
-        imageUrl: "/wp-content/uploads/2023/09/patient-advocacy-1-300x200.webp",
+        imageUrl: "/media/2023/09/patient-advocacy-1-300x200.webp",
         reversed: false,
         background: "blue"
       },
       {
         title: "Peer-Led Patient Advocacy",
         text: "Peer-Led patient advocacy is about supporting people who are not being heard in the healthcare system, and empowering them to use their rights of autonomy. Through sharing of information, experiences, and resources, advocates inspire patients to have confidence and take ownership in their care plan.",
-        imageUrl: "/wp-content/uploads/2023/09/Peer-Led-Patient-Advocacy.webp",
+        imageUrl: "/media/2023/09/Peer-Led-Patient-Advocacy.webp",
         reversed: true,
         background: "white"
       },
       {
         title: "Health Information Access",
         text: "We believe people have a right to accurate and unbiased information about all types of medicines including conventional, alternative and integrative. We believe free access to health information is not a privilege, but rather a human right that should be granted to every individual regardless of geographic location, social class, or financial position.",
-        imageUrl: "/wp-content/uploads/2023/09/Migraine-or-cluster-headache-Two-questions-to-help-you-seek-the-right-treatment-1.webp",
+        imageUrl: "/media/2023/09/Migraine-or-cluster-headache-Two-questions-to-help-you-seek-the-right-treatment-1.webp",
         reversed: false,
         background: "blue"
       },
       {
         title: "Local Partnerships & Volunteer Opportunities",
         text: "Our mission transcends borders, and we embrace partnerships with other nonprofit organizations. We are primarily volunteer-based and rely on local volunteers and partnerships to help us fulfill our mission. Through our partnerships and volunteers, we aim to improve the lives of the most underserved and vulnerable communities around the world.",
-        imageUrl: "/wp-content/uploads/2023/09/Local-Partnerships-and-Volunteer-Opportunities.webp",
+        imageUrl: "/media/2023/09/Local-Partnerships-and-Volunteer-Opportunities.webp",
         reversed: true,
         background: "blue"
       },
       {
         title: "Diversity, Equity and Inclusion",
         text: "Human Health Project is for everyone, no matter where you came from, what you look like or how you identify. To succeed in our mission and truly help underserved and vulnerable people to increase their health literacy and as a result improve their health outcomes and reduce medical errors and deaths, we must continue to play our part in building a more inclusive and equitable world, starting with our own organization at a board, staff and volunteer level.",
-        imageUrl: "/wp-content/uploads/2021/07/Equality.webp",
+        imageUrl: "/media/2021/07/Equality.webp",
         reversed: false,
         background: "white"
       },
       {
         title: "The Universal Declaration Of Human Rights",
         text: "Human Health Project recognizes The Universal Declaration of Human Rights by the United Nations. Click below to read more.",
-        imageUrl: "/wp-content/uploads/2023/09/Local-and-Global-1.webp",
+        imageUrl: "/media/2023/09/Local-and-Global-1.webp",
         reversed: true,
         background: "blue",
         hasButton: true,
@@ -215,7 +215,7 @@ export default function AboutUs() {
             {/* Right - Full Image */}
             <div className="about-support__right">
               <img
-                src="/wp-content/uploads/2023/09/donate-giving-heart.webp"
+                src="/media/2023/09/donate-giving-heart.webp"
                 alt="Hands holding a red heart"
                 className="about-support__image"
               />
