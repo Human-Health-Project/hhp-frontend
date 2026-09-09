@@ -145,6 +145,24 @@
   align-self: flex-start;
 }
 
+.spi-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.spi-formMessage {
+  margin: 0;
+  font-size: 14px;
+}
+
+.spi-formMessage--success {
+  color: #16733c;
+}
+
+.spi-formMessage--error {
+  color: #b42318;
+}
+
 .spi-buttonLink {
   margin-top: 6px;
   padding: 10px 16px;

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import { UilMicroscope } from "@iconscout/react-unicons";
+import { api } from "@/services/api";
 import migraineImg from "../assets/shared_patient_info/migraines_img.jpg";
 import lupusImg from "../assets/shared_patient_info/lupus_img.jpg";
 import patientAdvocacyImg from "../assets/shared_patient_info/patient_advocacy_img.jpg";
@@ -66,6 +67,43 @@ function PieSurveySlide({ title, responses, items, colors }) {
 }
 
 export default function SharedPatientInformation() {
+  const [signupForm, setSignupForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    country: "",
+  });
+  const [signupState, setSignupState] = useState({ status: "idle", message: "" });
+
+  const updateSignupField = (field, value) => {
+    setSignupForm((current) => ({ ...current, [field]: value }));
+  };
+
+  const handleSignup = async (event) => {
+    event.preventDefault();
+    setSignupState({ status: "loading", message: "" });
+
+    try {
+      await api.subscribeToNewsletter({
+        email: signupForm.email.trim(),
+        country: signupForm.country.trim(),
+      });
+      setSignupForm({ firstName: "", lastName: "", email: "", country: "" });
+      setSignupState({
+        status: "success",
+        message: "Thank you for signing up. Please check your email.",
+      });
+    } catch (error) {
+      const duplicate = error?.status === 422 && error?.errors?.email;
+      setSignupState({
+        status: "error",
+        message: duplicate
+          ? "This email is already subscribed."
+          : error?.message || "Sign up failed. Please try again.",
+      });
+    }
+  };
+
   const slides = useMemo(
     () => [
       {
@@ -160,31 +198,76 @@ export default function SharedPatientInformation() {
                 Sign up today to be notified about updates
               </p>
 
-              <form className="spi-form">
+              <form className="spi-form" onSubmit={handleSignup}>
                 <div className="spi-formRow">
                   <div>
-                    <label>First Name *</label>
-                    <input type="text" />
+                    <label htmlFor="spi-first-name">First Name *</label>
+                    <input
+                      id="spi-first-name"
+                      type="text"
+                      autoComplete="given-name"
+                      value={signupForm.firstName}
+                      onChange={(event) => updateSignupField("firstName", event.target.value)}
+                      disabled={signupState.status === "loading"}
+                      required
+                    />
                   </div>
                   <div>
-                    <label>Last Name *</label>
-                    <input type="text" />
+                    <label htmlFor="spi-last-name">Last Name *</label>
+                    <input
+                      id="spi-last-name"
+                      type="text"
+                      autoComplete="family-name"
+                      value={signupForm.lastName}
+                      onChange={(event) => updateSignupField("lastName", event.target.value)}
+                      disabled={signupState.status === "loading"}
+                      required
+                    />
                   </div>
                 </div>
 
                 <div>
-                  <label>Email *</label>
-                  <input type="email" />
+                  <label htmlFor="spi-email">Email *</label>
+                  <input
+                    id="spi-email"
+                    type="email"
+                    autoComplete="email"
+                    value={signupForm.email}
+                    onChange={(event) => updateSignupField("email", event.target.value)}
+                    disabled={signupState.status === "loading"}
+                    required
+                  />
                 </div>
 
                 <div>
-                  <label>Country *</label>
-                  <input type="text" />
+                  <label htmlFor="spi-country">Country *</label>
+                  <input
+                    id="spi-country"
+                    type="text"
+                    autoComplete="country-name"
+                    value={signupForm.country}
+                    onChange={(event) => updateSignupField("country", event.target.value)}
+                    disabled={signupState.status === "loading"}
+                    required
+                  />
                 </div>
 
-                <button type="button" className="spi-button">
-                  SIGN UP
+                <button
+                  type="submit"
+                  className="spi-button"
+                  disabled={signupState.status === "loading"}
+                >
+                  {signupState.status === "loading" ? "SIGNING UP..." : "SIGN UP"}
                 </button>
+                {signupState.message && (
+                  <p
+                    className={`spi-formMessage spi-formMessage--${signupState.status}`}
+                    role={signupState.status === "error" ? "alert" : "status"}
+                    aria-live="polite"
+                  >
+                    {signupState.message}
+                  </p>
+                )}
               </form>
             </div>
 
