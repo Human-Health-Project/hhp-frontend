@@ -31,10 +31,6 @@ function splitParagraphs(content) {
   return content.split("\n\n");
 }
 
-// Shown when a post has no featured_image
-const DEFAULT_BLOG_IMAGE =
-  "https://humanhealthproject.org/wp-content/uploads/2022/05/Screen-Shot-2018-09-20-at-11.57.15-PM-1.png";
-
 // Map an API post (list item or detail) into new shape
 function normalizePost(post) {
   return {
@@ -44,23 +40,34 @@ function normalizePost(post) {
     author: post.author,
     publishedAt: formatPublishedDate(post.published_at),
     timestamp: toDate(post.published_at).getTime(),
-    featuredImage: post.featured_image || DEFAULT_BLOG_IMAGE,
+    featuredImage: post.featured_image,
     categories: (post.categories || []).map((c) => c.name),
+    content: post.content || "",
+    paragraphs: splitParagraphs(post.content),
   };
 }
 
 // ---- functions the pages call -------------------------------------
 
-export async function getAllPosts() {
+let allPostsPromise;
+
+async function loadAllPosts() {
   const posts = [];
 
   for (let page = 1; ; page++) {
-    const json = await getJson(`/posts?page=${page}`);
-    if (json.data.length === 0) break;
+    const json = await getJson(
+      `/posts?page=${page}&per_page=100&include_content=1`,
+    );
     posts.push(...json.data);
+    if (page >= json.meta.last_page) break;
   }
 
   return posts.map(normalizePost);
+}
+
+export function getAllPosts() {
+  allPostsPromise ??= loadAllPosts();
+  return allPostsPromise;
 }
 
 export function extractCategories(posts) {
@@ -74,12 +81,6 @@ export function extractCategories(posts) {
 }
 
 export async function getPostBySlug(slug) {
-  const json = await getJson(`/posts/${slug}`);
-  if (!json) return null;
-
-  return {
-    ...normalizePost(json.data),
-    content: json.data.content,
-    paragraphs: splitParagraphs(json.data.content),
-  };
+  const posts = await getAllPosts();
+  return posts.find((post) => post.slug === slug) || null;
 }
