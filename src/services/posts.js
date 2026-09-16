@@ -1,12 +1,24 @@
 const API_URL =
   process.env.NEXT_PUBLIC_API_URL ||
   "https://hhp-backend-production-l2iqny.laravel.cloud/api";
+const FALLBACK_API_URL =
+  "https://hhp-backend-production-l2iqny.laravel.cloud/api";
 
 async function getJson(path) {
-  const res = await fetch(`${API_URL}${path}`, { next: { revalidate: 3600 } });
-  if (res.status === 404) return null;
-  if (!res.ok) throw new Error(`Blog API request failed (${res.status})`);
-  return res.json();
+  const urls = [...new Set([API_URL, FALLBACK_API_URL])];
+
+  for (const [index, url] of urls.entries()) {
+    try {
+      const res = await fetch(`${url}${path}`, { next: { revalidate: 3600 } });
+      if (res.status === 404) return null;
+      if (res.ok) return res.json();
+      if (index === urls.length - 1 || res.status < 500) {
+        throw new Error(`Blog API request failed (${res.status})`);
+      }
+    } catch (error) {
+      if (index === urls.length - 1) throw error;
+    }
+  }
 }
 
 // ---- helper functions ------------------------------------------------
