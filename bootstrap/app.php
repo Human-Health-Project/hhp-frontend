@@ -43,6 +43,41 @@ return Application::configure(basePath: dirname(__DIR__))
                 }
             }
 
+            // No page at this path. Before returning 404, check whether it is
+            // an old WordPress URL that has moved (see config/redirects.php).
+            $legacyPath = strtolower($path);
+
+            $pages = config('redirects.pages', []);
+            if (isset($pages[$legacyPath])) {
+                return redirect($pages[$legacyPath], 301);
+            }
+
+            foreach (config('redirects.patterns', []) as $pattern => $target) {
+                if (preg_match($pattern, $legacyPath)) {
+                    return redirect($target, 301);
+                }
+            }
+
+            // Old WordPress article permalinks: /{category}/{slug}/ or /{slug}/.
+            // Redirect to /blog/{slug} only if that post exists in the build,
+            // so feeds, test pages and other junk still return 404.
+            $segments = explode('/', $legacyPath);
+            if (count($segments) <= 2) {
+                $slug = rtrim(end($segments), '-');
+
+                if (preg_match('/^[a-z0-9][a-z0-9_-]*$/', $slug)
+                    && (is_file("{$root}/blog/{$slug}.html") || is_file("{$root}/blog/{$slug}/index.html"))) {
+                    return redirect("/blog/{$slug}", 301);
+                }
+            }
+
+            // Serve the site's own 404 page (with a real 404 status) when the
+            // static export includes one.
+            if (is_file("{$root}/404.html")) {
+                return response(file_get_contents("{$root}/404.html"), 404)
+                    ->header('Content-Type', 'text/html; charset=utf-8');
+            }
+
             abort(404);
         });
     })
