@@ -6,7 +6,7 @@ import Footer from "../layout/Footer";
 import Providers from "./providers";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ||
-  "https://hhp-frontend-production-orchrg.laravel.cloud";
+  "https://humanhealthproject.org";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
