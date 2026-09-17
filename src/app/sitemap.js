@@ -1,5 +1,7 @@
+import { getAllPosts } from "@/services/posts";
+
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ||
-  "https://hhp-frontend-production-orchrg.laravel.cloud";
+  "https://humanhealthproject.org";
 
 export const dynamic = "force-static";
 
@@ -36,15 +38,28 @@ const routes = [
   "/contact",
   "/join-patient-advisory-board",
   "/latest-news",
+  "/blog",
 ];
 
-export default function sitemap() {
+export default async function sitemap() {
   const lastModified = new Date();
 
-  return routes.map((route) => ({
+  const pages = routes.map((route) => ({
     url: `${siteUrl}${route}`,
     lastModified,
-    changeFrequency: route === "/" || route === "/latest-news" ? "weekly" : "monthly",
+    changeFrequency:
+      route === "/" || route === "/latest-news" || route === "/blog" ? "weekly" : "monthly",
     priority: route === "/" ? 1 : 0.7,
   }));
+
+  // One entry per blog post, so Google can find every article at its new
+  // /blog/{slug} address (the old WordPress URLs 301 there).
+  const posts = (await getAllPosts()).map((post) => ({
+    url: `${siteUrl}/blog/${post.slug}`,
+    lastModified: Number.isFinite(post.timestamp) ? new Date(post.timestamp) : lastModified,
+    changeFrequency: "yearly",
+    priority: 0.6,
+  }));
+
+  return [...pages, ...posts];
 }
