@@ -1,147 +1,174 @@
-.contact-page{
-  background:#f7f7f7;
+/*
+  Laid out to match the live production form at humanhealthproject.org/contact-us/
+  — left-aligned title, full-width stacked fields, no card or hero banner.
+*/
+
+.contact-page {
+  background: #ffffff;
 }
 
-/* HERO */
-
-.contact-hero{
-  background:#0652992c;
-  color:white;
-  padding:80px 20px 120px 20px;
-  text-align:center;
+.contact-formSection {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px 70px;
 }
 
-.contact-heroContent{
-  max-width:800px;
-  margin:auto;
+.contact-title {
+  margin: 0 0 34px;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 300;
+  line-height: 1.2;
+  color: #333333;
 }
 
-.contact-hero h1{
-  font-size:42px;
-  font-weight:700;
-  margin-bottom:10px;
+/* ---------- form ---------- */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
-.contact-hero p{
-  font-size:18px;
-  line-height:1.6;
+.contact-field {
+  display: flex;
+  flex-direction: column;
 }
 
-/* FORM SECTION */
-
-.contact-formSection{
-  margin-top:-90px;
-  padding:0 20px 60px;
+.contact-field label {
+  margin-bottom: 6px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #555555;
 }
 
-.contact-card{
-  background:white;
-  max-width:700px;
-  margin:auto;
-  padding:40px;
-  border-radius:6px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);
-}
-
-/* FORM */
-
-.contact-form{
-  display:flex;
-  flex-direction:column;
-  gap:18px;
-}
-.contact-row{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
-}
-
-.contact-field{
-  display:flex;
-  flex-direction:column;
-}
-
-.contact-field label{
-  font-size:15px;
-  margin-bottom:6px;
+.contact-required {
+  color: #b23a48;
 }
 
 .contact-field input,
 .contact-field select,
-.contact-field textarea{
-  padding:10px;
-  border:1px solid #ddd;
-  border-radius:3px;
-  font-size:15px;
+.contact-field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+  background: #ffffff;
+  font-family: inherit;
+  font-size: 15px;
+  color: #333333;
 }
 
-/* BUTTON */
-
-.contact-sendBtn{
-  background:#065399;
-  color:white;
-  border:none;
-  padding:12px 18px;
-  font-weight:600;
-  border-radius:4px;
-  cursor:pointer;
-  width:150px;
-  margin: 20px auto 0;
+.contact-field input:focus-visible,
+.contact-field select:focus-visible,
+.contact-field textarea:focus-visible {
+  outline: 2px solid #065399;
+  outline-offset: 1px;
+  border-color: #065399;
 }
 
-.contact-sendBtn:hover{
-  background:#05427a;
-}
-.contact-success{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  min-height:60vh;
+.contact-field textarea {
+  min-height: 190px;
+  resize: vertical;
 }
 
-.contact-successCard{
-  background:white;
-  padding:40px;
-  border-radius:6px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.1);
-  text-align:center;
+/* Grey out the "Select a country" placeholder the way production does,
+   without greying the real options. */
+.contact-field select:invalid {
+  color: #8a8a8a;
 }
 
-.contact-successCard h2{
-  color:#065399;
-  margin-bottom:10px;
-}
-.contact-backBtn{
-  margin-top:20px;
-  padding:10px 18px;
-  background:#065399;
-  color:white;
-  border:none;
-  border-radius:4px;
-  cursor:pointer;
-  font-weight:600;
+.contact-error {
+  margin: 0;
+  font-size: 15px;
+  color: #b23a48;
 }
 
-.contact-backBtn:hover{
-  background:#05427a;
-}
-/* MOBILE */
-
-@media(max-width:768px){
-
-.contact-hero h1{
-  font-size:34px;
-}
-.contact-row{
-  grid-template-columns:1fr;
-}
-
-.contact-card{
-  padding:28px;
-}
-
-.contact-sendBtn{
-  width:100%;
+/* ---------- submit ---------- */
+.contact-sendBtn {
+  align-self: flex-start;
+  margin-top: 12px;
+  padding: 14px 26px;
+  border: none;
+  border-radius: 2px;
+  background: #1a73e8;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
+.contact-sendBtn:hover:not(:disabled) {
+  background: #1558b8;
+}
+
+.contact-sendBtn:focus-visible {
+  outline: 3px solid #065399;
+  outline-offset: 3px;
+}
+
+.contact-sendBtn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* ---------- success state ---------- */
+.contact-success {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  padding: 40px 20px;
+}
+
+.contact-successCard {
+  background: #ffffff;
+  padding: 40px;
+  border: 1px solid #e6e6e6;
+  border-radius: 6px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.contact-successCard h2 {
+  margin-bottom: 10px;
+  color: #065399;
+}
+
+.contact-backBtn {
+  margin-top: 20px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 2px;
+  background: #1a73e8;
+  color: #ffffff;
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.contact-backBtn:hover {
+  background: #1558b8;
+}
+
+.contact-backBtn:focus-visible {
+  outline: 3px solid #065399;
+  outline-offset: 3px;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 768px) {
+  .contact-formSection {
+    padding: 28px 16px 50px;
+  }
+
+  .contact-field textarea {
+    min-height: 150px;
+  }
+
+  .contact-sendBtn {
+    align-self: stretch;
+    text-align: center;
+  }
 }
