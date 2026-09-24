@@ -107,22 +107,25 @@ const teamData = {
     },
     {
       name: "Ana Sanabria",
-      details: "",
+      details:
+        "Ana Sanabria is a Technical Project Manager and recent graduate with a Master’s in Computer Science, with experience leading cross-functional projects in technology and nonprofit environments. She focuses on organizing complex initiatives, managing stakeholders, and delivering projects on time using Agile methodologies. She combines technical knowledge with strong execution skills to drive results and is focused on growing her impact in technical project management.",
       location: "",
       title: "Technical Project Manager",
       image: "/media/2026/9/Ana-Sanabria.webp",
     },
     {
       name: "Larry Smith",
-      details: "",
+      details:
+        "As Chief Product and Technology Officer, Larry is committed to delivering trusted, impactful, innovative health and wellness solutions for Human Health Project. Larry and his wife Pam live in the San Francisco area, where they enjoy sourdough baking, hiking, travel and exploring the natural beauty of California and the world beyond.",
       location: "",
       title: "Chief Technology Officer",
       image: "/media/2026/9/Larry-Smith.webp",
     },
     {
       name: "Marlon Armando Meneses Bejarano",
-      details: "",
-      location: "",
+      details:
+        "Marlon Meneses is a full-stack developer based in Colombia with a strong background in PHP and Laravel development. He is passionate about building software that solves real-world problems and improves people’s lives. He also has experience working with MySQL and Linux, along with knowledge of React and Docker gained through personal projects and continuous learning.",
+      location: "CO",
       title: "Laravel Developer",
       image: "/media/2026/9/Marlon-Armando-Meneses-Bejarano.webp",
     },
@@ -130,7 +133,8 @@ const teamData = {
   product: [
     {
       name: "Adaeze Winner Nwachukwu",
-      details: "",
+      details:
+        "With a background in international relations and over seven years in IT service management and data operations, Adaeze has worked across healthcare, financial services, and digital health, moving from service desk analysis and data quality assurance into Business Analysis and client-facing advisory work. The experience gathered across these different fields allows her to bridge the gap between complex technical requirements and real human needs, whether that is translating clinical workflows into actionable user stories for a digital health platform, or helping individuals and families put the right financial protection in place as a Protection Adviser. Driven by a genuine interest in using data and technology to improve people's lives, Adaeze brings both analytical rigour and a people-first mindset to everything she does.",
       title: "Business Analyst",
       image: "/media/2026/9/Adaeze-Winner-Nwachukwu.webp",
     },
@@ -143,7 +147,7 @@ const teamData = {
     },
     {
       name: "Pranjali Desai",
-      details: "",
+      details: "I am Pranjali Desai working as a Business Analyst at HHP.",
       location: "",
       title: "Business Analyst",
       image: "/media/2026/9/Pranjali-Desai.webp",
@@ -186,14 +190,16 @@ const teamData = {
     },
     {
       name: "Jane Yun",
-      details: "",
+      details:
+        "Jane Yun is a Volunteer Marketing Analytics Manager at the Human Health Project, based in Pittsburgh, Pennsylvania, where she leverages data to support strategic decision-making and strengthen outreach efforts. She holds a Bachelor of Design in Graphic Design and a Master of Business Analytics from Penn State’s Smeal College of Business, and focuses on analyzing marketing performance to deliver insights that enhance engagement and impact.",
       location: "",
       title: "Analytics Lead",
       image: "/media/2026/9/Jane-Yun.webp",
     },
     {
       name: "Kamara Nnadi",
-      details: "",
+      details:
+        "Kamarachukwu Nnadi is a certified medical assistant and student leader passionate about advancing health equity through community service, public health initiatives, and hands-on clinical experience.  ",
       location: "",
       title: "Healthcare Access Manager",
       image: "/media/2026/9/Kamara-Nnadi.webp",
@@ -277,7 +283,8 @@ const teamData = {
     },
     {
       name: "Milagro Ventura",
-      details: "",
+      details:
+        "Milagro Ventura is a grants and legal operations professional with experience supporting international development programs funded by USAID and global nonprofit organizations. Her expertise includes grants management, compliance, subaward administration, procurement, and international operations across Latin America, the Caribbean, and Africa. Currently, she supports global legal and operational functions at World Resources Institute, helping strengthen compliance systems, agreements, and cross-functional program operations.  ",
       location: "",
       title: "Chief Grant Officer",
       image: "/media/2026/9/Milagro-Ventura.webp",
@@ -349,7 +356,8 @@ const teamData = {
     },
     {
       name: "Jayeesha Deb",
-      details: "",
+      details:
+        "Jayeesha has a strong passion for improving healthcare accessibility around the world. She strives to pursue degrees in biochemistry and neuroscience and transform the medical industry for the better through research, patience, and fresh new ideas. HHP's mission and vision inspired her to contribute to its goals, and she's excited to see each volunteer's efforts come to fruition as we connect patients and their stories.",
       location: "",
       title: "Researcher - Shared Patient Information Program",
       image: "/media/2026/9/Jayeesha-Deb.webp",
@@ -358,7 +366,8 @@ const teamData = {
   revenueGeneration: [
     {
       name: "Doris Wambui Muriithi",
-      details: "",
+      details:
+        "Doris is a data and operations professional with expertise in revenue analysis and strategic data management. Anchored by a belief that clarity in systems drives meaningful growth, she moves at the intersection of data, structure and execution to enable revenue performance and operational alignment. She is passionate about global health and the broader question of how better systems can improve outcomes at scale. In her free time Doris enjoys discovering great coffee shops in Nairobi.",
       location: "",
       title: "Director, Revenue Generation",
       image: "/media/2026/9/Doris-Wambui-Muriithi.webp",
