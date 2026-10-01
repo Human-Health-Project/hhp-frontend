@@ -4,7 +4,8 @@ import { useCallback, useState } from "react";
 import { EmbeddedCheckout, EmbeddedCheckoutProvider } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
-const key = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
+const SQA_STRIPE_PUBLISHABLE_KEY = "pk_test_fevzfNn2jqEIOLgGg5jY5VQC";
+const key = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || SQA_STRIPE_PUBLISHABLE_KEY;
 const stripePromise = key ? loadStripe(key) : null;
 const apiUrl = (process.env.NEXT_PUBLIC_API_URL || "").replace(/\/$/, "");
 
