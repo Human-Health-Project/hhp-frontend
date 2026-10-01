@@ -17,8 +17,10 @@ function approvedStripeUrl(value) {
   }
 }
 
+const SQA_STRIPE_DONATION_URL = "https://buy.stripe.com/test_8x200jgJu9J4cgY7s71RC00";
+
 export const stripeDonationUrl = approvedStripeUrl(
-  process.env.NEXT_PUBLIC_STRIPE_DONATION_URL,
+  process.env.NEXT_PUBLIC_STRIPE_DONATION_URL || SQA_STRIPE_DONATION_URL,
 );
 
 export const stripeDonationsEnabled = Boolean(stripeDonationUrl);
