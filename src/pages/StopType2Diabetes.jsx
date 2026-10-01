@@ -1,8 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./StopType2Diabetes.css";
-
-const GOFUNDME_URL =
-  "https://www.gofundme.com/f/stop-type2diabetes-before-it-starts";
 
 const YOUTUBE_WATCH_URL =
   "https://youtu.be/JxZLRnaZ4LI?si=sBkNMTWT5GImHqEe";
@@ -115,18 +113,11 @@ export default function StopType2Diabetes() {
               </p>
             </section>
 
-            {/* RIGHT: QR DONATION */}
-            <div className="container">
-
-              <iframe
-                src="https://www.gofundme.com/f/stop-type2diabetes-before-it-starts/widget/large"
-                width="100%"
-                height="600"
-                frameBorder="0"
-                scrolling="no"
-                title="Stop Type-2 Diabetes"
-                style={{ border: "none" }}
-              ></iframe>
+            {/* RIGHT: DONATION */}
+            <div className="std2d-card std2d-cardPadded">
+              <h2 className="std2d-cardTitle">Support the program</h2>
+              <p className="std2d-cardText">Help fund the remaining modules, quizzes, expert review, and launch.</p>
+              <Link className="std2d-button std2d-buttonFull" to="/donate">Donate securely</Link>
             </div>
           </div>
         </div>
@@ -420,14 +411,12 @@ export default function StopType2Diabetes() {
                     You’re not just donating. You’re changing lives. Let’s stop
                     Type 2 diabetes before it starts together.
                   </p>
-                  <a
+                  <Link
                     className="std2d-button"
-                    href={GOFUNDME_URL}
-                    target="_blank"
-                    rel="noreferrer"
+                    to="/donate"
                   >
-                    Donate via GoFundMe
-                  </a>
+                    Donate securely
+                  </Link>
                 </div>
               </div>
             </article>
@@ -437,16 +426,14 @@ export default function StopType2Diabetes() {
               <div className="std2d-sideCard">
                 <h3 className="std2d-sideTitle">Quick Donate</h3>
                 <p className="std2d-sideText">
-                  Click the QR card above or use this button anytime.
+                  Use the secure HHP donation page at any time.
                 </p>
-                <a
+                <Link
                   className="std2d-button std2d-buttonFull"
-                  href={GOFUNDME_URL}
-                  target="_blank"
-                  rel="noreferrer"
+                  to="/donate"
                 >
-                  GoFundMe
-                </a>
+                  Donate securely
+                </Link>
               </div>
             </aside>
           </div>

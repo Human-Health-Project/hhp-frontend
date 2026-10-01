@@ -1,9 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Programs from '../components/Programs';
 import "./BecomePartner.css";
 
 
 export default function BecomePartner() {
+  const navigate = useNavigate();
   const heroTitle = "Join Us! Become an HHP Partner";
   const paragraph = "The mission of The Human Health Project is to improve the health of the underserved and vulnerable. We do this by educating and empowering individuals so that they can understand and access the healthcare system effectively. HHP is looking to work with other organizations who share the objective of improving health literacy! We'd love to have you join us as a partner in this effort. If you represent a local community group, association, or any other organization that wants to help educate people with the goal of improving their health, we'd like to hear from you to discuss how working together can accelerate the advancement of our respective missions. Human Health Project empowers patients by using a three-pronged approach Education, Information, and Advocacy. As an HHP partner, you can help us use these tools to improve health outcomes among people in your community, leading to better overall health, at a lower cost. Going forward, we are expanding our high quality educational content and program activities to focus on Non Communicable Conditions, with an initial focus on \"Preventing Type 2 Diabetes with Health Literacy\". In parallel with this we are building a Unified Member/Patient eXperience combining integrations, automation, AI and human support in the delivery of our programs, to help patients prevent and/or manage such conditions including peer-to-peer activities, improving their health and lowering costs.";
   const contactText = "If you'd like to learn more about the HHP Partner Program. Email us at";
@@ -37,7 +39,7 @@ return (
                         alt="Two Women Embracing" 
                         style={styles.imagePlaceholder}
                     />
-                    <button style={styles.donateButton}>{donateButtonText}</button>
+                    <button style={styles.donateButton} onClick={() => navigate('/donate')}>{donateButtonText}</button>
                 </div>
             </div>
         </section>
