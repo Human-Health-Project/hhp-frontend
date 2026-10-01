@@ -1,4 +1,5 @@
 import React from "react";
+import { stripeDonationUrl, stripeDonationsEnabled } from "@/config/donations";
 
 export default function DonatePage() {
   return (
@@ -51,21 +52,38 @@ export default function DonatePage() {
           </ul>
         </div>
 
-        {/* Right Donation Iframe */}
+        {/* Right Donation Options */}
         <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 md:p-10">
-          {/* Responsive iframe with aspect ratio */}
-          <div className="w-full aspect-video">
-            <iframe
-              src="https://www.gofundme.com/f/stop-type2diabetes-before-it-starts/widget/medium"
-              width="100%"
-              height="100%"
-              frameBorder="0"
-              scrolling="no"
-              title="Stop Type-2 Diabetes"
-              className="border-none rounded-xl"
-              style={{ display: "block" }}
-            ></iframe>
-          </div>
+          <h2 className="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4">
+            Donate securely
+          </h2>
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+            Complete your donation through Human Health Project&apos;s secure
+            Stripe checkout.
+          </p>
+
+          {stripeDonationsEnabled ? (
+            <a
+              href={stripeDonationUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-full items-center justify-center rounded-lg bg-[#135E96] px-6 py-3 font-semibold text-white transition-colors hover:bg-[#0f4d7c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#135E96]"
+            >
+              Donate with Stripe
+              <span className="sr-only"> (opens secure checkout in a new tab)</span>
+            </a>
+          ) : (
+            <div className="rounded-xl border border-[#135E96]/25 bg-[#135E96]/5 p-5" role="status">
+              <p className="font-semibold text-gray-800">Online donations are being updated.</p>
+              <p className="mt-2 text-sm leading-relaxed text-gray-600">
+                Please check back shortly or contact donations@humanhealthproject.org.
+              </p>
+            </div>
+          )}
+
+          <p className="mt-4 text-xs leading-relaxed text-gray-500">
+            You will only see a donation confirmation after Stripe confirms the payment.
+          </p>
         </div>
       </section>
     </div>
