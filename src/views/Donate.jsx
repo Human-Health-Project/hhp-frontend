@@ -52,8 +52,19 @@ export default function DonatePage() {
       <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 md:p-10">
         <h2 className="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4">Donate securely</h2>
         {!checkoutAmount && <form onSubmit={startCheckout} className="space-y-4">
-          <label htmlFor="donation-amount" className="block font-semibold text-gray-800">Donation amount (USD)</label>
-          <div className="flex rounded-lg border border-gray-300 focus-within:ring-2 focus-within:ring-[#135E96]"><span className="px-4 py-3 text-gray-600">$</span><input id="donation-amount" type="number" min="1" max="10000" step="0.01" value={amount} onChange={event => setAmount(event.target.value)} className="min-w-0 flex-1 rounded-r-lg px-3 py-3 outline-none" required /></div>
+          <div className="rounded-xl border-2 border-[#135E96] bg-blue-50 p-4 sm:p-5">
+            <label htmlFor="donation-amount" className="block text-lg font-bold text-gray-900">Enter your donation amount</label>
+            <p id="donation-amount-help" className="mt-1 text-sm text-gray-600">Choose an amount below or type your own amount in US dollars.</p>
+            <div className="mt-4 grid grid-cols-4 gap-2">
+              {[10, 25, 50, 100].map(value => <button key={value} type="button" onClick={() => setAmount(String(value))} className={`rounded-lg border px-2 py-2 font-semibold ${amount === String(value) ? "border-[#135E96] bg-[#135E96] text-white" : "border-gray-300 bg-white text-[#135E96] hover:border-[#135E96]"}`}>${value}</button>)}
+            </div>
+            <div className="mt-4 flex overflow-hidden rounded-lg border-2 border-gray-400 bg-white focus-within:border-[#135E96] focus-within:ring-2 focus-within:ring-blue-200">
+              <span className="flex items-center border-r border-gray-300 bg-gray-100 px-4 text-xl font-bold text-gray-800">$</span>
+              <input id="donation-amount" aria-describedby="donation-amount-help" aria-label="Custom donation amount in US dollars" type="number" min="1" max="10000" step="0.01" value={amount} onChange={event => setAmount(event.target.value)} className="min-w-0 flex-1 px-4 py-3 text-xl font-bold text-gray-900 outline-none" required />
+              <span className="flex items-center px-4 font-semibold text-gray-600">USD</span>
+            </div>
+            <p className="mt-2 text-xs text-gray-500">Minimum $1 · Maximum $10,000</p>
+          </div>
           {error && <p role="alert" className="text-sm text-red-700">{error}</p>}
           <button type="submit" disabled={!stripePromise || !apiUrl} className="w-full rounded-lg bg-[#135E96] px-6 py-3 font-semibold text-white hover:bg-[#0f4d7c] disabled:cursor-not-allowed disabled:opacity-60">Continue to secure checkout</button>
           {(!stripePromise || !apiUrl) && <p role="status" className="text-sm text-gray-600">Embedded donations are being configured. Please check back shortly.</p>}
