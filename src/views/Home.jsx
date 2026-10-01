@@ -3,11 +3,17 @@
 import Link from "next/link";
 import { useState } from "react";
 import { api } from "@/services/api";
+import { getData } from "country-list";
 import "./Home.css";
 import CommunityVoicesHero from "@/components/CommunityVoicesHero";
 
+// The newsletter form used to hardcode only 5 countries. Use the full
+// country-list dataset instead, sorted alphabetically by name (the codes
+// come back in an unrelated order), so every country is selectable.
+const COUNTRIES = getData().sort((a, b) => a.name.localeCompare(b.name));
+
 export default function Home() {
-  const [newsletter, setNewsletter] = useState({ email: "", country: "AF" });
+  const [newsletter, setNewsletter] = useState({ email: "", country: "" });
   const [newsletterState, setNewsletterState] = useState({ status: "idle", message: "" });
 
   const subscribeToNewsletter = async (event) => {
@@ -16,7 +22,7 @@ export default function Home() {
 
     try {
       await api.subscribeToNewsletter(newsletter);
-      setNewsletter({ email: "", country: "AF" });
+      setNewsletter({ email: "", country: "" });
       setNewsletterState({
         status: "success",
         message: "Thank you for subscribing. Please check your email.",
@@ -219,11 +225,14 @@ export default function Home() {
                   disabled={newsletterState.status === "loading"}
                   required
                 >
-                  <option value="AF">Afghanistan</option>
-                  <option value="US">United States</option>
-                  <option value="UK">United Kingdom</option>
-                  <option value="CA">Canada</option>
-                  <option value="AU">Australia</option>
+                  <option value="" disabled>
+                    Select a country
+                  </option>
+                  {COUNTRIES.map(({ code, name }) => (
+                    <option key={code} value={code}>
+                      {name}
+                    </option>
+                  ))}
                 </select>
               </div>
               <button type="submit" className="btn btn-primary" disabled={newsletterState.status === "loading"}>
