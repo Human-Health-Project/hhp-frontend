@@ -165,14 +165,9 @@ export default function Footer() {
             <Link className="hhpFooterLink" href="/contact">
               Contact Us
             </Link>
-            <a
-              className="hhpFooterLink"
-              href="https://humanhealthproject.org/blog/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link className="hhpFooterLink" href="/blog">
               Blogs
-            </a>
+            </Link>
             <Link className="hhpFooterLink" href="/latest-news">
               Latest News
             </Link>

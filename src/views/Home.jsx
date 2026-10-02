@@ -3,11 +3,17 @@
 import Link from "next/link";
 import { useState } from "react";
 import { api } from "@/services/api";
+import { getData } from "country-list";
 import "./Home.css";
 import CommunityVoicesHero from "@/components/CommunityVoicesHero";
 
+// The newsletter form used to hardcode only 5 countries. Use the full
+// country-list dataset instead, sorted alphabetically by name (the codes
+// come back in an unrelated order), so every country is selectable.
+const COUNTRIES = getData().sort((a, b) => a.name.localeCompare(b.name));
+
 export default function Home() {
-  const [newsletter, setNewsletter] = useState({ email: "", country: "AF" });
+  const [newsletter, setNewsletter] = useState({ email: "", country: "" });
   const [newsletterState, setNewsletterState] = useState({ status: "idle", message: "" });
 
   const subscribeToNewsletter = async (event) => {
@@ -16,7 +22,7 @@ export default function Home() {
 
     try {
       await api.subscribeToNewsletter(newsletter);
-      setNewsletter({ email: "", country: "AF" });
+      setNewsletter({ email: "", country: "" });
       setNewsletterState({
         status: "success",
         message: "Thank you for subscribing. Please check your email.",
@@ -39,7 +45,7 @@ export default function Home() {
       title: 'Patient Advocacy - Online Workshops',
       description: 'Join our online workshops to learn how to advocate for yourself and help others with their healthcare journeys. Get the skills and knowledge to navigate the healthcare system.',
       link: '/what-we-do/patient-advocacy/los-angeles',
-      imageUrl: 'https://humanhealthproject.org/wp-content/uploads/2023/09/patient-advocacy-1.webp'
+      imageUrl: '/media/2023/09/patient-advocacy-1.webp'
     },
     {
       id: 2,
@@ -47,7 +53,7 @@ export default function Home() {
       title: 'Shared Patient Information',
       description: 'Our Shared Patient Information (SPI) Program allows patients to share their health data securely. We help you understand how to use and benefit from sharing information.',
       link: '/what-we-do/shared-patient-information',
-      imageUrl: 'https://humanhealthproject.org/wp-content/uploads/2023/09/homepage_laptop_with_hand-1024x683.webp'
+      imageUrl: '/media/2023/09/homepage_laptop_with_hand-1024x683.webp'
     },
     {
       id: 3,
@@ -55,7 +61,7 @@ export default function Home() {
       title: 'Learning Academy',
       description: 'The Learning Academy is designed for anyone interested in becoming an empowered patient, empowered caregiver or those seeking to understand patient engagement and patient-centered care.',
       link: '/what-we-do/learning-academy/english',
-      imageUrl: 'https://humanhealthproject.org/wp-content/uploads/2023/09/patient-education_2-1-1024x683.webp'
+      imageUrl: '/media/2023/09/patient-education_2-1-1024x683.webp'
     }
   ];
 
@@ -65,28 +71,28 @@ export default function Home() {
       className: 'donate',
       title: 'Donate',
       link: '/donate',
-      imageUrl: 'https://humanhealthproject.org/wp-content/uploads/2023/09/homepage_flowers_in_hand.webp'
+      imageUrl: '/media/2023/09/homepage_flowers_in_hand.webp'
     },
     {
       id: 2,
       className: 'support',
       title: 'Support HHP',
       link: '/how-to-help/',
-      imageUrl: 'https://humanhealthproject.org/wp-content/uploads/2023/09/homepage_all_hands_in.webp'
+      imageUrl: '/media/2023/09/homepage_all_hands_in.webp'
     },
     {
       id: 3,
       className: 'partner',
       title: 'Partner with Us',
       link: '/how-to-help/become-hhp-partner',
-      imageUrl: 'https://humanhealthproject.org/wp-content/uploads/2023/09/partner-1-1-1024x683.webp'
+      imageUrl: '/media/2023/09/partner-1-1-1024x683.webp'
     },
     {
       id: 4,
       className: 'volunteer',
       title: 'Volunteer',
       link: '/how-to-help#volunteer-section',
-      imageUrl: 'https://humanhealthproject.org/wp-content/uploads/2023/09/homepage_coffee_shop-1024x683.webp'
+      imageUrl: '/media/2023/09/homepage_coffee_shop-1024x683.webp'
     }
   ];
 
@@ -219,11 +225,14 @@ export default function Home() {
                   disabled={newsletterState.status === "loading"}
                   required
                 >
-                  <option value="AF">Afghanistan</option>
-                  <option value="US">United States</option>
-                  <option value="UK">United Kingdom</option>
-                  <option value="CA">Canada</option>
-                  <option value="AU">Australia</option>
+                  <option value="" disabled>
+                    Select a country
+                  </option>
+                  {COUNTRIES.map(({ code, name }) => (
+                    <option key={code} value={code}>
+                      {name}
+                    </option>
+                  ))}
                 </select>
               </div>
               <button type="submit" className="btn btn-primary" disabled={newsletterState.status === "loading"}>
