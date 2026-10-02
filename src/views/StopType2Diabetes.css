@@ -239,6 +239,23 @@
   margin-bottom: 6px;
 }
 
+.std2d-form > .std2d-label {
+  margin-top: 14px;
+}
+
+.std2d-form > .std2d-label:first-child {
+  margin-top: 0;
+}
+
+.std2d-form > .std2d-button {
+  margin-top: 16px;
+}
+
+select.std2d-input {
+  appearance: auto;
+  width: 100%;
+}
+
 .std2d-required {
   color: #d11a2a;
 }
