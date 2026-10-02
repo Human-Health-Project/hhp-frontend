@@ -54,6 +54,7 @@ const teamData = {
       title: "Chief Learning Officer",
       image:
         "/media/2024/10/Profile-Picture-Laura-Bartus-e1730391744260-300x400.webp",
+      imagePosition: "center 15%",
     },
     {
       name: "Aya Ali",
@@ -62,6 +63,7 @@ const teamData = {
       location: "",
       title: "General Manager - Diabetes Project",
       image: "/media/2024/11/Aya-Ali-300x400.jpeg",
+      imagePosition: "center 5%",
     },
   ],
   technology: [
@@ -72,6 +74,7 @@ const teamData = {
       location: "",
       title: "SQA Lead",
       image: "/media/2023/09/Alvin-Ceballos-300x400.webp",
+      imagePosition: "center 30%",
     },
     {
       name: "Abdullahi Hussein",
@@ -80,6 +83,7 @@ const teamData = {
       location: "",
       title: "Web Developer and WordPress Lead",
       image: "/media/2023/09/Abdullahi-Hussein-300x400.webp",
+      imagePosition: "center 20%",
     },
     {
       name: "Rene Herrera",
@@ -88,6 +92,7 @@ const teamData = {
       location: "",
       title: "Technical Project Manager",
       image: "/media/2024/05/Rene-Herrera-300x400.webp",
+      imagePosition: "center 20%",
     },
     {
       name: "Sukanya Devarajan",
@@ -96,6 +101,7 @@ const teamData = {
       location: "",
       title: "SQA Automation Engineer",
       image: "/media/2023/09/Sukanya-Devarajan-300x392.webp",
+      imagePosition: "center 10%",
     },
     {
       name: "Jorell Andrei Finez",
@@ -112,6 +118,7 @@ const teamData = {
       location: "",
       title: "Technical Project Manager",
       image: "/media/2026/9/Ana-Sanabria.webp",
+      imagePosition: "center 40%",
     },
     {
       name: "Larry Smith",
@@ -128,6 +135,7 @@ const teamData = {
       location: "CO",
       title: "Laravel Developer",
       image: "/media/2026/9/Marlon-Armando-Meneses-Bejarano.webp",
+      imagePosition: "center 30%",
     },
   ],
   product: [
@@ -137,6 +145,7 @@ const teamData = {
         "With a background in international relations and over seven years in IT service management and data operations, Adaeze has worked across healthcare, financial services, and digital health, moving from service desk analysis and data quality assurance into Business Analysis and client-facing advisory work. The experience gathered across these different fields allows her to bridge the gap between complex technical requirements and real human needs, whether that is translating clinical workflows into actionable user stories for a digital health platform, or helping individuals and families put the right financial protection in place as a Protection Adviser. Driven by a genuine interest in using data and technology to improve people's lives, Adaeze brings both analytical rigour and a people-first mindset to everything she does.",
       title: "Business Analyst",
       image: "/media/2026/9/Adaeze-Winner-Nwachukwu.webp",
+      imagePosition: "25% center",
     },
     {
       name: "Johny Choi",
@@ -161,6 +170,7 @@ const teamData = {
       location: "",
       title: "Security Training Officer",
       image: "/media/2023/09/Joseph-Manning-300x400.webp",
+      imagePosition: "center 30%",
     },
   ],
   marketing: [
@@ -231,6 +241,7 @@ const teamData = {
       location: "",
       title: "HR Manager",
       image: "/media/2025/10/Marzia-300x400.webp",
+      imagePosition: "center 10%",
     },
     {
       name: "Libby Grinfeld",
@@ -239,6 +250,7 @@ const teamData = {
       location: "",
       title: "HR Manager",
       image: "/media/2023/09/Libby-Grinfeld-300x400.webp",
+      imagePosition: "center 10%",
     },
     {
       name: "Sherie Ford",
@@ -247,6 +259,7 @@ const teamData = {
       location: "",
       title: "HR Assistant",
       image: "/media/2025/04/Sherie-Ford-300x400.webp",
+      imagePosition: "center 30%",
     },
   ],
   development: [
@@ -265,6 +278,7 @@ const teamData = {
       location: "",
       title: "Administrative Assistant",
       image: "/media/2024/07/Rosemary-300x400.webp",
+      imagePosition: "center 40%",
     },
     {
       name: "Ginger Crawford",
@@ -273,6 +287,7 @@ const teamData = {
       location: "",
       title: "Accounting Associate",
       image: "/media/2023/09/Ginger-Crawford.webp",
+      imagePosition: "center 30%",
     },
     {
       name: "Mercy Adebanwo",
@@ -280,6 +295,7 @@ const teamData = {
       location: "",
       title: "Grant Writer",
       image: "/media/2026/9/Mercy-Adebanwo.webp",
+      imageScale: 1.15,
     },
     {
       name: "Milagro Ventura",
@@ -288,6 +304,7 @@ const teamData = {
       location: "",
       title: "Chief Grant Officer",
       image: "/media/2026/9/Milagro-Ventura.webp",
+      imageScale: 1.3,
     },
     {
       name: "Eric Gray",
@@ -306,6 +323,7 @@ const teamData = {
       title: "Chief Learning Officer",
       image:
         "/media/2024/10/Profile-Picture-Laura-Bartus-e1730391744260-300x400.webp",
+      imagePosition: "center 15%",
     },
     {
       name: "Bill Nguyen",
@@ -313,6 +331,7 @@ const teamData = {
       location: "",
       title: "Education and Online Learning Specialist",
       image: "/media/2023/09/Bill-Nguyen-300x400.webp",
+      imagePosition: "center 30%",
     },
     {
       name: "Pritha Sur",
@@ -321,6 +340,7 @@ const teamData = {
       location: "",
       title: "Education and Online Learning Specialist",
       image: "/media/2023/09/Pritha-Sur-300x400.webp",
+      imagePosition: "center 30%",
     },
     {
       name: "Ana Olivares",
@@ -329,6 +349,7 @@ const teamData = {
       location: "",
       title: "Education & Online Learning Specialist",
       image: "/media/2025/10/Ana-Olivares-300x400.webp",
+      imagePosition: "center 30%",
     },
     {
       name: "Selene Tan",
@@ -345,6 +366,7 @@ const teamData = {
       location: "",
       title: "Patient Advocate and Diabetes Researcher",
       image: "/media/2024/10/Vanessa-Legeza-300x400.webp",
+      imagePosition: "center 10%",
     },
     {
       name: "Saliem Q.S. Alzein",
@@ -353,6 +375,7 @@ const teamData = {
       location: "",
       title: "Diabetes Researcher / YouTube Creator",
       image: "/media/2024/10/Saliem-Q.S.-Alzein-300x400.webp",
+      imagePosition: "center 30%",
     },
     {
       name: "Jayeesha Deb",
@@ -361,6 +384,7 @@ const teamData = {
       location: "",
       title: "Researcher - Shared Patient Information Program",
       image: "/media/2026/9/Jayeesha-Deb.webp",
+      imageScale: 1.45,
     },
   ],
   revenueGeneration: [
@@ -371,6 +395,7 @@ const teamData = {
       location: "",
       title: "Director, Revenue Generation",
       image: "/media/2026/9/Doris-Wambui-Muriithi.webp",
+      imagePosition: "center 30%",
     },
   ],
   footerCta: {
@@ -380,15 +405,41 @@ const teamData = {
 };
 
 // Reusable TeamMember component
-const TeamMember = ({ name, title, image }) => (
-  <div className="team-member">
-    <div className="team-member__image-wrapper">
-      <img src={image} alt={name} className="team-member__image" />
+// Note: source photos are portrait (e.g. 300x400) cropped into a square frame,
+// so object-fit: cover already fills the full image width with no horizontal
+// slack to pan across — object-position can only shift vertically here.
+// Horizontal shifts need imageOffsetX, which zooms in (to create slack) and
+// pans via transform instead.
+const TeamMember = ({
+  name,
+  title,
+  image,
+  imagePosition,
+  imageScale,
+  imageOffsetX,
+}) => {
+  const transforms = [];
+  if (imageScale) transforms.push(`scale(${imageScale})`);
+  if (imageOffsetX) transforms.push(`translateX(${imageOffsetX})`);
+
+  return (
+    <div className="team-member">
+      <div className="team-member__image-wrapper">
+        <img
+          src={image}
+          alt={name}
+          className="team-member__image"
+          style={{
+            ...(imagePosition && { objectPosition: imagePosition }),
+            ...(transforms.length && { transform: transforms.join(" ") }),
+          }}
+        />
+      </div>
+      <h4 className="team-member__name">{name}</h4>
+      <p className="team-member__title">{title}</p>
     </div>
-    <h4 className="team-member__name">{name}</h4>
-    <p className="team-member__title">{title}</p>
-  </div>
-);
+  );
+};
 
 // Reusable TeamSection component
 const TeamSection = ({ title, members }) => (
