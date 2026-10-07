@@ -16,7 +16,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
-  const [notice, setNotice] = useState("");
+  const [notice, setNotice] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const { login, signInWithGoogle, signInWithFacebook, signInWithApple, signInWithMicrosoft, resetPassword } = useAuth();
@@ -26,9 +26,15 @@ export default function Login() {
     const params = new URLSearchParams(window.location.search);
 
     if (params.get("verification_sent") === "1") {
-      setNotice("Verification email sent. Please check your inbox before logging in.");
+      setNotice({
+        title: "Check your inbox",
+        message: "We sent you a verification link. Verify your email, then return here to log in.",
+      });
     } else if (params.get("email_verified") === "1") {
-      setNotice("Email verified. You can now log in.");
+      setNotice({
+        title: "Email verified",
+        message: "Your email address is confirmed. You can now log in to your HHP account.",
+      });
     }
   }, []);
 
@@ -130,7 +136,21 @@ export default function Login() {
         </p>
 
         {error && <div className="authError">{error}</div>}
-        {notice && <div role="status" className="authSuccess">{notice}</div>}
+        {notice && (
+          <div role="status" className="authVerificationNotice">
+            <span className="authVerificationIcon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M4.75 6.75h14.5v10.5H4.75z" />
+                <path d="m5.25 7.25 6.75 5 6.75-5" />
+                <path d="m9.25 16.75 2.75-2 2.75 2" />
+              </svg>
+            </span>
+            <span className="authVerificationCopy">
+              <strong>{notice.title}</strong>
+              <span>{notice.message}</span>
+            </span>
+          </div>
+        )}
 
         <form className="authForm" onSubmit={onSubmit}>
           <label className="authLabel" htmlFor="email">
