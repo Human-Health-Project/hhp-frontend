@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { EmbeddedCheckout, EmbeddedCheckoutProvider } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
@@ -14,6 +14,29 @@ export default function DonatePage() {
   const [frequency, setFrequency] = useState("one_time");
   const [checkoutDonation, setCheckoutDonation] = useState(null);
   const [error, setError] = useState("");
+  const [confirmation, setConfirmation] = useState(null);
+
+  useEffect(() => {
+    const sessionId = new URLSearchParams(window.location.search).get("session_id");
+    if (!sessionId) return;
+
+    let active = true;
+    setConfirmation({ status: "checking" });
+
+    fetch(`${apiUrl}/donations/checkout-session/${encodeURIComponent(sessionId)}`, {
+      headers: { Accept: "application/json" },
+    })
+      .then(async response => {
+        const payload = await response.json();
+        if (!response.ok || !payload.complete) throw new Error("Donation confirmation is not available.");
+        if (active) setConfirmation({ status: "complete", frequency: payload.frequency });
+      })
+      .catch(() => {
+        if (active) setConfirmation({ status: "error" });
+      });
+
+    return () => { active = false; };
+  }, []);
 
   const fetchClientSecret = useCallback(async () => {
     const response = await fetch(`${apiUrl}/donations/checkout-session`, {
@@ -52,7 +75,19 @@ export default function DonatePage() {
       </div>
       <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 md:p-10">
         <h2 className="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4">Donate securely</h2>
-        {!checkoutDonation && <form onSubmit={startCheckout} className="space-y-4">
+        {confirmation?.status === "checking" && <div role="status" className="rounded-xl border border-blue-200 bg-blue-50 p-6 text-center">
+          <p className="font-semibold text-[#135E96]">Confirming your donation…</p>
+        </div>}
+        {confirmation?.status === "complete" && <div role="status" className="rounded-xl border border-green-200 bg-green-50 p-6 text-center">
+          <div aria-hidden="true" className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-green-100 text-2xl text-green-700">✓</div>
+          <h3 className="text-2xl font-bold text-gray-900">Thank you for your support!</h3>
+          <p className="mt-2 text-gray-700">Your {confirmation.frequency === "monthly" ? "monthly donation" : "donation"} was confirmed securely by Stripe.</p>
+          <button type="button" onClick={() => { window.history.replaceState({}, "", "/donate"); setConfirmation(null); }} className="mt-5 font-semibold text-[#135E96] hover:underline">Make another donation</button>
+        </div>}
+        {confirmation?.status === "error" && <div role="alert" className="mb-4 rounded-xl border border-amber-300 bg-amber-50 p-4 text-sm text-amber-900">
+          We could not verify this donation. No success has been recorded on this page. Please retry or contact us if Stripe charged your test card.
+        </div>}
+        {confirmation?.status !== "checking" && confirmation?.status !== "complete" && !checkoutDonation && <form onSubmit={startCheckout} className="space-y-4">
           <fieldset>
             <legend className="mb-2 block text-base font-bold text-gray-900">Donation frequency</legend>
             <div className="grid grid-cols-2 gap-2 rounded-xl bg-gray-100 p-1" role="radiogroup">
