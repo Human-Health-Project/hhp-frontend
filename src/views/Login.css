@@ -41,15 +41,55 @@
     text-align: center;
   }
 
-  .authSuccess {
-    background: #ecfdf5;
-    border: 1px solid #22c55e;
-    color: #166534;
-    padding: 12px 16px;
-    border-radius: 6px;
-    margin-bottom: 16px;
+  .authVerificationNotice {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin: 0 0 24px;
+    padding: 16px 18px;
+    border: 1px solid #b7d5ee;
+    border-left: 4px solid #0b5ea8;
+    border-radius: 8px;
+    background: #f2f8fd;
+    color: #183b56;
+    text-align: left;
+  }
+
+  .authVerificationIcon {
+    flex: 0 0 38px;
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #0b5ea8;
+    color: #fff;
+  }
+
+  .authVerificationIcon svg {
+    width: 21px;
+    height: 21px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .authVerificationCopy {
+    display: grid;
+    gap: 3px;
+    line-height: 1.45;
+  }
+
+  .authVerificationCopy strong {
+    color: #0b5ea8;
+    font-size: 16px;
+  }
+
+  .authVerificationCopy span {
+    color: #3f5364;
     font-size: 14px;
-    text-align: center;
   }
   
   .authForm {
@@ -211,5 +251,23 @@
   
   .socialMicrosoft:hover .socialIconImg {
     filter: grayscale(0);
+  }
+
+  @media (max-width: 520px) {
+    .authPage {
+      padding: 40px 18px 64px;
+    }
+
+    .authTitle {
+      font-size: 32px;
+    }
+
+    .authSubtitle {
+      font-size: 16px;
+    }
+
+    .authVerificationNotice {
+      padding: 14px;
+    }
   }
   
