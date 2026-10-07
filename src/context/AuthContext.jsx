@@ -7,6 +7,7 @@ import {
   signInWithPopup,
   signOut,
   onAuthStateChanged,
+  sendEmailVerification,
   sendPasswordResetEmail,
 } from "firebase/auth";
 import {
@@ -60,9 +61,23 @@ export function AuthProvider({ children }) {
     return createUserWithEmailAndPassword(auth, email, password);
   }
 
+  function sendVerificationEmail(user) {
+    return sendEmailVerification(user, {
+      url: `${window.location.origin}/login?email_verified=1`,
+    });
+  }
+
   // Email/Password Login
   async function login(email, password) {
     const credential = await signInWithEmailAndPassword(auth, email, password);
+
+    if (!credential.user.emailVerified) {
+      await signOut(auth);
+      const verificationError = new Error("Email verification is required.");
+      verificationError.code = "auth/email-not-verified";
+      throw verificationError;
+    }
+
     await establishBackendSession(credential.user);
     return credential;
   }
@@ -115,6 +130,13 @@ export function AuthProvider({ children }) {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       try {
         if (user) {
+          const usesPassword = user.providerData.some(provider => provider.providerId === "password");
+
+          if (usesPassword && !user.emailVerified) {
+            setCurrentUser(null);
+            return;
+          }
+
           await establishBackendSession(user);
           setCurrentUser(user);
         } else {
@@ -136,6 +158,7 @@ export function AuthProvider({ children }) {
     currentUser,
     loading,
     signup,
+    sendVerificationEmail,
     establishBackendSession,
     login,
     logout,
