@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useCallback, useContext, useRef, useState, useEffect } from "react";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -27,35 +27,72 @@ export function useAuth() {
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const backendSessionRef = useRef(null);
+
+  const establishBackendSession = useCallback(async (user, forceRefresh = false) => {
+    if (backendSessionRef.current?.uid === user.uid) {
+      return backendSessionRef.current.promise;
+    }
+
+    const promise = (async () => {
+      try {
+        const token = await user.getIdToken(forceRefresh);
+        await api.establishSession(token);
+        return user;
+      } catch (error) {
+        const sessionError = new Error("We could not complete sign-in with the HHP service. Please try again.");
+        sessionError.code = "auth/backend-session-failed";
+        sessionError.cause = error;
+        throw sessionError;
+      } finally {
+        if (backendSessionRef.current?.promise === promise) {
+          backendSessionRef.current = null;
+        }
+      }
+    })();
+
+    backendSessionRef.current = { uid: user.uid, promise };
+    return promise;
+  }, []);
 
   // Email/Password Sign Up
-  function signup(email, password) {
+  async function signup(email, password) {
     return createUserWithEmailAndPassword(auth, email, password);
   }
 
   // Email/Password Login
-  function login(email, password) {
-    return signInWithEmailAndPassword(auth, email, password);
+  async function login(email, password) {
+    const credential = await signInWithEmailAndPassword(auth, email, password);
+    await establishBackendSession(credential.user);
+    return credential;
   }
 
   // Google Sign In
-  function signInWithGoogle() {
-    return signInWithPopup(auth, googleProvider);
+  async function signInWithGoogle() {
+    const credential = await signInWithPopup(auth, googleProvider);
+    await establishBackendSession(credential.user);
+    return credential;
   }
 
   // Facebook Sign In
-  function signInWithFacebook() {
-    return signInWithPopup(auth, facebookProvider);
+  async function signInWithFacebook() {
+    const credential = await signInWithPopup(auth, facebookProvider);
+    await establishBackendSession(credential.user);
+    return credential;
   }
 
   // Apple Sign In
-  function signInWithApple() {
-    return signInWithPopup(auth, appleProvider);
+  async function signInWithApple() {
+    const credential = await signInWithPopup(auth, appleProvider);
+    await establishBackendSession(credential.user);
+    return credential;
   }
 
   // Microsoft Sign In
-  function signInWithMicrosoft() {
-    return signInWithPopup(auth, microsoftProvider);
+  async function signInWithMicrosoft() {
+    const credential = await signInWithPopup(auth, microsoftProvider);
+    await establishBackendSession(credential.user);
+    return credential;
   }
 
   // Logout
@@ -76,25 +113,30 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      setCurrentUser(user);
-
-      if (user) {
-        const token = await user.getIdToken();
-        await api.establishSession(token).catch((error) => {
-          console.error("Unable to establish backend session", error);
-        });
+      try {
+        if (user) {
+          await establishBackendSession(user);
+          setCurrentUser(user);
+        } else {
+          setCurrentUser(null);
+        }
+      } catch (error) {
+        console.error("Unable to establish backend session", error);
+        setCurrentUser(null);
+        await signOut(auth).catch(() => undefined);
+      } finally {
+        setLoading(false);
       }
-
-      setLoading(false);
     });
 
     return unsubscribe;
-  }, []);
+  }, [establishBackendSession]);
 
   const value = {
     currentUser,
     loading,
     signup,
+    establishBackendSession,
     login,
     logout,
     signInWithGoogle,

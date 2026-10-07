@@ -97,6 +97,8 @@ export default function Login() {
         return "Sign-in popup was closed";
       case "auth/account-exists-with-different-credential":
         return "Account exists with different sign-in method";
+      case "auth/backend-session-failed":
+        return "Your identity was verified, but HHP could not complete login. Please try again.";
       default:
         return "An error occurred. Please try again";
     }
