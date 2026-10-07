@@ -11,19 +11,20 @@ const apiUrl = (process.env.NEXT_PUBLIC_API_URL || "").replace(/\/$/, "");
 
 export default function DonatePage() {
   const [amount, setAmount] = useState("25");
-  const [checkoutAmount, setCheckoutAmount] = useState(null);
+  const [frequency, setFrequency] = useState("one_time");
+  const [checkoutDonation, setCheckoutDonation] = useState(null);
   const [error, setError] = useState("");
 
   const fetchClientSecret = useCallback(async () => {
     const response = await fetch(`${apiUrl}/donations/checkout-session`, {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify({ amount: checkoutAmount }),
+      body: JSON.stringify(checkoutDonation),
     });
     const payload = await response.json();
     if (!response.ok || !payload.client_secret) throw new Error(payload.message || "Unable to start secure checkout.");
     return payload.client_secret;
-  }, [checkoutAmount]);
+  }, [checkoutDonation]);
 
   function startCheckout(event) {
     event.preventDefault();
@@ -33,7 +34,7 @@ export default function DonatePage() {
       return;
     }
     setError("");
-    setCheckoutAmount(cents);
+    setCheckoutDonation({ amount: cents, frequency });
   }
 
   return <div className="min-h-screen mb-20">
@@ -51,17 +52,29 @@ export default function DonatePage() {
       </div>
       <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 md:p-10">
         <h2 className="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4">Donate securely</h2>
-        {!checkoutAmount && <form onSubmit={startCheckout} className="space-y-4">
+        {!checkoutDonation && <form onSubmit={startCheckout} className="space-y-4">
+          <fieldset>
+            <legend className="mb-2 block text-base font-bold text-gray-900">Donation frequency</legend>
+            <div className="grid grid-cols-2 gap-2 rounded-xl bg-gray-100 p-1" role="radiogroup">
+              {[
+                { value: "one_time", label: "One-time" },
+                { value: "monthly", label: "Monthly" },
+              ].map(option => <label key={option.value} className={`cursor-pointer rounded-lg px-4 py-3 text-center font-semibold transition-colors ${frequency === option.value ? "bg-[#135E96] text-white shadow-sm" : "text-gray-700 hover:bg-white"}`}>
+                <input type="radio" name="donation-frequency" value={option.value} checked={frequency === option.value} onChange={event => setFrequency(event.target.value)} className="sr-only" />
+                {option.label}
+              </label>)}
+            </div>
+          </fieldset>
           <div className="rounded-xl border-2 border-[#135E96] bg-blue-50 p-4 sm:p-5">
             <label htmlFor="donation-amount" className="block text-lg font-bold text-gray-900">Enter your donation amount</label>
-            <p id="donation-amount-help" className="mt-1 text-sm text-gray-600">Choose an amount below or type your own amount in US dollars.</p>
+            <p id="donation-amount-help" className="mt-1 text-sm text-gray-600">Choose an amount below or type your own amount in US dollars{frequency === "monthly" ? " per month" : ""}.</p>
             <div className="mt-4 grid grid-cols-4 gap-2">
               {[10, 25, 50, 100].map(value => <button key={value} type="button" onClick={() => setAmount(String(value))} className={`rounded-lg border px-2 py-2 font-semibold ${amount === String(value) ? "border-[#135E96] bg-[#135E96] text-white" : "border-gray-300 bg-white text-[#135E96] hover:border-[#135E96]"}`}>${value}</button>)}
             </div>
             <div className="mt-4 flex overflow-hidden rounded-lg border-2 border-gray-400 bg-white focus-within:border-[#135E96] focus-within:ring-2 focus-within:ring-blue-200">
               <span className="flex items-center border-r border-gray-300 bg-gray-100 px-4 text-xl font-bold text-gray-800">$</span>
               <input id="donation-amount" aria-describedby="donation-amount-help" aria-label="Custom donation amount in US dollars" type="number" min="1" max="10000" step="0.01" value={amount} onChange={event => setAmount(event.target.value)} className="min-w-0 flex-1 px-4 py-3 text-xl font-bold text-gray-900 outline-none" required />
-              <span className="flex items-center px-4 font-semibold text-gray-600">USD</span>
+              <span className="flex items-center px-4 font-semibold text-gray-600">USD{frequency === "monthly" ? "/mo" : ""}</span>
             </div>
             <p className="mt-2 text-xs text-gray-500">Minimum $1 · Maximum $10,000</p>
           </div>
@@ -69,7 +82,7 @@ export default function DonatePage() {
           <button type="submit" disabled={!stripePromise || !apiUrl} className="w-full rounded-lg bg-[#135E96] px-6 py-3 font-semibold text-white hover:bg-[#0f4d7c] disabled:cursor-not-allowed disabled:opacity-60">Continue to secure checkout</button>
           {(!stripePromise || !apiUrl) && <p role="status" className="text-sm text-gray-600">Embedded donations are being configured. Please check back shortly.</p>}
         </form>}
-        {checkoutAmount && stripePromise && <div><button type="button" onClick={() => setCheckoutAmount(null)} className="mb-4 text-sm font-semibold text-[#135E96] hover:underline">← Change amount</button><EmbeddedCheckoutProvider stripe={stripePromise} options={{ fetchClientSecret }}><EmbeddedCheckout /></EmbeddedCheckoutProvider></div>}
+        {checkoutDonation && stripePromise && <div><button type="button" onClick={() => setCheckoutDonation(null)} className="mb-4 text-sm font-semibold text-[#135E96] hover:underline">← Change amount or frequency</button><EmbeddedCheckoutProvider stripe={stripePromise} options={{ fetchClientSecret }}><EmbeddedCheckout /></EmbeddedCheckoutProvider></div>}
       </div>
     </section>
   </div>;
