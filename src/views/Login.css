@@ -1,14 +1,14 @@
 .authPage {
     padding: 60px 20px 80px;
   }
-  
+
   .authContainer {
     width: 100%;
     max-width: 480px;
     margin: 0 auto;
     text-align: center;
   }
-  
+
   .authTitle {
     font-size: 38px;
     font-weight: 700;
@@ -34,6 +34,17 @@
     background: #fee2e2;
     border: 1px solid #ef4444;
     color: #dc2626;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .authSuccess {
+    background: #ecfdf5;
+    border: 1px solid #22c55e;
+    color: #166534;
     padding: 12px 16px;
     border-radius: 6px;
     margin-bottom: 16px;
