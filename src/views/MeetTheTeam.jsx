@@ -47,16 +47,6 @@ const teamData = {
       image: "/media/2023/09/Phil-Harrington.webp",
     },
     {
-      name: "Laura Bartus",
-      details:
-        "Laura Bartus is the Chief Learning Officer for the Human Health Project and the head of learning and development for CenterWell Pharmacy, a division of Humana. At the Human Health Project, Laura helps the organization set near-term and future strategy, scale up its patient education programs, and increase its reach to new groups of patients and caregivers. At Humana, Laura's teams create, deliver, and track learning and development programs for the pharmacy organization's 12,000 associates. This includes dispensing sites, call centers, professional tracks, and Pharmacists and Pharmacy Techs. Laura's organization effectiveness team tracks operational results and develops learning metrics strategy to improve their business impact. Laura leads development sessions for leaders and associates across the enterprise, and also externally at many industry events. Laura is passionate about coaching, providing employees with equitable advancement opportunities, building up a robust talent pipeline, and helping her team to be a valued partner to the business. Laura started out as a high school English teacher, teaching and learning a ton from some amazing teens. In the corporate world, Laura has done nearly every job in learning, moving through design, facilitation, and many leadership roles. She has been involved with several volunteer organizations. She has four crazy children – two of which are twins and three of which are boys. So she also has a crippling coffee addiction, and she really loves work trips. She finds sanity through taking hikes and reading new books. Don't get her started on dad jokes, because it will delay your meeting for at least five minutes.",
-      location: "",
-      title: "Chief Learning Officer",
-      image:
-        "/media/2024/10/Profile-Picture-Laura-Bartus-e1730391744260-300x400.webp",
-      imagePosition: "center 15%",
-    },
-    {
       name: "Aya Ali",
       details:
         "Aya Ali, a 23-year-old medical student at East University, has always harbored a deep-seated passion for medicine. From a young age, Aya dreamt of becoming a medical doctor, driven by a desire to help people feel better and recover from their ailments. This unwavering commitment to healing has guided her through her academic journey and continues to inspire her every day. Aya is highly motivated and ambitious, particularly in her goal of becoming a gynecologist and obstetrician. She envisions herself assisting in the miraculous moments of childbirth, witnessing the beginning of new lives. This vision fuels her dedication and hard work. Beyond her rigorous studies, Aya finds joy in a variety of hobbies. She loves cooking, where she experiments with new recipes and flavors. Swimming and working out are her go-to activities for staying fit and energized. Additionally, Aya has a creative side, which she expresses through painting, capturing the beauty of the world around her on canvas. She also enjoys organizing closets and houses, finding satisfaction in creating orderly and beautiful spaces. Aya's family is the cornerstone of her life, with her parents being the most important people to her. She cherishes spending time with her friends and feels immense happiness when she sees others embarking on new journeys in their lives. As she approaches her graduation from medical school, Aya is excited to start her own journey in the medical field, ready to make a significant impact and help others.",
@@ -104,14 +94,6 @@ const teamData = {
       imagePosition: "center 10%",
     },
     {
-      name: "Jorell Andrei Finez",
-      details:
-        "Jorell Andrei P. Finez is a Full-Stack Web and Mobile Application Developer based in the Philippines with a strong foundation in Information Technology and software development. He specializes in designing and developing scalable, user-centered web and mobile applications using modern technologies including React, Vue, Laravel, Node.js, MySQL, Firebase, Kotlin, and Python. His experience covers front-end and back-end development, database architecture, authentication systems, API integration, UI/UX design, and system deployment.",
-      location: "",
-      title: "React Developer",
-      image: "/media/2026/9/Jorell-Andrei-Finez.webp",
-    },
-    {
       name: "Ana Sanabria",
       details:
         "Ana Sanabria is a Technical Project Manager and recent graduate with a Master’s in Computer Science, with experience leading cross-functional projects in technology and nonprofit environments. She focuses on organizing complex initiatives, managing stakeholders, and delivering projects on time using Agile methodologies. She combines technical knowledge with strong execution skills to drive results and is focused on growing her impact in technical project management.",
@@ -153,13 +135,6 @@ const teamData = {
       location: "",
       title: "UX Lead",
       image: "/media/2026/9/Johny-Choi.webp",
-    },
-    {
-      name: "Pranjali Desai",
-      details: "I am Pranjali Desai working as a Business Analyst at HHP.",
-      location: "",
-      title: "Business Analyst",
-      image: "/media/2026/9/Pranjali-Desai.webp",
     },
   ],
   privacySecurity: [
@@ -206,14 +181,6 @@ const teamData = {
       title: "Analytics Lead",
       image: "/media/2026/9/Jane-Yun.webp",
     },
-    {
-      name: "Kamara Nnadi",
-      details:
-        "Kamarachukwu Nnadi is a certified medical assistant and student leader passionate about advancing health equity through community service, public health initiatives, and hands-on clinical experience.  ",
-      location: "",
-      title: "Healthcare Access Manager",
-      image: "/media/2026/9/Kamara-Nnadi.webp",
-    },
   ],
   legal: [
     {
@@ -241,15 +208,6 @@ const teamData = {
       location: "",
       title: "HR Manager",
       image: "/media/2025/10/Marzia-300x400.webp",
-      imagePosition: "center 10%",
-    },
-    {
-      name: "Libby Grinfeld",
-      details:
-        "Libby received her Master's Degree in Organizational Behavior and Development from Reichman University (IDC Herzilya). Originally from Los Angeles California, she moved to Israel to pursue her higher education. Libby's interest in learning Psychology has led her to the world of HR. Her passion for helping people creates a way to blend these many interests together, while also contributing to the work at HHP. When she is not learning new topics or working, she enjoys developing her photography skills and watching comedy movies.",
-      location: "",
-      title: "HR Manager",
-      image: "/media/2023/09/Libby-Grinfeld-300x400.webp",
       imagePosition: "center 10%",
     },
     {
@@ -290,14 +248,6 @@ const teamData = {
       imagePosition: "center 30%",
     },
     {
-      name: "Mercy Adebanwo",
-      details: "",
-      location: "",
-      title: "Grant Writer",
-      image: "/media/2026/9/Mercy-Adebanwo.webp",
-      imageScale: 1.15,
-    },
-    {
       name: "Milagro Ventura",
       details:
         "Milagro Ventura is a grants and legal operations professional with experience supporting international development programs funded by USAID and global nonprofit organizations. Her expertise includes grants management, compliance, subaward administration, procurement, and international operations across Latin America, the Caribbean, and Africa. Currently, she supports global legal and operational functions at World Resources Institute, helping strengthen compliance systems, agreements, and cross-functional program operations.  ",
@@ -315,16 +265,6 @@ const teamData = {
     },
   ],
   programs: [
-    {
-      name: "Laura Bartus",
-      details:
-        "Laura Bartus is the Chief Learning Officer for the Human Health Project and the head of learning and development for CenterWell Pharmacy, a division of Humana. At the Human Health Project, Laura helps the organization set near-term and future strategy, scale up its patient education programs, and increase its reach to new groups of patients and caregivers. At Humana, Laura's teams create, deliver, and track learning and development programs for the pharmacy organization's 12,000 associates. This includes dispensing sites, call centers, professional tracks, and Pharmacists and Pharmacy Techs. Laura's organization effectiveness team tracks operational results and develops learning metrics strategy to improve their business impact. Laura leads development sessions for leaders and associates across the enterprise, and also externally at many industry events. Laura is passionate about coaching, providing employees with equitable advancement opportunities, building up a robust talent pipeline, and helping her team to be a valued partner to the business. Laura started out as a high school English teacher, teaching and learning a ton from some amazing teens. In the corporate world, Laura has done nearly every job in learning, moving through design, facilitation, and many leadership roles. She has been involved with several volunteer organizations. She has four crazy children – two of which are twins and three of which are boys. So she also has a crippling coffee addiction, and she really loves work trips. She finds sanity through taking hikes and reading new books. Don't get her started on dad jokes, because it will delay your meeting for at least five minutes.",
-      location: "",
-      title: "Chief Learning Officer",
-      image:
-        "/media/2024/10/Profile-Picture-Laura-Bartus-e1730391744260-300x400.webp",
-      imagePosition: "center 15%",
-    },
     {
       name: "Bill Nguyen",
       details: "",
@@ -367,15 +307,6 @@ const teamData = {
       title: "Patient Advocate and Diabetes Researcher",
       image: "/media/2024/10/Vanessa-Legeza-300x400.webp",
       imagePosition: "center 10%",
-    },
-    {
-      name: "Saliem Q.S. Alzein",
-      details:
-        "Saliem Alzein, a 25-year-old medical student from Abu Dhabi, is currently pursuing his passion for medicine at Near East University. From a young age, Saliem was driven by a deep-seated passion for patient care and support. This dedication led him to embark on his medical journey right after high school, fueled by excitement and determination. Saliem's aspiration to become an orthopedic surgeon is closely tied to his commitment to physical fitness. He has honed his physique through rigorous boxing and workout routines, embodying the discipline and resilience required in both his personal and professional life. When not immersed in his medical studies, Saliem plays a pivotal role in his father's contracting company, negotiating deals with some of the largest firms. His knack for business is complemented by his creative side, which he expresses through woodworking. Saliem's unique creations are a testament to his craftsmanship and attention to detail. In addition to his medical and business pursuits, Saliem has a keen interest in online trading, stock markets, and Amazon deals. His diverse interests reflect his multifaceted personality and his drive to excel in various fields. Among his friends, Saliem is known as the go-to cook, always ready to whip up delicious meals. His love for cooking is yet another way he brings joy and comfort to those around him. Saliem Alzein is a dynamic individual whose dedication to medicine, business acumen, creative talents, and culinary skills make him a well-rounded and inspiring figure. His journey is a testament to the power of passion, hard work, and the pursuit of excellence in all aspects of life.",
-      location: "",
-      title: "Diabetes Researcher / YouTube Creator",
-      image: "/media/2024/10/Saliem-Q.S.-Alzein-300x400.webp",
-      imagePosition: "center 30%",
     },
     {
       name: "Jayeesha Deb",
