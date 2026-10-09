@@ -229,6 +229,26 @@
   line-height: 1.6;
 }
 
+.pani-upcomingList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pani-upcomingLink {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.pani-upcomingLink:hover {
+  opacity: 0.85;
+}
+
 /* =========================
    TESTIMONIALS (FIXED)
 ========================= */
