@@ -25,7 +25,7 @@ export const SHARE_FORM_URL =
  *   should be the route to that page.
  */
 export default function CommunityVoicesHero({
-  readHref = "/what-we-do/community-voices",
+  readHref = "/what-we-do/community-voices#stories",
 }) {
   return (
     <section className="cvh">
