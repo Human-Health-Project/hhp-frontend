@@ -6,6 +6,7 @@ import { useEffect, useMemo, useState } from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import { UilMicroscope } from "@iconscout/react-unicons";
 import { api } from "@/services/api";
+import { getData } from "country-list";
 import migraineImg from "../assets/shared_patient_info/migraines_img.jpg";
 import lupusImg from "../assets/shared_patient_info/lupus_img.jpg";
 import patientAdvocacyImg from "../assets/shared_patient_info/patient_advocacy_img.jpg";
@@ -65,6 +66,9 @@ function PieSurveySlide({ title, responses, items, colors }) {
     </div>
   );
 }
+
+// Full country list, sorted by name (the package orders by ISO code).
+const COUNTRIES = getData().sort((a, b) => a.name.localeCompare(b.name));
 
 export default function SharedPatientInformation() {
   const [signupForm, setSignupForm] = useState({
@@ -241,15 +245,23 @@ export default function SharedPatientInformation() {
 
                 <div>
                   <label htmlFor="spi-country">Country *</label>
-                  <input
+                  <select
                     id="spi-country"
-                    type="text"
-                    autoComplete="country-name"
+                    autoComplete="country"
                     value={signupForm.country}
                     onChange={(event) => updateSignupField("country", event.target.value)}
                     disabled={signupState.status === "loading"}
                     required
-                  />
+                  >
+                    <option value="" disabled>
+                      Select a country
+                    </option>
+                    {COUNTRIES.map(({ code, name }) => (
+                      <option key={code} value={code}>
+                        {name}
+                      </option>
+                    ))}
+                  </select>
                 </div>
 
                 <button
