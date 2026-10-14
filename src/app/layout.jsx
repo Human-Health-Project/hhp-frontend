@@ -20,7 +20,6 @@ export const metadata = {
     title: "Human Health Project",
     description:
       "Peer-to-peer healthcare information, education, and support from Human Health Project.",
-    url: "/",
   },
   verification: {
     google: "NJKpb_KsHm1rUokM_P36J8yS7OGTJYfBQTfEDIlvggY",
