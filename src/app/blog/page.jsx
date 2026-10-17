@@ -5,6 +5,7 @@ export const metadata = {
   title: "Blog | Human Health Project",
   description:
     "Articles and patient education from the Human Health Project team.",
+  alternates: { canonical: "/blog" },
 };
 
 export default async function Page() {
