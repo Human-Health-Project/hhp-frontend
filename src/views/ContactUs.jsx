@@ -6,7 +6,11 @@ import { getNames } from "country-list";
 import { api } from "../services/api";
 
 export default function ContactUs() {
-  const countries = getNames();
+  // getNames() returns countries in ISO 3166 code order, not alphabetical —
+  // Andorra (AD), United Arab Emirates (AE), Afghanistan (AF)... which makes
+  // a 249-entry dropdown effectively unusable. Sort it the way production
+  // does, and the way anyone scanning the list would expect.
+  const countries = [...getNames()].sort((a, b) => a.localeCompare(b));
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
@@ -51,55 +55,66 @@ export default function ContactUs() {
 
   return (
     <main className="contact-page">
-      <section className="contact-hero">
-        <div className="contact-heroContent">
-          <h1>Contact Us</h1>
-          <p>Have questions, feedback, or suggestions? We’d love to hear from you.</p>
-        </div>
-      </section>
-
       <section className="contact-formSection">
-        <div className="contact-card">
-          <form className="contact-form" onSubmit={handleSubmit}>
+        <h1 className="contact-title">Contact Us</h1>
 
-            <div className="contact-row">
-              <div className="contact-field">
-                <label>First Name *</label>
-                <input name="first_name" type="text" required />
-              </div>
+        <form className="contact-form" onSubmit={handleSubmit}>
 
-              <div className="contact-field">
-                <label>Last Name *</label>
-                <input name="last_name" type="text" required />
-              </div>
-            </div>
-            <div className="contact-field">
-              <label>Email *</label>
-              <input name="email" type="email" required />
-            </div>
+          <div className="contact-field">
+            <label htmlFor="contact-first-name">
+              First Name <span className="contact-required">*</span>
+            </label>
+            <input id="contact-first-name" name="first_name" type="text" required />
+          </div>
 
-            <div className="contact-field">
-              <label>Country *</label>
-              <select name="country" required>
-                {countries.map((country) => (
-                  <option key={country}>{country}</option>
-                ))}
-              </select>
-            </div>
+          <div className="contact-field">
+            <label htmlFor="contact-last-name">
+              Last Name <span className="contact-required">*</span>
+            </label>
+            <input id="contact-last-name" name="last_name" type="text" required />
+          </div>
 
-            <div className="contact-field">
-              <label>Your Message *</label>
-              <textarea name="message" rows="6" required />
-            </div>
+          <div className="contact-field">
+            <label htmlFor="contact-email">
+              Email <span className="contact-required">*</span>
+            </label>
+            <input id="contact-email" name="email" type="email" required />
+          </div>
 
-            {error && <p role="alert">{error}</p>}
+          <div className="contact-field">
+            <label htmlFor="contact-country">
+              Country <span className="contact-required">*</span>
+            </label>
+            <select id="contact-country" name="country" required defaultValue="">
+              <option value="" disabled>
+                Select a country
+              </option>
+              {countries.map((country) => (
+                <option key={country} value={country}>
+                  {country}
+                </option>
+              ))}
+            </select>
+          </div>
 
-            <button type="submit" className="contact-sendBtn" disabled={submitting}>
-              {submitting ? "SUBMITTING..." : "SUBMIT"}
-            </button>
+          <div className="contact-field">
+            <label htmlFor="contact-message">
+              Your Message <span className="contact-required">*</span>
+            </label>
+            <textarea id="contact-message" name="message" rows="8" required />
+          </div>
 
-          </form>
-        </div>
+          {error && (
+            <p className="contact-error" role="alert">
+              {error}
+            </p>
+          )}
+
+          <button type="submit" className="contact-sendBtn" disabled={submitting}>
+            {submitting ? "SUBMITTING..." : "SUBMIT"}
+          </button>
+
+        </form>
       </section>
     </main>
   );
