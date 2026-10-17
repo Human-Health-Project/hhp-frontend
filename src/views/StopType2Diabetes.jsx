@@ -2,22 +2,27 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { getNames } from "country-list";
 import "./StopType2Diabetes.css";
 
 const YOUTUBE_WATCH_URL = "https://youtu.be/JxZLRnaZ4LI?si=sBkNMTWT5GImHqEe";
 
 const YOUTUBE_EMBED_URL = "https://www.youtube-nocookie.com/embed/JxZLRnaZ4LI";
 
+const COUNTRIES = getNames();
+
 export default function StopType2Diabetes() {
   const [email, setEmail] = useState("");
+  const [country, setCountry] = useState("");
 
   function handleNotifySubmit(e) {
     e.preventDefault();
-    if (!email.trim()) return;
+    if (!email.trim() || !country.trim()) return;
 
     // Placeholder (connect to Mailchimp/HubSpot/etc later)
     alert("Thanks — we’ll notify you when the program is available.");
     setEmail("");
+    setCountry("");
   }
 
   return (
@@ -91,22 +96,44 @@ export default function StopType2Diabetes() {
                 <label className="std2d-label" htmlFor="std2d-email">
                   Email <span className="std2d-required">*</span>
                 </label>
+                <input
+                  id="std2d-email"
+                  className="std2d-input"
+                  type="email"
+                  autoComplete="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="you@example.com"
+                  required
+                />
 
-                <div className="std2d-formRow">
-                  <input
-                    id="std2d-email"
-                    className="std2d-input"
-                    type="email"
-                    autoComplete="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="you@example.com"
-                    required
-                  />
-                  <button className="std2d-button" type="submit">
-                    Sign Up
-                  </button>
-                </div>
+                <label className="std2d-label" htmlFor="std2d-country">
+                  Country <span className="std2d-required">*</span>
+                </label>
+                <select
+                  id="std2d-country"
+                  className="std2d-input"
+                  autoComplete="country-name"
+                  value={country}
+                  onChange={(e) => setCountry(e.target.value)}
+                  required
+                >
+                  <option value="" disabled>
+                    Select your country
+                  </option>
+                  {COUNTRIES.map((name) => (
+                    <option key={name} value={name}>
+                      {name}
+                    </option>
+                  ))}
+                </select>
+
+                <button
+                  className="std2d-button std2d-buttonFull"
+                  type="submit"
+                >
+                  Sign Up
+                </button>
               </form>
 
               <p className="std2d-note">
