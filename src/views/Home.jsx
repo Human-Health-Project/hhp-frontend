@@ -99,7 +99,7 @@ export default function Home() {
   return (
     <div className="home-page">
       {/* Community Voices banner — "Read a Story" goes to the full page */}
-      <CommunityVoicesHero readHref="/what-we-do/community-voices" />
+      <CommunityVoicesHero readHref="/what-we-do/community-voices#stories" />
 
       {/* Why Peer-to-Peer Section */}
       <section className="section why-section">
