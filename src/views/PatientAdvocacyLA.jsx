@@ -4,19 +4,9 @@ import heroImg from "../assets/patient_advocacy/patient-advocacy-ni-hero.jpg";
 import Programs from "../components/Programs";
 import Link from "next/link";
 
-const LA_WORKSHOPS = [
-  {
-    date: "Monday, October 26, 2026",
-    link: "https://us02web.zoom.us/j/82414163378",
-  },
-  {
-    date: "Monday, November 23, 2026",
-    link: "https://us02web.zoom.us/j/81779291354",
-  },
-  {
-    date: "Monday, December 14, 2026",
-    link: "https://us02web.zoom.us/j/88399209593",
-  },
+const WORKSHOPS = [
+  { date: "Monday, November 23, 2026", url: "https://us02web.zoom.us/j/81779291354" },
+  { date: "Monday, December 14, 2026", url: "https://us02web.zoom.us/j/88399209593" },
 ];
 
 export default function PatientAdvocacyLA() {
@@ -51,23 +41,19 @@ export default function PatientAdvocacyLA() {
               className="pani-sectionTitle text-center"
               style={{ color: "var(--primary-color)" }}
             >
-              Los Angeles – Upcoming Workshops
+              Los Angeles
             </h2>
             <p className="pani-body pani-noteStrong">
               All workshop times listed are in the local time zone.
             </p>
 
             <div className="pani-upcomingBox">
+              <p className="pani-upcomingLabel">7pm Pacific</p>
               <ul className="pani-upcomingList">
-                {LA_WORKSHOPS.map((workshop) => (
-                  <li key={workshop.link}>
-                    <a
-                      className="pani-upcomingLink"
-                      href={workshop.link}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {workshop.date}
+                {WORKSHOPS.map((w) => (
+                  <li key={w.url}>
+                    <a href={w.url} target="_blank" rel="noopener noreferrer">
+                      {w.date}
                     </a>
                   </li>
                 ))}

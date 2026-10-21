@@ -8,19 +8,9 @@ import volunteersImg from "../assets/patient_advocacy/DedicatedVolunteers.jpg";
 import partnershipsImg from "../assets/patient_advocacy/LocalPartnerships.jpg";
 import Link from "next/link";
 
-const NI_WORKSHOPS = [
-  {
-    date: "Monday, October 12, 2026",
-    link: "https://us02web.zoom.us/j/89294648495",
-  },
-  {
-    date: "Monday, November 16, 2026",
-    link: "https://us02web.zoom.us/j/86821763223",
-  },
-  {
-    date: "Monday, December 14, 2026",
-    link: "https://us02web.zoom.us/j/86867374114",
-  },
+const WORKSHOPS = [
+  { date: "Monday, November 16, 2026", url: "https://us02web.zoom.us/j/86821763223" },
+  { date: "Monday, December 14, 2026", url: "https://us02web.zoom.us/j/86867374114" },
 ];
 
 export default function PatientAdvocacyNI() {
@@ -55,23 +45,19 @@ export default function PatientAdvocacyNI() {
               className="pani-sectionTitle text-center"
               style={{ color: "var(--primary-color)" }}
             >
-              Northern Ireland – Upcoming Workshops
+              Northern Ireland
             </h2>
             <p className="pani-body pani-noteStrong">
               All workshop times listed are in the local time zone.
             </p>
 
             <div className="pani-upcomingBox">
+              <p className="pani-upcomingLabel">7pm Ireland time</p>
               <ul className="pani-upcomingList">
-                {NI_WORKSHOPS.map((workshop) => (
-                  <li key={workshop.link}>
-                    <a
-                      className="pani-upcomingLink"
-                      href={workshop.link}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {workshop.date}
+                {WORKSHOPS.map((w) => (
+                  <li key={w.url}>
+                    <a href={w.url} target="_blank" rel="noopener noreferrer">
+                      {w.date}
                     </a>
                   </li>
                 ))}
