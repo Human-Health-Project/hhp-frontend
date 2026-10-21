@@ -4,6 +4,21 @@ import heroImg from "../assets/patient_advocacy/patient-advocacy-ni-hero.jpg";
 import Programs from "../components/Programs";
 import Link from "next/link";
 
+const LA_WORKSHOPS = [
+  {
+    date: "Monday, October 26, 2026",
+    link: "https://us02web.zoom.us/j/82414163378",
+  },
+  {
+    date: "Monday, November 23, 2026",
+    link: "https://us02web.zoom.us/j/81779291354",
+  },
+  {
+    date: "Monday, December 14, 2026",
+    link: "https://us02web.zoom.us/j/88399209593",
+  },
+];
+
 export default function PatientAdvocacyLA() {
   return (
     <main className="pani-page">
@@ -43,7 +58,20 @@ export default function PatientAdvocacyLA() {
             </p>
 
             <div className="pani-upcomingBox">
-              <p>Upcoming workshop dates will be announced soon.</p>
+              <ul className="pani-upcomingList">
+                {LA_WORKSHOPS.map((workshop) => (
+                  <li key={workshop.link}>
+                    <a
+                      className="pani-upcomingLink"
+                      href={workshop.link}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {workshop.date}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
 
             <p className="pani-body">
