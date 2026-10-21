@@ -108,16 +108,19 @@
   margin-bottom: 4px;
 }
 
-.spi-form input {
+.spi-form input,
+.spi-form select {
   width: 100%;
   padding: 9px 10px;
   border-radius: 6px;
   border: 1px solid var(--spi-border);
   font-size: 14px;
   outline: none;
+  background: #ffffff;
 }
 
-.spi-form input:focus {
+.spi-form input:focus,
+.spi-form select:focus {
   border-color: rgba(6, 83, 153, 0.5);
   box-shadow: 0 0 0 3px rgba(6, 83, 153, 0.12);
 }

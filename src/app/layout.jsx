@@ -6,7 +6,7 @@ import Footer from "../layout/Footer";
 import Providers from "./providers";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ||
-  "https://hhp-frontend-production-orchrg.laravel.cloud";
+  "https://humanhealthproject.org";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -20,7 +20,6 @@ export const metadata = {
     title: "Human Health Project",
     description:
       "Peer-to-peer healthcare information, education, and support from Human Health Project.",
-    url: "/",
   },
   verification: {
     google: "NJKpb_KsHm1rUokM_P36J8yS7OGTJYfBQTfEDIlvggY",

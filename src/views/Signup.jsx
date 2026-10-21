@@ -26,7 +26,7 @@ export default function Signup() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const { signup, signInWithGoogle, signInWithFacebook, signInWithApple, signInWithMicrosoft } = useAuth();
+  const { signup, establishBackendSession, sendVerificationEmail, logout, signInWithGoogle, signInWithFacebook, signInWithApple, signInWithMicrosoft } = useAuth();
   const router = useRouter();
 
   const handleChange = (e) => {
@@ -67,7 +67,13 @@ export default function Signup() {
         displayName: `${formData.firstName} ${formData.lastName}`,
       });
 
-      router.push("/");
+      // Refresh the token after the display name update, then require the
+      // Laravel user/session sync to succeed before treating signup as done.
+      await establishBackendSession(user, true);
+      await sendVerificationEmail(user);
+      await logout();
+
+      router.push("/login?verification_sent=1");
     } catch (err) {
       setError(getErrorMessage(err.code));
     }
@@ -114,6 +120,10 @@ export default function Signup() {
         return "Sign-up popup was closed";
       case "auth/account-exists-with-different-credential":
         return "Account exists with different sign-in method";
+      case "auth/backend-session-failed":
+        return "Your identity was verified, but HHP could not complete sign-up. Please try again.";
+      case "auth/too-many-requests":
+        return "Too many verification attempts. Please wait and try again.";
       default:
         return "An error occurred. Please try again";
     }

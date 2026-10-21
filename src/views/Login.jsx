@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuth } from "../context/AuthContext";
@@ -16,10 +16,27 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
+  const [notice, setNotice] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const { login, signInWithGoogle, signInWithFacebook, signInWithApple, signInWithMicrosoft, resetPassword } = useAuth();
   const router = useRouter();
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.get("verification_sent") === "1") {
+      setNotice({
+        title: "Check your inbox",
+        message: "We sent you a verification link. Verify your email, then return here to log in.",
+      });
+    } else if (params.get("email_verified") === "1") {
+      setNotice({
+        title: "Email verified",
+        message: "Your email address is confirmed. You can now log in to your HHP account.",
+      });
+    }
+  }, []);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -97,6 +114,10 @@ export default function Login() {
         return "Sign-in popup was closed";
       case "auth/account-exists-with-different-credential":
         return "Account exists with different sign-in method";
+      case "auth/backend-session-failed":
+        return "Your identity was verified, but HHP could not complete login. Please try again.";
+      case "auth/email-not-verified":
+        return "Please verify your email before logging in.";
       default:
         return "An error occurred. Please try again";
     }
@@ -115,6 +136,21 @@ export default function Login() {
         </p>
 
         {error && <div className="authError">{error}</div>}
+        {notice && (
+          <div role="status" className="authVerificationNotice">
+            <span className="authVerificationIcon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M4.75 6.75h14.5v10.5H4.75z" />
+                <path d="m5.25 7.25 6.75 5 6.75-5" />
+                <path d="m9.25 16.75 2.75-2 2.75 2" />
+              </svg>
+            </span>
+            <span className="authVerificationCopy">
+              <strong>{notice.title}</strong>
+              <span>{notice.message}</span>
+            </span>
+          </div>
+        )}
 
         <form className="authForm" onSubmit={onSubmit}>
           <label className="authLabel" htmlFor="email">

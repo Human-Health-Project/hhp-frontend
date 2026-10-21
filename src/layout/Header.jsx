@@ -175,7 +175,7 @@ return (
             <div className="dropdown">
               <span className="nav-item">HOW TO HELP ▾</span>
               <div className="dropdown-menu">
-                <Link href="/how-to-help/">SUPPORT HHP</Link>
+                <Link href="/how-to-help">SUPPORT HHP</Link>
                 <Link
                   href="/how-to-help#volunteer-section"
                   onClick={() => {
@@ -446,10 +446,10 @@ return (
           </button>
           {openGroup.help && (
             <div className="hhp-mobile-sub">
-              <Link href="/how-to-help/" className="hhp-mobile-sublink" onClick={closeMobile}>
+              <Link href="/how-to-help" className="hhp-mobile-sublink" onClick={closeMobile}>
                 SUPPORT HHP
               </Link>
-              <Link href="/how-to-help/#volunteer" className="hhp-mobile-sublink" onClick={closeMobile}>
+              <Link href="/how-to-help#volunteer-section" className="hhp-mobile-sublink" onClick={closeMobile}>
                 VOLUNTEER
               </Link>
               <Link href="/how-to-help/intern" className="hhp-mobile-sublink" onClick={closeMobile}>

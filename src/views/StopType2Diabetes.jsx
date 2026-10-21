@@ -1,25 +1,28 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import { getNames } from "country-list";
 import "./StopType2Diabetes.css";
-
-const GOFUNDME_URL =
-  "https://www.gofundme.com/f/stop-type2diabetes-before-it-starts";
 
 const YOUTUBE_WATCH_URL = "https://youtu.be/JxZLRnaZ4LI?si=sBkNMTWT5GImHqEe";
 
 const YOUTUBE_EMBED_URL = "https://www.youtube-nocookie.com/embed/JxZLRnaZ4LI";
 
+const COUNTRIES = getNames();
+
 export default function StopType2Diabetes() {
   const [email, setEmail] = useState("");
+  const [country, setCountry] = useState("");
 
   function handleNotifySubmit(e) {
     e.preventDefault();
-    if (!email.trim()) return;
+    if (!email.trim() || !country.trim()) return;
 
     // Placeholder (connect to Mailchimp/HubSpot/etc later)
     alert("Thanks — we’ll notify you when the program is available.");
     setEmail("");
+    setCountry("");
   }
 
   return (
@@ -93,22 +96,44 @@ export default function StopType2Diabetes() {
                 <label className="std2d-label" htmlFor="std2d-email">
                   Email <span className="std2d-required">*</span>
                 </label>
+                <input
+                  id="std2d-email"
+                  className="std2d-input"
+                  type="email"
+                  autoComplete="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="you@example.com"
+                  required
+                />
 
-                <div className="std2d-formRow">
-                  <input
-                    id="std2d-email"
-                    className="std2d-input"
-                    type="email"
-                    autoComplete="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="you@example.com"
-                    required
-                  />
-                  <button className="std2d-button" type="submit">
-                    Sign Up
-                  </button>
-                </div>
+                <label className="std2d-label" htmlFor="std2d-country">
+                  Country <span className="std2d-required">*</span>
+                </label>
+                <select
+                  id="std2d-country"
+                  className="std2d-input"
+                  autoComplete="country-name"
+                  value={country}
+                  onChange={(e) => setCountry(e.target.value)}
+                  required
+                >
+                  <option value="" disabled>
+                    Select your country
+                  </option>
+                  {COUNTRIES.map((name) => (
+                    <option key={name} value={name}>
+                      {name}
+                    </option>
+                  ))}
+                </select>
+
+                <button
+                  className="std2d-button std2d-buttonFull"
+                  type="submit"
+                >
+                  Sign Up
+                </button>
               </form>
 
               <p className="std2d-note">
@@ -116,17 +141,15 @@ export default function StopType2Diabetes() {
               </p>
             </section>
 
-            {/* RIGHT: QR DONATION */}
-            <div className="container">
-              <iframe
-                src="https://www.gofundme.com/f/stop-type2diabetes-before-it-starts/widget/large"
-                width="100%"
-                height="600"
-                frameBorder="0"
-                scrolling="no"
-                title="Stop Type-2 Diabetes"
-                style={{ border: "none" }}
-              ></iframe>
+            {/* RIGHT: DONATION */}
+            <div className="std2d-card std2d-cardPadded">
+              <h2 className="std2d-cardTitle">Support the program</h2>
+              <p className="std2d-cardText">
+                Help fund the remaining modules, quizzes, expert review, and launch.
+              </p>
+              <Link className="std2d-button std2d-buttonFull" href="/donate">
+                Donate securely
+              </Link>
             </div>
           </div>
         </div>
@@ -434,16 +457,14 @@ export default function StopType2Diabetes() {
               <div className="std2d-sideCard">
                 <h3 className="std2d-sideTitle">Quick Donate</h3>
                 <p className="std2d-sideText">
-                  Click the QR card above or use this button anytime.
+                  Use the secure HHP donation page at any time.
                 </p>
-                <a
+                <Link
                   className="std2d-button std2d-buttonFull"
-                  href={GOFUNDME_URL}
-                  target="_blank"
-                  rel="noreferrer"
+                  href="/donate"
                 >
-                  GoFundMe
-                </a>
+                  Donate securely
+                </Link>
               </div>
             </aside>
           </div>
