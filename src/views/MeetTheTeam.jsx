@@ -23,10 +23,11 @@ const teamData = {
     {
       name: "John Kotick",
       details:
-        "For over 35 years, Mr. Kotick has brought leadership, creativity and integrity to the nonprofit sector in Greater Los Angeles serving in such capacities as C.E.O. of Family Health Care Centers of Greater Los Angeles, Vice President for Community Programs for the Greater Los Angeles Affiliate of the American Heart Association and Executive Director of the Center for Health Care Rights. Experienced in healthcare, advocacy, and services to diverse populations, Kotick has also been a Delegate to the California Conference on Handicapped Individuals and the California State House Conference on Aging. Kotick has contributed to California State legislation including the “Torres-Felando Long Term Care Reform Act”. A graduate of the University of Southern California with a J.D. and B.A. degree in political science, John Kotick lives in Los Angeles, California. ",
+        "Since 1972, Mr. Kotick has brought leadership, creativity and integrity to the nonprofit sector in Greater Los Angeles serving in such capacities as C.E.O. of Family Health Care Centers of Greater Los Angeles, Chief Administrative Officer for Outpatient Clinics – Orthopaedic Hospital, Vice President for Community Programs for the Greater Los Angeles Affiliate of the American Heart Association and Executive Director of the Center for Health Care Rights. Experienced in health care, advocacy and services to diverse populations, Kotick has also been a Delegate to the California Conference on Handicapped Individuals and the California State House Conference on Aging. Kotick has contributed to California State legislation including the “Torres-Felando Long Term Care Reform Act”. Kotick has contributed to the start up of organizations including the Center for Law and Justice as it’s second employee and the Senior Care Action Network (SCAN). While Assistant Director for SCAN, the organization implemented a brokered system of case management for older adults, qualified to be one of the demonstration sites for the Multi-Purpose Senior Services Project and was selected to be a Social Health Maintenance Organization, the forerunner of the SCAN Health Plan. In addition to the above Kotick was named Bell Gardens Man of the Year, 2010 for the establishment of the Campaign for a Healthier Bell Gardens, which is a community collaboration focused on teen pregnancy prevention and childhood obesity. Kotick secured funding to expand school based gardening to include elementary through high school programs, farmer’s markets and provide pregnancy prevention education to teens. Kotick also successfully authored a new business plan, including departmental readiness for seniors and people with disabilities in L.A. Care Health Plan, the largest public health plan in the U.S. Kotick’s community contributions as a volunteer have included among others: Commissioner, Los Angeles County Commission on Older Adults, Chairperson - Center for Oral Health (formerly California Dental Health Foundation), Board of Directors; Worksite Wellness Los Angeles, Co-Founder and Member Board of Directors; Community Clinic Association of Los Angeles County, President and Chair Public Policy Committee; Health Care Consortium of Central Los Angeles; President Violence Prevention Coalition of Los Angeles County, Coalition Chair and Business Task Force Chair; Metropolitan Los Angeles Association Executives, Co-Chair Government Relations Committee; Co-Founder of the Blind, Aged, Disabled and Deaf Action Coalition of Los Angeles County; Co-Founder of the Los Angeles County Health Rights Coalition. Kotick is a graduate of the University of Southern California with a J.D. from the Gould School of Law and B.A. degree in political science. Kotick, lives in Los Angeles, California and is a native Angeleno.",
       location: "US",
       title: "Chair, Director",
-      image: "/media/2023/09/Jonh-Kotick.webp",
+      image: "/media/2026/9/John-Kotick.webp",
+      imagePosition: "center top",
     },
     {
       name: "Denny Elliot",
@@ -131,7 +132,8 @@ const teamData = {
     },
     {
       name: "Johny Choi",
-      details: "",
+      details:
+        "I'm Johny Choi, UX designer.",
       location: "",
       title: "UX Lead",
       image: "/media/2026/9/Johny-Choi.webp",
@@ -178,7 +180,7 @@ const teamData = {
       details:
         "Jane Yun is a Volunteer Marketing Analytics Manager at the Human Health Project, based in Pittsburgh, Pennsylvania, where she leverages data to support strategic decision-making and strengthen outreach efforts. She holds a Bachelor of Design in Graphic Design and a Master of Business Analytics from Penn State’s Smeal College of Business, and focuses on analyzing marketing performance to deliver insights that enhance engagement and impact.",
       location: "",
-      title: "Analytics Lead",
+      title: "Korean Translation Lead",
       image: "/media/2026/9/Jane-Yun.webp",
     },
   ],
@@ -222,14 +224,6 @@ const teamData = {
   ],
   development: [
     {
-      name: "Austin Rosen",
-      details:
-        'Austin currently serves as a grant writer for the Human Health Project. He received a bachelor\'s in science in Electrical Engineering from Cal Poly Pomona. He also just received a Masters in Science Education from California State University Northridge. Austin has taught high school chemistry for multiple years and enjoys making an impact in the community. "I am excited to directly contribute to the impoverished in LA receiving access to healthcare."',
-      location: "",
-      title: "Grant Writer",
-      image: "/media/2024/07/Austin-Rosen-300x400.webp",
-    },
-    {
       name: "Rosemary Ashinedu Asufi",
       details:
         "Rosemary has a background in Medicine and Surgery plus residency training in Ophthalmology. She currently works as an Ophthalmologist and also in the Administrative Department of Human Health Project and pretty much anywhere her help is needed!",
@@ -241,7 +235,7 @@ const teamData = {
     {
       name: "Ginger Crawford",
       details:
-        "Ginger has a Master's degree in Social Work and more than a decade of experience in public and social services. Drawing on her passion for empowering others, she volunteers with HHP where she is happy to do her part in making a lasting and beneficial impact on individuals and communities at large. Her interests include gardening, learning new technology, attending food and wine festivals, archery, craftwork and skating. Born and raised in the USA, she now resides in France.",
+        "Ginger is an Accounting Associate at HHP, where she supports the organization’s financial operations. She holds master’s degrees in Social Work and Professional Accounting, bringing together a foundation in community service with developing experience in nonprofit accounting systems, financial documentation and reporting support. Her background in social services continues to shape her commitment to supporting people, strengthening communities, and helping resources go where they can do the most good.",
       location: "",
       title: "Accounting Associate",
       image: "/media/2023/09/Ginger-Crawford.webp",
@@ -258,7 +252,8 @@ const teamData = {
     },
     {
       name: "Eric Gray",
-      details: "",
+      details:
+        "Eric Gray is a community systems leader, health equity advocate, and nonprofit executive with over 18 years of experience working at the intersection of homelessness, justice involvement, housing stability, and community-based services. His work is grounded in both professional expertise and lived experience, shaping a practical, solutions-driven approach to advancing equity and long-term stability for underserved populations. He currently serves as the Chief Business Development Officer (CBDO) for the Human Health Project (HHP), a global nonprofit dedicated to improving health literacy and outcomes for vulnerable communities through education, advocacy, and innovative programming. In this role, Eric leads strategic growth initiatives, partnership development, and resource expansion efforts to scale HHP’s impact across the United States, Northern Ireland, and the Republic of Ireland. He focuses on building cross-sector collaborations that expand access to healthcare navigation tools, patient advocacy resources, and culturally responsive health education programs designed to reduce medical errors and improve patient outcomes. Eric plays a key role in advancing partnerships that strengthen HHP’s ecosystem of services, helping bridge gaps between healthcare systems, community organizations, and the populations they serve. His work supports the expansion of HHP’s core program areas, including healthcare access, patient advocacy, shared patient information, and health literacy education, all aimed at empowering individuals to make informed health decisions and achieve better long-term outcomes. In addition to his role at HHP, Eric serves as a Case Manager with Project 180’s Rapid Diversion Program, working in partnership with the Los Angeles County court system to support justice-involved individuals in securing housing and accessing critical services. He is also a Co-Chair of the Los Angeles Homeless Services Authority’s (LAHSA) Lived Experience Advisory Board, where he helps inform policy and system-level strategies through the lens of lived experience. Eric is the Chief Operating Officer for Faith in God Charity Missions and the General Partner of Gray Family Partners, where he provides grant writing, financial coaching, and strategic support to nonprofits, small businesses, and community initiatives focused on housing stability and economic empowerment. A certified Financial Fitness Coach (FFC®), he is particularly passionate about integrating financial education into health and housing systems as a pathway to sustainable stability. His commitment to this work is deeply personal. After experiencing homelessness following his move to Los Angeles in the early 2000s, Eric has dedicated his career to ensuring that systems are more accessible, equitable, and responsive to those most in need. He brings a unique blend of lived experience, frontline service, and executive leadership to every role he serves. Outside of his professional work, Eric is a dedicated mentor and youth coach with the County Parks and Recreation Department, where he coaches flag football and basketball. He believes strongly in mentorship as a tool for empowerment and is committed to investing in the next generation while staying grounded in family and community.",
       location: "",
       title: "Chief Business Development Officer",
       image: "/media/2026/9/Eric-Gray.webp",
