@@ -5,8 +5,8 @@ import Programs from "../components/Programs";
 import Link from "next/link";
 
 const WORKSHOPS = [
-  { date: "Monday, November 23, 2026", url: "https://us02web.zoom.us/j/81779291354" },
-  { date: "Monday, December 14, 2026", url: "https://us02web.zoom.us/j/88399209593" },
+  { date: "Monday, November 23, 2026", url: "https://us02web.zoom.us/meeting/register/XjD7HwIPSb2bOFySrZ6XzQ" },
+  { date: "Monday, December 14, 2026", url: "https://us02web.zoom.us/meeting/register/jG-1s_b6Q2alg-w0g3obNw" },
 ];
 
 export default function PatientAdvocacyLA() {
