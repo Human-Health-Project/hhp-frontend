@@ -193,6 +193,23 @@
   background-color: #005fa3;
 }
 
+.vwu-submitButton:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.vwu-formSuccess {
+  margin: 0 0 14px;
+  font-size: 15px;
+  color: #1a7f37;
+}
+
+.vwu-formError {
+  margin: 0 0 14px;
+  font-size: 15px;
+  color: #c00;
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
   .vwu-heroContainer,

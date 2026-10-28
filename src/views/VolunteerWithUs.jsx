@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import ProgramsGrid from "../components/Programs";
+import { api } from "../services/api";
 import "./VolunteerWithUs.css";
 
 const roleOptions = [
@@ -79,6 +80,7 @@ export default function VolunteerWithUs() {
     googleFormFilled: false,
     professionalSummary: "",
   });
+  const [submitState, setSubmitState] = useState({ status: "idle", message: "" });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -111,9 +113,29 @@ export default function VolunteerWithUs() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    setSubmitState({ status: "loading", message: "" });
+
+    try {
+      await api.applyToVolunteer(formData);
+      setFormData({
+        fullName: "",
+        email: "",
+        roles: [],
+        googleFormFilled: false,
+        professionalSummary: "",
+      });
+      setSubmitState({
+        status: "success",
+        message: "Thanks — your application has been submitted. We'll be in touch.",
+      });
+    } catch (error) {
+      setSubmitState({
+        status: "error",
+        message: error?.message || "Something went wrong submitting your application. Please try again.",
+      });
+    }
   };
 
   return (
@@ -260,8 +282,17 @@ export default function VolunteerWithUs() {
             />
           </div>
 
-          <button type="submit" className="vwu-submitButton">
-            Submit
+          {submitState.message && (
+            <p
+              className={submitState.status === "error" ? "vwu-formError" : "vwu-formSuccess"}
+              role={submitState.status === "error" ? "alert" : "status"}
+            >
+              {submitState.message}
+            </p>
+          )}
+
+          <button type="submit" className="vwu-submitButton" disabled={submitState.status === "loading"}>
+            {submitState.status === "loading" ? "Submitting..." : "Submit"}
           </button>
         </form>
 

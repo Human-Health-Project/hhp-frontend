@@ -43,4 +43,12 @@ export const api = {
     method: "POST",
     body: JSON.stringify(data),
   }),
+  applyForInternship: (data) => request("/intern-with-us", {
+    method: "POST",
+    body: JSON.stringify(data),
+  }),
+  applyToVolunteer: (data) => request("/volunteer-with-us", {
+    method: "POST",
+    body: JSON.stringify(data),
+  }),
 };
