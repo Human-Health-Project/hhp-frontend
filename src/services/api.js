@@ -37,9 +37,21 @@ async function request(path, { token, ...options } = {}) {
 
 export const api = {
   establishSession: (token) => request("/auth/session", { method: "POST", token }),
+  signUpForHealthcareAccess: (data) => request("/healthcare-access-user", {
+    method: "POST",
+    body: JSON.stringify(data),
+  }),
   logout: (token) => request("/auth/logout", { method: "POST", token }),
   contact: (data) => request("/contact", { method: "POST", body: JSON.stringify(data) }),
   subscribeToNewsletter: (data) => request("/newsletter-subscriber", {
+    method: "POST",
+    body: JSON.stringify(data),
+  }),
+  applyForInternship: (data) => request("/intern-with-us", {
+    method: "POST",
+    body: JSON.stringify(data),
+  }),
+  applyToVolunteer: (data) => request("/volunteer-with-us", {
     method: "POST",
     body: JSON.stringify(data),
   }),
