@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import ProgramsGrid from '../components/Programs';
+import { api } from '../services/api';
 
 export default function Intern() {
   const [formData, setFormData] = useState({
@@ -11,6 +12,7 @@ export default function Intern() {
     googleFormFilled: false,
     professionalSummary: '',
   });
+  const [submitState, setSubmitState] = useState({ status: 'idle', message: '' });
 
   const heroTitle = "Intern with HHP";
 
@@ -71,9 +73,29 @@ export default function Intern() {
     setFormData((prev) => ({ ...prev, googleFormFilled: !prev.googleFormFilled }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    setSubmitState({ status: 'loading', message: '' });
+
+    try {
+      await api.applyForInternship(formData);
+      setFormData({
+        fullName: '',
+        email: '',
+        areasOfInterest: [],
+        googleFormFilled: false,
+        professionalSummary: '',
+      });
+      setSubmitState({
+        status: 'success',
+        message: "Thanks — your application has been submitted. We'll be in touch.",
+      });
+    } catch (error) {
+      setSubmitState({
+        status: 'error',
+        message: error?.message || 'Something went wrong submitting your application. Please try again.',
+      });
+    }
   };
 
   return (
@@ -195,9 +217,22 @@ export default function Intern() {
             />
           </div>
 
+          {submitState.message && (
+            <p
+              style={submitState.status === 'error' ? styles.formErrorMessage : styles.formSuccessMessage}
+              role={submitState.status === 'error' ? 'alert' : 'status'}
+            >
+              {submitState.message}
+            </p>
+          )}
+
           {/* Submit Button */}
-          <button type="submit" style={styles.submitButton}>
-            {submitButtonText}
+          <button
+            type="submit"
+            style={styles.submitButton}
+            disabled={submitState.status === 'loading'}
+          >
+            {submitState.status === 'loading' ? 'Submitting...' : submitButtonText}
           </button>
         </form>
 
@@ -373,5 +408,15 @@ const styles = {
     borderRadius: '4px',
     cursor: 'pointer',
     transition: 'background-color 0.2s ease',
+  },
+  formSuccessMessage: {
+    fontSize: '15px',
+    color: '#1a7f37',
+    marginBottom: '14px',
+  },
+  formErrorMessage: {
+    fontSize: '15px',
+    color: '#c00',
+    marginBottom: '14px',
   },
 };
