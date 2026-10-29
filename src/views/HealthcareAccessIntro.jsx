@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { api } from "@/services/api";
+import { getNames } from "country-list";
 import "./HealthcareAccessIntro.css";
 
 const TOP_WATCH_URL = "https://youtu.be/NI7lsbtpb7Q?si=6EVMtP33qeX4vQ9P";
@@ -13,6 +15,13 @@ const RIGHT1_EMBED_URL = "https://www.youtube-nocookie.com/embed/i7HhxuBqiIk";
 const RIGHT2_WATCH_URL = "https://youtu.be/rjO87yJ_6yo?si=EM83hHBWxqA_EfVF";
 const RIGHT2_EMBED_URL = "https://www.youtube-nocookie.com/embed/rjO87yJ_6yo";
 
+// Full country list, sorted A to Z. The backend expects the country name (e.g. "Colombia").
+// The package uses official ISO names like "United States of America (the)",
+// so the trailing "(the)" is dropped to read naturally.
+const COUNTRIES = getNames()
+  .map((name) => name.replace(/ \([Tt]he\)/g, ""))
+  .sort((a, b) => a.localeCompare(b));
+
 export default function HealthcareAccessIntroduction() {
   const [form, setForm] = useState({
     firstName: "",
@@ -20,17 +29,40 @@ export default function HealthcareAccessIntroduction() {
     email: "",
     country: "",
   });
+  const [submitState, setSubmitState] = useState({ status: "idle", message: "" });
 
   function updateField(key, value) {
     setForm((prev) => ({ ...prev, [key]: value }));
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     if (!form.firstName.trim() || !form.lastName.trim() || !form.email.trim() || !form.country.trim()) return;
 
-    alert("Thanks — you’re signed up to be notified about upcoming events.");
-    setForm({ firstName: "", lastName: "", email: "", country: "" });
+    setSubmitState({ status: "loading", message: "" });
+
+    try {
+      await api.signUpForHealthcareAccess({
+        first_name: form.firstName.trim(),
+        last_name: form.lastName.trim(),
+        email: form.email.trim(),
+        country: form.country.trim(),
+      });
+      setForm({ firstName: "", lastName: "", email: "", country: "" });
+      setSubmitState({
+        status: "success",
+        message: "Thanks — you’re signed up to be notified about upcoming events.",
+      });
+    } catch (error) {
+      // The backend answers 422 with errors.email when the address is already registered.
+      const duplicate = error?.status === 422 && error?.errors?.email;
+      setSubmitState({
+        status: "error",
+        message: duplicate
+          ? "This email is already registered."
+          : error?.message || "Something went wrong. Please try again.",
+      });
+    }
   }
 
   return (
@@ -134,18 +166,40 @@ export default function HealthcareAccessIntroduction() {
                 <label className="haci-label" htmlFor="haci-country">
                   Country <span className="haci-required">*</span>
                 </label>
-                <input
+                <select
                   id="haci-country"
                   className="haci-input"
                   value={form.country}
                   onChange={(e) => updateField("country", e.target.value)}
                   autoComplete="country-name"
-                  placeholder="United States"
                   required
-                />
+                >
+                  <option value="" disabled>
+                    Select a country
+                  </option>
+                  {COUNTRIES.map((name) => (
+                    <option key={name} value={name}>
+                      {name}
+                    </option>
+                  ))}
+                </select>
 
-                <button className="haci-button haci-buttonFull" type="submit">
-                  Sign Up
+                {submitState.message && (
+                  <p
+                    className={`haci-formMessage haci-formMessage--${submitState.status}`}
+                    role={submitState.status === "error" ? "alert" : "status"}
+                    aria-live="polite"
+                  >
+                    {submitState.message}
+                  </p>
+                )}
+
+                <button
+                  className="haci-button haci-buttonFull"
+                  type="submit"
+                  disabled={submitState.status === "loading"}
+                >
+                  {submitState.status === "loading" ? "Signing up..." : "Sign Up"}
                 </button>
 
                 <p className="haci-note">
