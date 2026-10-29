@@ -9,8 +9,8 @@ import partnershipsImg from "../assets/patient_advocacy/LocalPartnerships.jpg";
 import Link from "next/link";
 
 const WORKSHOPS = [
-  { date: "Monday, November 16, 2026", url: "https://us02web.zoom.us/j/86821763223" },
-  { date: "Monday, December 14, 2026", url: "https://us02web.zoom.us/j/86867374114" },
+  { date: "Monday, November 16, 2026", url: "https://us02web.zoom.us/meeting/register/GqGWIpMMR068KpsJQeLOVg" },
+  { date: "Monday, December 14, 2026", url: "https://us02web.zoom.us/meeting/register/za4zuXtVTYKceHmAWyOQPg" },
 ];
 
 export default function PatientAdvocacyNI() {
@@ -52,7 +52,7 @@ export default function PatientAdvocacyNI() {
             </p>
 
             <div className="pani-upcomingBox">
-              <p className="pani-upcomingLabel">7pm Ireland time</p>
+              <p className="pani-upcomingLabel">7pm</p>
               <ul className="pani-upcomingList">
                 {WORKSHOPS.map((w) => (
                   <li key={w.url}>
