@@ -1,4 +1,5 @@
 import CommunityVoices from "@/views/CommunityVoices";
+import { getPublishedStories } from "@/services/publishedStories";
 
 export const metadata = {
   title: "Community Voices | Human Health Project",
@@ -7,6 +8,7 @@ export const metadata = {
   alternates: { canonical: "/what-we-do/community-voices" },
 };
 
-export default function Page() {
-  return <CommunityVoices />;
+export default async function Page() {
+  const stories = await getPublishedStories();
+  return <CommunityVoices initialStories={stories} />;
 }

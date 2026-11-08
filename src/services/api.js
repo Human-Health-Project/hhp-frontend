@@ -55,4 +55,27 @@ export const api = {
     method: "POST",
     body: JSON.stringify(data),
   }),
+
+  // Community Voices. Contract: docs/community-voices-api.md
+  submitStory: (data) => request("/stories", {
+    method: "POST",
+    body: JSON.stringify(data),
+  }),
+  getPublishedStories: (options) => request("/stories", options),
+
+  // Admin endpoints. `token` is the signed-in user's Firebase ID token; the
+  // backend decides whether that user is an admin (401/403 otherwise).
+  admin: {
+    listStories: (token) => request("/admin/stories", { token }),
+    getStory: (token, id) => request(`/admin/stories/${encodeURIComponent(id)}`, { token }),
+    approveStory: (token, id, details) => request(`/admin/stories/${encodeURIComponent(id)}/approve`, {
+      method: "POST",
+      token,
+      body: JSON.stringify(details),
+    }),
+    rejectStory: (token, id) => request(`/admin/stories/${encodeURIComponent(id)}/reject`, {
+      method: "POST",
+      token,
+    }),
+  },
 };

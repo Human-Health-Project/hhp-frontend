@@ -6,6 +6,13 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "../context/AuthContext";
 import "./Login.css";
 
+// Where to go after logging in: the ?next= path (e.g. an admin page that sent
+// the user here), as long as it is a path on this site; otherwise home.
+function pathAfterLogin() {
+  const next = new URLSearchParams(window.location.search).get("next");
+  return next && next.startsWith("/") && !next.startsWith("//") && !next.startsWith("/\\") ? next : "/";
+}
+
 import googleIcon from "../assets/social/google.svg";
 import facebookIcon from "../assets/social/facebook.svg";
 import appleIcon from "../assets/social/apple.svg";
@@ -45,7 +52,7 @@ export default function Login() {
 
     try {
       await login(email, password);
-      router.push("/");
+      router.push(pathAfterLogin());
     } catch (err) {
       setError(getErrorMessage(err.code));
     }
@@ -73,7 +80,7 @@ export default function Login() {
         default:
           throw new Error("Unknown provider");
       }
-      router.push("/");
+      router.push(pathAfterLogin());
     } catch (err) {
       setError(getErrorMessage(err.code));
     }

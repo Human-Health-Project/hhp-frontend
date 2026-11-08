@@ -22,6 +22,7 @@ const routes = [
   "/what-we-do/stop-type-2-diabetes/introduction",
   "/what-we-do/shared-patient-information",
   "/what-we-do/community-voices",
+  "/what-we-do/community-voices/share",
   "/shared-patient-information/migraine",
   "/shared-patient-information/lupus",
   "/shared-patient-information/narratives",

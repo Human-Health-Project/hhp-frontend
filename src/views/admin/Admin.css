@@ -1,0 +1,437 @@
+/* Admin pages (Community Voices review). Everything is scoped under .adm-page
+   so the generic-sounding class names cannot leak into the public site. */
+
+.adm-page {
+  --adm-blue: #065399;
+  --adm-blue-dark: #04406f;
+  --adm-ink: #0b1220;
+  --adm-text: rgba(0, 0, 0, 0.78);
+  --adm-muted: rgba(0, 0, 0, 0.6);
+  --adm-border: rgba(0, 0, 0, 0.12);
+  --adm-soft: #eef4fa;
+
+  background: #f7fafd;
+  min-height: 60vh;
+  padding: 40px 0 80px;
+  color: var(--adm-text);
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.adm-page *,
+.adm-page *::before,
+.adm-page *::after {
+  box-sizing: border-box;
+}
+
+.adm-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- headings ---------- */
+.adm-page .adm-header {
+  margin-bottom: 24px;
+}
+
+.adm-page .adm-eyebrow {
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--adm-blue);
+}
+
+.adm-page .adm-title {
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.25;
+  font-weight: 800;
+  color: var(--adm-ink);
+}
+
+.adm-page .adm-lede {
+  margin: 10px 0 0;
+  max-width: 65ch;
+}
+
+.adm-page .adm-headerRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+}
+
+.adm-page .adm-meta {
+  margin: 6px 0 0;
+  font-size: 14px;
+  color: var(--adm-muted);
+}
+
+.adm-page .adm-back {
+  display: inline-block;
+  margin-bottom: 16px;
+  font-weight: 600;
+  color: var(--adm-blue);
+  text-decoration: none;
+}
+
+.adm-page .adm-back:hover {
+  text-decoration: underline;
+}
+
+/* ---------- status badge ---------- */
+.adm-page .adm-badge {
+  display: inline-block;
+  flex-shrink: 0;
+  border-radius: 999px;
+  padding: 3px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.adm-page .adm-badge--pending {
+  background: #fff4e0;
+  color: #7a4a00;
+}
+
+.adm-page .adm-badge--approved {
+  background: #e3f3e8;
+  color: #1a5e2e;
+}
+
+.adm-page .adm-badge--rejected {
+  background: #fbe9ea;
+  color: #9b1c24;
+}
+
+/* ---------- list ---------- */
+.adm-page .adm-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.adm-page .adm-filter {
+  border: 1px solid var(--adm-border);
+  background: #fff;
+  border-radius: 999px;
+  padding: 7px 14px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--adm-ink);
+  cursor: pointer;
+}
+
+.adm-page .adm-filter[aria-pressed="true"] {
+  background: var(--adm-blue);
+  border-color: var(--adm-blue);
+  color: #fff;
+}
+
+.adm-page .adm-count {
+  margin-left: 4px;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.adm-page .adm-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.adm-page .adm-listItem {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  background: #fff;
+  border: 1px solid var(--adm-border);
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+.adm-page .adm-listMain {
+  min-width: 0;
+}
+
+.adm-page .adm-storyLink {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--adm-blue);
+  text-decoration: none;
+}
+
+.adm-page .adm-storyLink:hover,
+.adm-page .adm-storyLink:focus-visible {
+  text-decoration: underline;
+}
+
+.adm-page .adm-excerpt {
+  margin: 6px 0 0;
+  overflow-wrap: anywhere;
+}
+
+.adm-page .adm-empty {
+  padding: 32px;
+  text-align: center;
+  background: #fff;
+  border: 1px dashed var(--adm-border);
+  border-radius: 12px;
+}
+
+/* ---------- detail ---------- */
+.adm-page .adm-card {
+  background: #fff;
+  border: 1px solid var(--adm-border);
+  border-radius: 12px;
+  padding: 24px 26px;
+  margin-bottom: 18px;
+}
+
+.adm-page .adm-card--private {
+  background: var(--adm-soft);
+}
+
+.adm-page .adm-cardTitle {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--adm-ink);
+}
+
+.adm-page .adm-stage + .adm-stage {
+  margin-top: 22px;
+}
+
+.adm-page .adm-stageLabel {
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--adm-blue);
+}
+
+.adm-page .adm-stageText {
+  margin: 0 0 10px;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.adm-page .adm-field {
+  margin: 8px 0 0;
+  overflow-wrap: anywhere;
+}
+
+.adm-page .adm-fieldLabel {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--adm-muted);
+}
+
+.adm-page .adm-label {
+  display: block;
+  margin: 16px 0 6px;
+  font-weight: 600;
+  color: var(--adm-ink);
+}
+
+.adm-page .adm-required {
+  color: #b00020;
+}
+
+.adm-page .adm-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  font: inherit;
+  color: var(--adm-ink);
+  background: #fff;
+}
+
+.adm-page .adm-input:focus-visible {
+  outline: 3px solid rgba(6, 83, 153, 0.35);
+  border-color: var(--adm-blue);
+}
+
+.adm-page .adm-input[readonly] {
+  background: #f3f5f8;
+}
+
+.adm-page .adm-textarea {
+  resize: vertical;
+}
+
+.adm-page .adm-hint {
+  margin: 6px 0 0;
+  font-size: 14px;
+  color: var(--adm-muted);
+}
+
+.adm-page .adm-fieldError {
+  margin: 6px 0 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #b00020;
+}
+
+.adm-page .adm-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* ---------- buttons, notices ---------- */
+.adm-page .adm-button,
+.adm-dialog .adm-button {
+  display: inline-block;
+  min-height: 44px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font: inherit;
+  font-weight: 700;
+  color: var(--adm-ink, #0b1220);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.adm-page .adm-button--primary,
+.adm-dialog .adm-button--primary {
+  background: #065399;
+  border-color: #065399;
+  color: #fff;
+}
+
+.adm-page .adm-button--primary:hover,
+.adm-dialog .adm-button--primary:hover {
+  background: #04406f;
+}
+
+.adm-page .adm-button--danger {
+  border-color: #9b1c24;
+  color: #9b1c24;
+}
+
+.adm-page .adm-button:disabled,
+.adm-dialog .adm-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.adm-page .adm-notice {
+  margin: 0 0 18px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: #eef1f5;
+}
+
+.adm-page .adm-notice--success {
+  background: #e3f3e8;
+  color: #1a5e2e;
+}
+
+.adm-page .adm-notice a {
+  color: inherit;
+  font-weight: 700;
+}
+
+.adm-page .adm-alert,
+.adm-dialog .adm-alert {
+  margin: 0 0 16px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: #fbe9ea;
+  color: #9b1c24;
+  font-weight: 600;
+}
+
+.adm-page .adm-message {
+  max-width: 560px;
+  margin: 40px auto;
+  padding: 32px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid var(--adm-border);
+  border-radius: 12px;
+}
+
+.adm-page .adm-messageTitle {
+  margin: 0 0 10px;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--adm-ink);
+}
+
+.adm-page .adm-message p {
+  margin: 0 0 18px;
+}
+
+/* ---------- confirmation dialog (rendered in the top layer) ---------- */
+.adm-dialog {
+  /* Tailwind's preflight zeroes every margin, which un-centres a modal
+     <dialog>; auto margins put it back in the middle of the viewport. */
+  margin: auto;
+  width: min(460px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  border: none;
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.78);
+}
+
+.adm-dialog::backdrop {
+  background: rgba(11, 18, 32, 0.55);
+}
+
+.adm-dialog .adm-dialogTitle {
+  margin: 0 0 10px;
+  font-size: 20px;
+  font-weight: 800;
+  color: #0b1220;
+}
+
+.adm-dialog .adm-dialogBody p {
+  margin: 0 0 12px;
+}
+
+.adm-dialog .adm-dialogActions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+@media (max-width: 600px) {
+  .adm-page .adm-listItem {
+    flex-direction: column;
+  }
+
+  .adm-page .adm-card {
+    padding: 20px;
+  }
+
+  .adm-page .adm-actions .adm-button,
+  .adm-dialog .adm-dialogActions .adm-button {
+    flex: 1 1 100%;
+  }
+}
