@@ -117,9 +117,22 @@ return [
         // /meet-the-team/www.linkedin.com/in/renemherrera
         '#^meet-the-team/.+$#' => '/who-we-are/meet-the-team',
 
-        // The old migraine report pages linked to "hhp-real-world-data-program"
-        // without a leading slash, e.g. /migraine-otc-efficacy/hhp-real-world-data-program
-        '#^migraine-[a-z0-9-]+/hhp-real-world-data-program$#' => '/shared-patient-information/migraine',
+        // The old migraine and lupus survey report pages (Real World Data,
+        // v1.7) had one page per chart; every chart is now on one interactive
+        // report page per condition. These are their sub-pages, e.g.
+        //   /migraine-general-v1-7/migraine-severity
+        //   /migraine-healthcare-provider/migraine-quality-of-life
+        // and the report pages' slash-less "hhp-real-world-data-program" link,
+        // e.g. /migraine-otc-efficacy/hhp-real-world-data-program.
+        // No blog category starts with migraine- or lupus-, so a path under
+        // one is never an article. Top-level report pages are in 'fallbacks'.
+        '#^migraine-[a-z0-9-]+/[a-z0-9-]+$#' => '/shared-patient-information/migraine',
+        '#^lupus-[a-z0-9-]+/[a-z0-9-]+$#' => '/shared-patient-information/lupus',
+
+        // Old quiz pages: each quiz is now in the description of its lesson
+        // video, e.g. /quizzes/understanding-the-language-of-health-health-literacy-quiz
+        // is "Understanding the Language of Health (Health Literacy) - Quiz in Description".
+        '#^quizzes(/.*)?$#' => '/what-we-do/learning-academy/videos',
 
         // Author, tag and category archives, and paginated listings
         '#^(author|tag|category)/.+$#' => '/blog',
@@ -130,6 +143,18 @@ return [
         // An article under an old category whose post is not on the new
         // site: send it to the blog rather than a dead end.
         "#^({$categoryRegex})/[^/]+$#" => '/blog',
+
+        // Top-level migraine and lupus report pages (see 'patterns'), e.g.
+        // /migraine-procedures-cost, /lupus-symptoms-severity-v1-7. Here, not
+        // in 'patterns', so a migrated article whose slug starts with
+        // migraine- or lupus- still goes to its post.
+        '#^migraine-[a-z0-9-]+$#' => '/shared-patient-information/migraine',
+        '#^lupus-[a-z0-9-]+$#' => '/shared-patient-information/lupus',
+
+        // Newsletter posts announcing the "Understanding the Healthcare System
+        // in NI" workshops, e.g. .../understanding-the-healthcare-system-in-ni-workshop-jul-27-2022.
+        // The workshops and their current dates are on the Northern Ireland page.
+        '#^newsletter/understanding-the-healthcare-system-in-ni-workshop-[a-z0-9-]+$#' => '/what-we-do/patient-advocacy/northern-ireland',
     ],
 
 ];
