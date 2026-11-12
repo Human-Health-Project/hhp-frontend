@@ -1,9 +1,8 @@
 import "./CommunityVoices.css";
-import sampleStories from "@/data/sampleStories";
-import CommunityVoicesHero, { SHARE_FORM_URL } from "@/components/CommunityVoicesHero";
+import CommunityVoicesHero, { SHARE_STORY_HREF } from "@/components/CommunityVoicesHero";
+import CommunityStories from "@/components/CommunityStories";
 
-
-export default function CommunityVoices() {
+export default function CommunityVoices({ initialStories }) {
   return (
     <div className="cv-page">
       <CommunityVoicesHero readHref="#stories" />
@@ -22,41 +21,7 @@ export default function CommunityVoices() {
           </div>
 
           <div className="cv-stories-card">
-            {sampleStories.map((story) => (
-              <details className="cv-story" key={story.id} id={story.id}>
-                <summary className="cv-story-summary">
-                  <span className="cv-story-tags">
-                    {story.tags.join(" · ")}
-                  </span>
-
-                  <h3 className="cv-story-title">{story.title}</h3>
-
-                  <p className="cv-story-quote">“{story.quote}”</p>
-
-                  <span className="cv-story-toggle">
-                    <span className="cv-toggle-closed">Read the full story</span>
-                    <span className="cv-toggle-open">Hide the full story</span>
-                  </span>
-                </summary>
-
-                <div className="cv-story-body">
-                  {[
-                    { label: "The Setup", paragraphs: story.setup },
-                    { label: "The Turning Point", paragraphs: story.turningPoint },
-                    { label: "The Wisdom", paragraphs: story.wisdom },
-                  ].map((part) => (
-                    <div className="cv-story-part" key={part.label}>
-                      <p className="cv-part-label">{part.label}</p>
-                      {part.paragraphs.map((paragraph, i) => (
-                        <p className="cv-part-text" key={i}>
-                          {paragraph}
-                        </p>
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              </details>
-            ))}
+            <CommunityStories initialStories={initialStories} />
 
             {/* ========= SHARE CTA ========= */}
             <div className="cv-share-cta">
@@ -67,12 +32,7 @@ export default function CommunityVoices() {
                 Your experience — shared anonymously — could be the turning
                 point in another person’s journey.
               </p>
-              <a
-                href={SHARE_FORM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cv-share-link"
-              >
+              <a href={SHARE_STORY_HREF} className="cv-share-link">
                 Share your story with Human Health Project →
               </a>
             </div>

@@ -1,11 +1,8 @@
 import "./CommunityVoicesHero.css";
 import heroImage from "@/assets/community-voices/hero.jpg";
 
-export const SHARE_FORM_URL =
-  // Note: the character after "zRwy" is an uppercase i, not a lowercase L.
-  // The two are indistinguishable in most fonts and the ticket had the wrong
-  // one (that variant 404s). Take care when copying this by hand.
-  "https://docs.google.com/forms/d/e/1FAIpQLSd7_PGefOLIFWZTUQt8Jm-zRwyI3uidrEVFMZGLxMdG0V504A/viewform";
+// The Share a story form (it replaced the Google Form).
+export const SHARE_STORY_HREF = "/what-we-do/community-voices/share";
 
 /**
  * The Community Voices banner — artwork plus its two calls to action.
@@ -48,11 +45,9 @@ export default function CommunityVoicesHero({
           </a>
 
           <a
-            href={SHARE_FORM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={SHARE_STORY_HREF}
             className="cvh-hotspot cvh-hotspot-share"
-            aria-label="Share a story — opens a Google Form in a new tab"
+            aria-label="Share a story"
           >
             <span className="cvh-sr-only">Share a story</span>
           </a>
@@ -64,12 +59,7 @@ export default function CommunityVoicesHero({
           <a href={readHref} className="cvh-btn cvh-btn-primary">
             Read a Story
           </a>
-          <a
-            href={SHARE_FORM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="cvh-btn cvh-btn-secondary"
-          >
+          <a href={SHARE_STORY_HREF} className="cvh-btn cvh-btn-secondary">
             Share a Story
           </a>
         </div>

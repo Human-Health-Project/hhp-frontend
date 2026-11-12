@@ -6,10 +6,10 @@
  * in the same order. This is HHP's own published content being carried over to
  * the React site — it is not invented sample text.
  *
- * This file is a temporary stand-in for the Google Sheet feed. When that
- * integration lands, this module should be replaced by the fetched data; the
- * shape below is what the view expects, so keeping it stable will make the
- * swap straightforward.
+ * Stories now come from the backend (GET /api/stories, see
+ * docs/community-voices-api.md), which should be seeded with these. This file
+ * stays as the fallback the page renders if the API is unreachable or has no
+ * published stories yet (src/services/publishedStories.js).
  *
  * Stories are anonymous. There is deliberately no author field, and one should
  * not be added.

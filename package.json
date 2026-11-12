@@ -7,7 +7,8 @@
     "dev": "next dev",
     "build": "next build",
     "lint": "eslint .",
-    "start": "next start"
+    "start": "next start",
+    "mock:api": "node scripts/mock-api.mjs"
   },
   "dependencies": {
     "@iconscout/react-unicons": "^2.2.5",
