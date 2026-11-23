@@ -5,9 +5,15 @@ import { EmbeddedCheckout, EmbeddedCheckoutProvider } from "@stripe/react-stripe
 import { loadStripe } from "@stripe/stripe-js";
 
 const SQA_STRIPE_PUBLISHABLE_KEY = "pk_test_fevzfNn2jqEIOLgGg5jY5VQC";
-const key = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || SQA_STRIPE_PUBLISHABLE_KEY;
+const PRODUCTION_STRIPE_PUBLISHABLE_KEY = "pk_live_ZZt0bqKFJkQzM8gceKXXBLZz";
+const PRODUCTION_API_URL = "https://hhp-backend-production-l2iqny.laravel.cloud/api";
+const isProductionDonationHost = typeof window !== "undefined"
+  && ["humanhealthproject.org", "www.humanhealthproject.org"].includes(window.location.hostname);
+const key = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+  || (isProductionDonationHost ? PRODUCTION_STRIPE_PUBLISHABLE_KEY : SQA_STRIPE_PUBLISHABLE_KEY);
 const stripePromise = key ? loadStripe(key) : null;
-const apiUrl = (process.env.NEXT_PUBLIC_API_URL || "").replace(/\/$/, "");
+const apiUrl = (process.env.NEXT_PUBLIC_API_URL
+  || (isProductionDonationHost ? PRODUCTION_API_URL : "")).replace(/\/$/, "");
 
 export default function DonatePage() {
   const [amount, setAmount] = useState("25");
