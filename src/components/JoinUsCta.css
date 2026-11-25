@@ -1,0 +1,58 @@
+/* Join Us call to action (Home, Meet the Team, Who We Serve) */
+.join-us-cta {
+  padding: 40px 0;
+  text-align: center;
+  background: #ffffff;
+}
+
+.join-us-cta__tagline {
+  margin: 0 0 25px;
+  font-size: 18px;
+  font-style: italic;
+  color: #000000;
+}
+
+.join-us-cta__box {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 550px;
+  padding: 20px 30px;
+  border-radius: 8px;
+  background: #f0f0f0;
+}
+
+.join-us-cta__text {
+  margin: 0;
+  font-size: 13px;
+  color: #000000;
+  text-align: center;
+}
+
+/* Same blue as the header DONATE button */
+.join-us-cta__button {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 4px;
+  background: var(--color-blue, #065399);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.3s;
+}
+
+.join-us-cta__button:hover {
+  background: #043c70;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .join-us-cta__box {
+    flex-direction: column;
+  }
+}
