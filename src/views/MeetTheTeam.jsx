@@ -1,5 +1,6 @@
 import "./MeetTheTeam.css";
 import Link from "next/link";
+import JoinUsCta from "@/components/JoinUsCta";
 
 // Team member data organized by department
 const teamData = {
@@ -324,10 +325,6 @@ const teamData = {
       imagePosition: "center 30%",
     },
   ],
-  footerCta: {
-    text: "Our project is growing and we want you to be a part of it.\nMore People. More Information. Better Health.",
-    buttonText: "Join Us!",
-  },
 };
 
 // Reusable TeamMember component
@@ -438,19 +435,7 @@ export default function MeetTheTeam() {
           </Link>
         </div>
         {/* Footer CTA */}
-        <section className="about-footer-cta">
-          <p className="about-footer-cta__text">
-            {teamData.footerCta.text.split("\n").map((line, index) => (
-              <span key={index}>
-                {line}
-                {index === 0 && <br />}
-              </span>
-            ))}
-          </p>
-          <Link href="/signup" className="about-footer-cta__button">
-            {teamData.footerCta.buttonText}
-          </Link>
-        </section>
+        <JoinUsCta />
       </div>
     </div>
   );

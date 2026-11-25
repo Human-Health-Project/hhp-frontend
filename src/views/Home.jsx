@@ -6,6 +6,7 @@ import { api } from "@/services/api";
 import { getData } from "country-list";
 import "./Home.css";
 import CommunityVoicesHero from "@/components/CommunityVoicesHero";
+import JoinUsCta from "@/components/JoinUsCta";
 
 // The newsletter form used to hardcode only 5 countries. Use the full
 // country-list dataset instead, sorted alphabetically by name (the codes
@@ -180,19 +181,9 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="section cta-section">
-        <div className="container">
-          <p className="cta-text">Empower others to change their lives and change your own in the process</p>
-          <div className="cta-box">
-            <p>Our project is growing and we want you to be a part of it.<br></br>More People. More Information. Better Health.</p>
-            {/* FIXED */}
-            <Link href="/signup" className="btn btn-join">
-              Join Us
-            </Link>
-
-          </div>
-        </div>
-      </section>
+      <div className="container">
+        <JoinUsCta />
+      </div>
 
       {/* Newsletter Section */}
       <section className="section newsletter-section">

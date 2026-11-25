@@ -4,6 +4,7 @@ import React from 'react';
 import H from '../components/common/H.jsx';
 import Carousel from '../components/common/Carousel.jsx';
 import ImageTextSection from '../components/common/ImageTextSection.jsx';
+import JoinUsCta from '@/components/JoinUsCta';
 import { useRouter } from 'next/navigation';
 const WhoWeServe = () => {
     const router = useRouter();
@@ -145,22 +146,7 @@ const WhoWeServe = () => {
                         </div>
                         </div>
                     </div>
-                    <div className="bg-gray-200 py-10 px-8">
-                        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-                        <div className="text-center md:text-left">
-                            <p className="text-gray-700 text-lg">
-                            Our project is growing and we want you to be a part of it.
-                            </p>
-                            <p className="text-gray-600 italic text-lg">
-                            More People. More Information. Better Health.
-                            </p>
-                        </div>
-                        <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-10 py-3 rounded transition-colors duration-200 shadow-md hover:shadow-lg whitespace-nowrap" 
-                            onClick={()=> router.push('/signup')}>
-                            JOIN US!
-                        </button>
-                        </div>
-                    </div>
+                    <JoinUsCta />
                 </section>
             </div>
         </div>

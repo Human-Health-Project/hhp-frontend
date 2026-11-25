@@ -265,40 +265,6 @@
         }
 
         
-        /* CTA Section */
-
-        
-        .home-page .cta-section {
-          padding: 40px 0;
-          text-align: center;
-          background: white;
-        }
-
-        .home-page .cta-text {
-          font-size: 18px;
-          color: #000000;
-          margin-bottom: 25px;
-          font-style: italic;
-        }
-
-        .home-page .cta-box {
-          background: #f0f0f0;
-          border-radius: 8px;
-          padding: 20px 30px;
-          display: inline-flex;
-          align-items: center;
-          gap: 20px;
-          max-width: 550px;
-        }
-
-        .home-page .cta-box p {
-          color: #000000;
-          font-size: 13px;
-          text-align: center;
-          margin: 0;
-        }
-
-        
         /* Newsletter Section */
 
         
@@ -400,16 +366,6 @@
           font-size: 12px;
         }
 
-        .home-page .btn-join {
-          background: #0066a1;
-          color: white;
-          white-space: nowrap;
-        }
-
-        .home-page .btn-join:hover {
-          background: #004d7a
-        }
-
         
         /* Responsive */
 
@@ -427,14 +383,5 @@
 
           .home-page .involvement-grid {
             grid-template-columns: 1fr;
-          }
-
-          .home-page .cta-box {
-            flex-direction: column;
-            text-align: center;
-          }
-
-          .home-page .cta-box p {
-            text-align: center;
           }
         }

@@ -94,44 +94,6 @@
   color: #2980b9;
   text-decoration: underline;
 }
-/* Footer CTA */
-.about-footer-cta {
-  background-color: #f0f0f0;
-  padding: 24px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
-  border-radius: 8px;
-  margin-bottom: 40px;
-}
-
-.about-footer-cta__text {
-  font-size: 14px;
-  color: #666666;
-  margin: 0;
-  line-height: 1.6;
-}
-
-.about-footer-cta__button {
-  background-color: #3498db;
-  color: #ffffff;
-  border: none;
-  padding: 10px 24px;
-  font-size: 13px;
-  font-weight: 600;
-  border-radius: 4px;
-  cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: background-color 0.2s ease;
-}
-
-.about-footer-cta__button:hover {
-  background-color: #2980b9;
-}
 /* Responsive Styles */
 @media (max-width: 768px) {
   .team-header__title {
