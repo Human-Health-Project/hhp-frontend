@@ -41,6 +41,11 @@ export const api = {
     method: "POST",
     body: JSON.stringify(data),
   }),
+  // Stop Type 2 Diabetes program signup: { first_name, last_name, email, country }.
+  signUpForType2Diabetes: (data) => request("/stop-type2-diabetes-subscribers", {
+    method: "POST",
+    body: JSON.stringify(data),
+  }),
   logout: (token) => request("/auth/logout", { method: "POST", token }),
   contact: (data) => request("/contact", { method: "POST", body: JSON.stringify(data) }),
   subscribeToNewsletter: (data) => request("/newsletter-subscriber", {

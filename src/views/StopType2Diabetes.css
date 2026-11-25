@@ -280,6 +280,37 @@ select.std2d-input {
   box-shadow: 0 0 0 4px rgba(6, 83, 153, 0.16);
 }
 
+.std2d-inputFull {
+  display: block;
+  width: 100%;
+}
+
+/* First / last name side by side on wide screens, stacked on narrow ones */
+.std2d-twoColInputs {
+  display: grid;
+  gap: 14px 10px;
+  grid-template-columns: 1fr;
+}
+
+.std2d-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.std2d-formMessage {
+  margin: 14px 0 0;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.std2d-formMessage--success {
+  color: #1a7f37;
+}
+
+.std2d-formMessage--error {
+  color: #c00;
+}
+
 /* QR */
 .std2d-qrLink {
   display: flex;
@@ -589,6 +620,10 @@ select.std2d-input {
   .std2d-twoCol {
     grid-template-columns: 1fr 1fr;
     align-items: start;
+  }
+
+  .std2d-twoColInputs {
+    grid-template-columns: 1fr 1fr;
   }
 
   .std2d-contentGrid {

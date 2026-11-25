@@ -3,26 +3,58 @@
 import { useState } from "react";
 import Link from "next/link";
 import { getNames } from "country-list";
+import { api } from "@/services/api";
 import "./StopType2Diabetes.css";
 
 const YOUTUBE_WATCH_URL = "https://youtu.be/JxZLRnaZ4LI?si=sBkNMTWT5GImHqEe";
 
 const YOUTUBE_EMBED_URL = "https://www.youtube-nocookie.com/embed/JxZLRnaZ4LI";
 
-const COUNTRIES = getNames();
+// Full country list, sorted A to Z. The backend expects the country name (e.g. "Colombia").
+// The package uses official ISO names like "United States of America (the)",
+// so the trailing "(the)" is dropped to read naturally.
+const COUNTRIES = getNames()
+  .map((name) => name.replace(/ \([Tt]he\)/g, ""))
+  .sort((a, b) => a.localeCompare(b));
+
+const EMPTY_FORM = { firstName: "", lastName: "", email: "", country: "" };
 
 export default function StopType2Diabetes() {
-  const [email, setEmail] = useState("");
-  const [country, setCountry] = useState("");
+  const [form, setForm] = useState(EMPTY_FORM);
+  const [submitState, setSubmitState] = useState({ status: "idle", message: "" });
 
-  function handleNotifySubmit(e) {
+  function updateField(key, value) {
+    setForm((prev) => ({ ...prev, [key]: value }));
+  }
+
+  async function handleNotifySubmit(e) {
     e.preventDefault();
-    if (!email.trim() || !country.trim()) return;
+    if (!form.firstName.trim() || !form.lastName.trim() || !form.email.trim() || !form.country.trim()) return;
 
-    // Placeholder (connect to Mailchimp/HubSpot/etc later)
-    alert("Thanks — we’ll notify you when the program is available.");
-    setEmail("");
-    setCountry("");
+    setSubmitState({ status: "loading", message: "" });
+
+    try {
+      await api.signUpForType2Diabetes({
+        first_name: form.firstName.trim(),
+        last_name: form.lastName.trim(),
+        email: form.email.trim(),
+        country: form.country.trim(),
+      });
+      setForm(EMPTY_FORM);
+      setSubmitState({
+        status: "success",
+        message: "Thanks — we’ll notify you when the program is available.",
+      });
+    } catch (error) {
+      // The backend answers 422 with errors.email when the address is already registered.
+      const duplicate = error?.status === 422 && error?.errors?.email;
+      setSubmitState({
+        status: "error",
+        message: duplicate
+          ? "This email is already registered."
+          : error?.message || "Something went wrong. Please try again.",
+      });
+    }
   }
 
   return (
@@ -93,16 +125,46 @@ export default function StopType2Diabetes() {
               </div>
 
               <form className="std2d-form" onSubmit={handleNotifySubmit}>
+                <div className="std2d-twoColInputs">
+                  <div>
+                    <label className="std2d-label" htmlFor="std2d-first">
+                      First Name <span className="std2d-required">*</span>
+                    </label>
+                    <input
+                      id="std2d-first"
+                      className="std2d-input std2d-inputFull"
+                      autoComplete="given-name"
+                      value={form.firstName}
+                      onChange={(e) => updateField("firstName", e.target.value)}
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="std2d-label" htmlFor="std2d-last">
+                      Last Name <span className="std2d-required">*</span>
+                    </label>
+                    <input
+                      id="std2d-last"
+                      className="std2d-input std2d-inputFull"
+                      autoComplete="family-name"
+                      value={form.lastName}
+                      onChange={(e) => updateField("lastName", e.target.value)}
+                      required
+                    />
+                  </div>
+                </div>
+
                 <label className="std2d-label" htmlFor="std2d-email">
                   Email <span className="std2d-required">*</span>
                 </label>
                 <input
                   id="std2d-email"
-                  className="std2d-input"
+                  className="std2d-input std2d-inputFull"
                   type="email"
                   autoComplete="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={form.email}
+                  onChange={(e) => updateField("email", e.target.value)}
                   placeholder="you@example.com"
                   required
                 />
@@ -114,8 +176,8 @@ export default function StopType2Diabetes() {
                   id="std2d-country"
                   className="std2d-input"
                   autoComplete="country-name"
-                  value={country}
-                  onChange={(e) => setCountry(e.target.value)}
+                  value={form.country}
+                  onChange={(e) => updateField("country", e.target.value)}
                   required
                 >
                   <option value="" disabled>
@@ -128,16 +190,27 @@ export default function StopType2Diabetes() {
                   ))}
                 </select>
 
+                {submitState.message && (
+                  <p
+                    className={`std2d-formMessage std2d-formMessage--${submitState.status}`}
+                    role={submitState.status === "error" ? "alert" : "status"}
+                    aria-live="polite"
+                  >
+                    {submitState.message}
+                  </p>
+                )}
+
                 <button
                   className="std2d-button std2d-buttonFull"
                   type="submit"
+                  disabled={submitState.status === "loading"}
                 >
-                  Sign Up
+                  {submitState.status === "loading" ? "Signing up..." : "Sign Up"}
                 </button>
               </form>
 
               <p className="std2d-note">
-                We’ll only use your email to send program availability updates.
+                We’ll only use your details to send program availability updates.
               </p>
             </section>
 
